@@ -1,10 +1,24 @@
-
+import Home from "./components/home/Home";
+import {
+  BrowserRouter as Router, Route, Routes  
+  } from 'react-router-dom';
+import Register from "./components/register/Register";
+import Login from "./components/login/Login";
+import Developers from "./components/dev/Developers";
+import Posts  from "./components/posts/Posts"; 
 
 function App() {
   return (
-    <div className="App">
-      Hello World This page was edited by Sungwon
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={ <Home/>}/>
+        <Route path="/posts" element={ <Posts/>}/>
+        <Route path="/developers" element={ <Developers/>}/>
+        <Route path="/login" element={ <Login/>}/>
+        <Route path="/register" element={ <Register/>}/>
+      </Routes>
+    </Router>
+
   );
 }
 
