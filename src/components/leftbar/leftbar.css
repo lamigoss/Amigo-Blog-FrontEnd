@@ -1,0 +1,7 @@
+.leftbarContainer{
+    height: 500px;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    background-color: aquamarine;
+}
