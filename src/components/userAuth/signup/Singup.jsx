@@ -28,7 +28,8 @@ const Signup = () => {
     setIsFormValid(checkForm);
   });
 
-  const handleSubmit = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault()
     PostSignUp(userSignup);
   };
 
