@@ -33,31 +33,12 @@
     font-size: 15px;
     font-weight: normal;
 }
-.post{
-    display: flex;
-    margin-left: 25px;
-    align-items: center;
-    padding: 10px;
-
-}
-
-.post:hover{
-    background: skyblue;
-    border-radius: 5px;
-}
-
-.developers{
+.post
+,.developers{
     display: flex;
     margin-left: 25px;
     align-items: center;
 }
-
-.developers:hover{
-    background: skyblue;
-    border-radius: 5px;
-}
-
-
 
 .topbarRight{
     flex: 4; 
@@ -68,8 +49,24 @@
 
 }
 
-span{
+span.topbarLink{
     font-family: 'Courier New', Courier, monospace;
     color: white;
- 
+}
+
+span.topbarLink:hover{
+    text-decoration: underline whitesmoke;
+}
+
+.dropdown{
+    position: relative;
+}
+
+.dropdown-item{
+    position: absolute;
+    left: 0;
+    top:calc(100%+.25rem); 
+    background-color: white;
+    padding: .75rem;
+
 }

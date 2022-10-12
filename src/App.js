@@ -6,6 +6,8 @@ import Register from "./components/register/Register";
 import Login from "./components/login/Login";
 import Developers from "./components/dev/Developers";
 import Posts  from "./components/posts/Posts"; 
+import SteveLee from './components/dev/SteveLee';
+import RoyceHong from './components/dev/RoyceHong';
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
         <Route path="/" element={ <Home/>}/>
         <Route path="/posts" element={ <Posts/>}/>
         <Route path="/developers" element={ <Developers/>}/>
+        <Route path="/developers/stevelee" element={ <SteveLee/>}/>
+        <Route path="/developers/roycehong" element={ <RoyceHong/>}/>
         <Route path="/login" element={ <Login/>}/>
         <Route path="/register" element={ <Register/>}/>
       </Routes>

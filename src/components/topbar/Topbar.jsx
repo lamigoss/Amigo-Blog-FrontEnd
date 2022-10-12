@@ -26,8 +26,8 @@ export default function Topbar() {
 
         <div className="topbarLeft">
           {/* <Link to="/login" style={{ textDecoration: "none" }}>
-            <span className="topbarLink">Login</span>
-          </Link> */}
+          <span className="topbarLink">Login</span>
+        </Link> */}
         </div>
       </div>
     </>
