@@ -2,7 +2,7 @@ import React from "react";
 import "./topbar.css";
 import { Link } from "react-router-dom";
 
-export default function Topbar() {
+const Topbar = () => {
   return (
     <>
       <div className="topbarContainer">
@@ -22,6 +22,23 @@ export default function Topbar() {
               <span className="topbarLink">Developers</span>
             </Link>
           </div>
+          <div className="login developers">
+            <Link to="/login" style={{ textDecoration: "none" }}>
+              <span className="topbarLink">Login</span>
+            </Link>
+          </div>
+          
+          <div className="login developers">
+            <Link to="/logout" style={{ textDecoration: "none" }}>
+              <span className="topbarLink">Logout</span>
+            </Link>
+          </div>
+
+          <div className="login developers">
+            <Link to="/signup" style={{ textDecoration: "none" }}>
+              <span className="topbarLink">Sign Up</span>
+            </Link>
+          </div>
         </div>
 
         <div className="topbarLeft">
@@ -33,3 +50,5 @@ export default function Topbar() {
     </>
   );
 }
+
+export default Topbar; 

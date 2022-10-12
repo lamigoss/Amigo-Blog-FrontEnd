@@ -1,11 +1,12 @@
 import React from "react";
 import Topbar from "../topbar/Topbar";
 
-export default function Posts() {
+const Posts = () => {
   return (
     <>
-      <Topbar />
       <div>this is the post page</div>
     </>
   );
 }
+
+export default Posts
