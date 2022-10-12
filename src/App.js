@@ -7,7 +7,7 @@ import Login from "./components/login/Login";
 import Developers from "./components/dev/Developers";
 import Posts  from "./components/posts/Posts"; 
 
-function App() {
+const App = () => {
   return (
     <Router>
       <Routes>

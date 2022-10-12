@@ -2,7 +2,7 @@ import React from "react";
 import "./topbar.css";
 import { Link } from "react-router-dom";
 
-export default function Topbar() {
+const Topbar = () => {
   return (
     <>
       <div className="topbarContainer">
@@ -33,3 +33,5 @@ export default function Topbar() {
     </>
   );
 }
+
+export default Topbar; 

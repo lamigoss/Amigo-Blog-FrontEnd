@@ -1,7 +1,7 @@
 import React from "react";
 import "./leftbar.css";
 
-export default function Leftbar() {
+const Leftbar = () => {
   return (
     <>
       <div className="leftbarContainer">
@@ -10,3 +10,5 @@ export default function Leftbar() {
     </>
   );
 }
+
+export default Leftbar

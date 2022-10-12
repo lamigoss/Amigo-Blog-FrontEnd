@@ -1,7 +1,7 @@
 import React from "react";
 import Topbar from "../topbar/Topbar";
 
-export default function Posts() {
+const Posts = () => {
   return (
     <>
       <Topbar />
@@ -9,3 +9,5 @@ export default function Posts() {
     </>
   );
 }
+
+export default Posts

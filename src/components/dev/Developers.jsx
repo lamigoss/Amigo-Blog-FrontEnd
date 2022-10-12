@@ -2,7 +2,7 @@ import React from "react";
 import Topbar from "../topbar/Topbar";
 import Leftbar from "../leftbar/Leftbar";
 
-export default function Developers() {
+const Developers = () => {
   return (
     <>
       <Topbar />
@@ -11,3 +11,5 @@ export default function Developers() {
     </>
   );
 }
+
+export default Developers
