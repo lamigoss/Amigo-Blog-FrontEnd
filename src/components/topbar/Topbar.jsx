@@ -27,6 +27,17 @@ const Topbar = () => {
               <span className="topbarLink">Login</span>
             </Link>
           </div>
+          <div className="login developers">
+            <Link to="/logout" style={{ textDecoration: "none" }}>
+              <span className="topbarLink">Logout</span>
+            </Link>
+          </div>
+
+          <div className="login developers">
+            <Link to="/signup" style={{ textDecoration: "none" }}>
+              <span className="topbarLink">Sign Up</span>
+            </Link>
+          </div>
         </div>
 
         <div className="topbarLeft">
