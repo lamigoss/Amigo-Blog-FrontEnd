@@ -1,23 +1,41 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { PostSignUp } from "../../../utils/httpRequests/HttpRequest";
 
 const Signup = () => {
+  const navigate = useNavigate();
   const initialFormState = {
-    username: "",
     email: "",
+    username: "",
     password: "",
     isAdmin: false,
   };
   const [userSignup, setUserSignup] = useState(initialFormState);
+  const [formIsValid, setIsFormValid] = useState(false);
+
 
   const handleChange = (event) => {
-    setUserSignup({...userSignup, [event.target.id]: event.target.value})
+    setUserSignup({ ...userSignup, [event.target.id]: event.target.value });
   };
 
-  console.log(userSignup)
+  const checkForm =
+    userSignup.email.includes("@") &&
+    userSignup.password.trim().length >= 6 &&
+    userSignup.username.trim().length >= 3;
+
+  useEffect(() => {
+    setIsFormValid(checkForm);
+  });
+
+  const handleSubmit = () => {
+    PostSignUp(userSignup);
+  };
+
   return (
     <div>
       Signup
-      <form>
+      <form onSubmit={handleSubmit}>
         {/* <input placeholder="first name"></input>
         <input placeholder="last name"></input> */}
         <input
@@ -35,6 +53,7 @@ const Signup = () => {
         <input
           placeholder="password"
           id="password"
+          type="password"
           onChange={handleChange}
           value={userSignup.password}
         ></input>
@@ -44,7 +63,7 @@ const Signup = () => {
           onChange={handleChange}
           value={userSignup.isAdmin}
         ></input>
-        <button>Submit</button>
+        {formIsValid && <button type="submit">Submit</button>}
       </form>
     </div>
   );
