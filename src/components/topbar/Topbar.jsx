@@ -22,6 +22,11 @@ const Topbar = () => {
               <span className="topbarLink">Developers</span>
             </Link>
           </div>
+          <div className="login developers">
+            <Link to="/login" style={{ textDecoration: "none" }}>
+              <span className="topbarLink">Login</span>
+            </Link>
+          </div>
         </div>
 
         <div className="topbarLeft">

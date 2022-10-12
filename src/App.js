@@ -6,10 +6,12 @@ import Register from "./components/register/Register";
 import Login from "./components/login/Login";
 import Developers from "./components/dev/Developers";
 import Posts  from "./components/posts/Posts"; 
+import Topbar from './components/topbar/Topbar';
 
 const App = () => {
   return (
     <Router>
+      <Topbar />
       <Routes>
         <Route path="/" element={ <Home/>}/>
         <Route path="/posts" element={ <Posts/>}/>
