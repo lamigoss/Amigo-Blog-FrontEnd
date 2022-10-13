@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import { PostLogin } from "../../../utils/httpRequests/HttpRequest";
 
 const Login = ({ setIsLoggedIn }) => {
   const navigate = useNavigate();
@@ -15,20 +15,17 @@ const Login = ({ setIsLoggedIn }) => {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios
-      .post("http://localhost:8800/api/users/login", userLogin)
+    PostLogin(userLogin)
       .then((res) => {
-        const data = res.data;
-        console.log(data);
-        if (data.user.isAdmin === true) {
-          window.localStorage.setItem("token", data.token);
-          window.localStorage.setItem("user", data.user.username);
+        console.log(res);
+        if (res.user.isAdmin === true) {
+          window.localStorage.setItem("token", res.token);
+          window.localStorage.setItem("user", res.user.username);
           window.localStorage.setItem("isLoggedIn", true);
           setIsLoggedIn(true);
-          console.log(data);
           navigate("/");
         } else {
-          window.localStorage.setItem("user", data.user.username);
+          window.localStorage.setItem("user", res.user.username);
           window.localStorage.setItem("isLoggedIn", true);
           setIsLoggedIn(true);
           navigate("/");

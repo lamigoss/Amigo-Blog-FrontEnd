@@ -31,7 +31,6 @@ const Signup = () => {
     event.preventDefault();
     PostSignUp(userSignup)
       .then((res) => {
-        console.log(res);
         if(res.status === true) {
           navigate("/login");
         }
