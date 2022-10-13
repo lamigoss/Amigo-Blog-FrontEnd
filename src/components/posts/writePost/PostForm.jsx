@@ -2,8 +2,13 @@ import React from "react";
 import axios from "axios";
 import "./postForm.css";
 import { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export default function PostForm() {
+  const navigate = useNavigate();
+
+  console.log(navigate);
+
   const submitHandler = () => {
     console.log("clicked");
   };

@@ -9,7 +9,7 @@ export default function BlogPostPage() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await axios.get("/posts/");
+      const res = await axios.get("/posts");
       setPosts(res.data);
       console.log(posts.length);
     };
