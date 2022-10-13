@@ -1,6 +1,8 @@
-import Home from "./pages/home/Home";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Register from "./components/register/Register";
+import AuthContext from "./authContext/authContext";
+import { useContext } from "react";
+
+import Home from "./pages/home/Home";
 import Login from "./components/userAuth/login/Login";
 import Developers from "./components/dev/Developers";
 import Topbar from "./components/topbar/Topbar";
@@ -10,19 +12,18 @@ import BlogPostPage from "./pages/blogPostPage/BlogPostPage";
 import PostForm from "./components/posts/PostForm";
 
 const App = () => {
+  const context = useContext(AuthContext)
   return (
     <Router>
-      <Topbar />
+      <Topbar isLoggedIn={context.isLoggedIn} setIsLoggedIn={context.setIsLoggedIn}/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/posts" element={<BlogPostPage />} />
         <Route path="/posts/create" element={<PostForm />} />
         <Route path="/developers" element={<Developers />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/logout" element={<Logout />} />
+        <Route path="/login" element={<Login setIsLoggedIn={context.setIsLoggedIn}/>} />
+        <Route path="/logout" element={<Logout setIsLoggedIn={context.setIsLoggedIn}/>} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/register" element={<Register />} />
-
       </Routes>
     </Router>
   );

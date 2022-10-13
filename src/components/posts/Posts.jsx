@@ -3,6 +3,8 @@ import "./posts.css";
 // import { format } from "timeago.js";
 import axios from "axios";
 import ChatOutlinedIcon from "@mui/icons-material/ChatOutlined";
+import Topbar from "../topbar/Topbar";
+import ImageUpload from "../AUTH_users/ImageUpload/ImageUpload";
 
 const Posts = ({ post }) => {
   // const [posts, setPosts] = useState([]);
@@ -47,6 +49,8 @@ const Posts = ({ post }) => {
           </div>
         </div>
       </div>
+      <div>this is the post page</div>
+      <ImageUpload />
     </>
   );
 };

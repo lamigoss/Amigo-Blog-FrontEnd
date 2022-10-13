@@ -14,7 +14,6 @@ const Signup = () => {
   const [userSignup, setUserSignup] = useState(initialFormState);
   const [formIsValid, setIsFormValid] = useState(false);
 
-
   const handleChange = (event) => {
     setUserSignup({ ...userSignup, [event.target.id]: event.target.value });
   };
@@ -28,8 +27,17 @@ const Signup = () => {
     setIsFormValid(checkForm);
   });
 
-  const handleSubmit = () => {
-    PostSignUp(userSignup);
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    PostSignUp(userSignup)
+      .then((res) => {
+        if(res.status === true) {
+          navigate("/login");
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
