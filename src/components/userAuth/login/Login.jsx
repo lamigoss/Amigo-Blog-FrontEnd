@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { PostLogin } from "../../../utils/httpRequests/HttpRequest";
 
-const Login = ({ setIsLoggedIn }) => {
+const Login = ({ setIsLoggedIn, setAdmin }) => {
   const navigate = useNavigate();
   const initialFormState = {
     username: "",
     password: "",
   };
   const [userLogin, setUserLogin] = useState(initialFormState);
+ 
 
   const handleChange = (event) => {
     setUserLogin({ ...userLogin, [event.target.id]: event.target.value });
@@ -18,12 +19,13 @@ const Login = ({ setIsLoggedIn }) => {
     event.preventDefault();
     PostLogin(userLogin)
       .then((res) => {
-        console.log(res);
         if (res.user.isAdmin === true) {
           window.localStorage.setItem("token", res.token);
           window.localStorage.setItem("user", res.user.username);
+          window.localStorage.setItem("isAdmin", true);
           window.localStorage.setItem("isLoggedIn", true);
           setIsLoggedIn(true);
+          setAdmin(true)
           navigate("/");
         } else {
           window.localStorage.setItem("user", res.user.username);

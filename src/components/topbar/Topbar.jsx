@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./topbar.css";
 import { Link } from "react-router-dom";
-import Logout from "../userAuth/logout/Logout";
 
-const Topbar = ({ isLoggedIn, setIsLoggedIn }) => {
+
+const Topbar = ({ isLoggedIn, setIsLoggedIn, admin }) => {
+console.log(admin)
   const handleLogout = () => {
     setIsLoggedIn(false);
   };
@@ -27,7 +28,6 @@ const Topbar = ({ isLoggedIn, setIsLoggedIn }) => {
                 <span className="topbarLink">Developers</span>
               </Link>
             </div>
-
             <div className="login developers">
               <Link
                 onClick={handleLogout}
@@ -40,6 +40,13 @@ const Topbar = ({ isLoggedIn, setIsLoggedIn }) => {
           </div>
 
           <div className="topbarLeft"></div>
+            {admin && 
+              <div className="login developers">
+                <Link to="/posts/create" style={{ textDecoration: "none" }}>
+                  <span className="topbarLink">Post Form</span>
+                </Link>
+              </div>
+            }
         </div>
       </>
     );

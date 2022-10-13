@@ -16,15 +16,15 @@ const App = () => {
   const context = useContext(AuthContext)
   return (
     <Router>
-      <Topbar isLoggedIn={context.isLoggedIn} setIsLoggedIn={context.setIsLoggedIn}/>
+      <Topbar isLoggedIn={context.isLoggedIn} setIsLoggedIn={context.setIsLoggedIn} admin={context.admin}/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/posts" element={<BlogPostPage />} />
         <Route path="/posts/:postId" element={<SinglePost />} />
         <Route path="/posts/create" element={<PostForm />} />
         <Route path="/developers" element={<Developers />} />
-        <Route path="/login" element={<Login setIsLoggedIn={context.setIsLoggedIn}/>} />
-        <Route path="/logout" element={<Logout setIsLoggedIn={context.setIsLoggedIn}/>} />
+        <Route path="/login" element={<Login setIsLoggedIn={context.setIsLoggedIn} setAdmin={context.setAdmin} />} />
+        <Route path="/logout" element={<Logout setIsLoggedIn={context.setIsLoggedIn} setAdmin={context.setAdmin}/>} />
         <Route path="/signup" element={<Signup />} />
       </Routes>
     </Router>
