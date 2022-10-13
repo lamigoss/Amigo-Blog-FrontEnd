@@ -5,8 +5,8 @@ import Logout from "../userAuth/logout/Logout";
 
 const Topbar = ({ isLoggedIn, setIsLoggedIn }) => {
   const handleLogout = () => {
-    setIsLoggedIn(false)
-  }
+    setIsLoggedIn(false);
+  };
   if (isLoggedIn) {
     return (
       <>
@@ -29,7 +29,11 @@ const Topbar = ({ isLoggedIn, setIsLoggedIn }) => {
             </div>
 
             <div className="login developers">
-              <Link onClick={handleLogout} to="/logout" style={{ textDecoration: "none" }}>
+              <Link
+                onClick={handleLogout}
+                to="/logout"
+                style={{ textDecoration: "none" }}
+              >
                 <span className="topbarLink">Logout</span>
               </Link>
             </div>
