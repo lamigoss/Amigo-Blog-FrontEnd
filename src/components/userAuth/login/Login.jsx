@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { PostLogin } from "../../../utils/httpRequests/HttpRequest";
+import AuthContext from "../../../authContext/authContext";
 
-const Login = ({ setIsLoggedIn, setAdmin }) => {
+const Login = () => {
+  const context = useContext(AuthContext)
   const navigate = useNavigate();
   const initialFormState = {
     username: "",
@@ -24,13 +26,13 @@ const Login = ({ setIsLoggedIn, setAdmin }) => {
           window.localStorage.setItem("user", res.user.username);
           window.localStorage.setItem("isAdmin", true);
           window.localStorage.setItem("isLoggedIn", true);
-          setIsLoggedIn(true);
-          setAdmin(true)
+          context.setIsLoggedIn(true);
+          context.setAdmin(true)
           navigate("/");
         } else {
           window.localStorage.setItem("user", res.user.username);
           window.localStorage.setItem("isLoggedIn", true);
-          setIsLoggedIn(true);
+          context.setIsLoggedIn(true);
           navigate("/");
         }
       })

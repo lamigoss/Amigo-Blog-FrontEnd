@@ -1,14 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "./topbar.css";
 import { Link } from "react-router-dom";
+import AuthContext from "../../authContext/authContext";
 
 
-const Topbar = ({ isLoggedIn, setIsLoggedIn, admin }) => {
-console.log(admin)
+const Topbar = () => {
+  const context = useContext(AuthContext)
+
   const handleLogout = () => {
-    setIsLoggedIn(false);
+    context.setIsLoggedIn(false);
   };
-  if (isLoggedIn) {
+  if (context.isLoggedIn) {
     return (
       <>
         <div className="topbarContainer">
@@ -38,9 +40,8 @@ console.log(admin)
               </Link>
             </div>
           </div>
-
           <div className="topbarLeft"></div>
-            {admin && 
+            {context.admin && 
               <div className="login developers">
                 <Link to="/posts/create" style={{ textDecoration: "none" }}>
                   <span className="topbarLink">Post Form</span>
