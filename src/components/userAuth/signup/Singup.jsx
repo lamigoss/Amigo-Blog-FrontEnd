@@ -15,7 +15,8 @@ const Signup = () => {
   const [formIsValid, setIsFormValid] = useState(false);
 
   const handleChange = (event) => {
-    setUserSignup({ ...userSignup, [event.target.id]: event.target.value });
+    setUserSignup(prevInput => { 
+      return {...prevInput, [event.target.id]: event.target.value }});
   };
 
   const checkForm =

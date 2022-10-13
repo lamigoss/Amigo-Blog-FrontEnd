@@ -6,7 +6,6 @@ import AuthContext from "../../authContext/authContext";
 
 const Topbar = () => {
   const context = useContext(AuthContext)
-
   const handleLogout = () => {
     context.setIsLoggedIn(false);
   };

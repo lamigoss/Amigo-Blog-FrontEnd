@@ -13,7 +13,9 @@ const Login = () => {
   const [userLogin, setUserLogin] = useState(initialFormState);
 
   const handleChange = (event) => {
-    setUserLogin({ ...userLogin, [event.target.id]: event.target.value });
+    setUserLogin(prevInput => {
+      return {...prevInput, [event.target.id]: event.target.value}
+    });
   };
 
   const handleSubmit = (event) => {
