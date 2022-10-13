@@ -3,7 +3,6 @@ import AuthContext from "./authContext/authContext";
 import { useContext } from "react";
 
 import Home from "./pages/home/Home";
-import Register from "./components/register/Register";
 import Login from "./components/userAuth/login/Login";
 import Developers from "./components/dev/Developers";
 import Posts from "./components/posts/Posts";
@@ -23,7 +22,6 @@ const App = () => {
         <Route path="/login" element={<Login setIsLoggedIn={context.setIsLoggedIn}/>} />
         <Route path="/logout" element={<Logout setIsLoggedIn={context.setIsLoggedIn}/>} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/register" element={<Register />} />
       </Routes>
     </Router>
   );
