@@ -3,21 +3,24 @@ import React, { useState, useEffect } from "react";
 const AuthContext = React.createContext({
   isLoggedIn: false,
   setIsLoggedIn: null,
+  admin: false,
+  setAdmin: null,
 });
 
 export const AuthContextProvider = (props) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [admin, setAdmin] = useState(false)
-  const [userAdmin, setUserAdmin] = useState("isAdmin")
+  const [admin, setAdmin] = useState(false);
+ 
 
   useEffect(() => {
     const userInfo = localStorage.getItem("isLoggedIn");
-    const userAdmin = localStorage.getItem("isAdmin")
+    const userAdmin = localStorage.getItem("isAdmin");
     if (userInfo === "true") {
       setIsLoggedIn(true);
-    } if(userAdmin === "true") {
-      setAdmin(true)
-    }else if (userInfo === null) {
+    }
+    if (userAdmin === "true") {
+      setAdmin(true);
+    } else if (userInfo === null) {
       setIsLoggedIn(false);
     }
   }, []);
@@ -28,7 +31,7 @@ export const AuthContextProvider = (props) => {
         isLoggedIn: isLoggedIn,
         setIsLoggedIn: setIsLoggedIn,
         admin: admin,
-        setAdmin: setAdmin
+        setAdmin: setAdmin,
       }}
     >
       {props.children}
