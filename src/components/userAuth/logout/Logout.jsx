@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Logout = ({ logout }) => {
+    
   const navigate = useNavigate();
   useEffect(() => {
     window.localStorage.removeItem("token");
@@ -9,7 +10,7 @@ const Logout = ({ logout }) => {
     window.localStorage.removeItem("isLoggedIn");
     navigate("/");
     console.log("LOCAL STORAGE CLEARED");
-  },[]);
+  }, []);
 
   return (
     <div>

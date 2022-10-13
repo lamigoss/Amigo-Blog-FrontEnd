@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-
 const Login = ({ setIsLoggedIn }) => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const initialFormState = {
     username: "",
     password: "",
@@ -15,26 +14,27 @@ const Login = ({ setIsLoggedIn }) => {
     setUserLogin({ ...userLogin, [event.target.id]: event.target.value });
   };
   const handleSubmit = (event) => {
-    event.preventDefault()
-    axios.post("http://localhost:8800/api/users/login", userLogin)
+    event.preventDefault();
+    axios
+      .post("http://localhost:8800/api/users/login", userLogin)
       .then((res) => {
-        const data = res.data
-        console.log(data)
-        if(data.user.isAdmin === true){
-          window.localStorage.setItem('token', data.token)
-          window.localStorage.setItem('user', data.user.username)
-          window.localStorage.setItem('isLoggedIn', true)
-          setIsLoggedIn(true)
-          console.log(data)
-          navigate('/')
-        }else {
-          window.localStorage.setItem('user', data.user.username)
-          window.localStorage.setItem('isLoggedIn', true)
-          setIsLoggedIn(true)
-          navigate('/')
+        const data = res.data;
+        console.log(data);
+        if (data.user.isAdmin === true) {
+          window.localStorage.setItem("token", data.token);
+          window.localStorage.setItem("user", data.user.username);
+          window.localStorage.setItem("isLoggedIn", true);
+          setIsLoggedIn(true);
+          console.log(data);
+          navigate("/");
+        } else {
+          window.localStorage.setItem("user", data.user.username);
+          window.localStorage.setItem("isLoggedIn", true);
+          setIsLoggedIn(true);
+          navigate("/");
         }
       })
-      .catch((err) => console.log(err))
+      .catch((err) => console.log(err));
   };
 
   return (

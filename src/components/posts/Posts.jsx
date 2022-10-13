@@ -7,6 +7,6 @@ const Posts = () => {
       <div>this is the post page</div>
     </>
   );
-}
+};
 
-export default Posts
+export default Posts;
