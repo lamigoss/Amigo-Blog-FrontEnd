@@ -29,7 +29,16 @@ const Signup = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    PostSignUp(userSignup);
+    PostSignUp(userSignup)
+      .then((res) => {
+        console.log(res);
+        if(res.status === true) {
+          navigate("/login");
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
