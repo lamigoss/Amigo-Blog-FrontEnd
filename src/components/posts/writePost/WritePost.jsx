@@ -2,15 +2,18 @@ import React from "react";
 import axios from "axios";
 import "./writePost.css";
 import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 
 export default function WritePost() {
   const [title, setTitle] = useState();
   const [desc, setDesc] = useState();
 
+  const username = window.localStorage.getItem('user')
+ 
   const submitHandler = async (e) => {
     e.preventDefault();
     const newPost = {
-      userId: "6344c9d878ed99b6e34b2cdf",
+      username: username,
       postTitle: title,
       postDesc: desc,
     };

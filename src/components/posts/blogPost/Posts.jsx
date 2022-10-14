@@ -3,8 +3,8 @@ import "./posts.css";
 // import { format } from "timeago.js";
 import axios from "axios";
 import ChatOutlinedIcon from "@mui/icons-material/ChatOutlined";
-import Topbar from "../topbar/Topbar";
-import ImageUpload from "../AUTH_users/ImageUpload/ImageUpload";
+import Topbar from "../../topbar/Topbar";
+
 
 const Posts = ({ post }) => {
   // const [posts, setPosts] = useState([]);
