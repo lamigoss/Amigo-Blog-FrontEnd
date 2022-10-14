@@ -3,11 +3,9 @@ import FormContext from "../../../../context/formContext";
 
 const PostDescription = () => {
 const context = useContext(FormContext)
-console.log(context.post)
+
   return (
     <>
-      <div className="titlePost">Post title</div>
-      <input type="text" placeholder="Post title" className="titleInput" />
       <div className="descPost">Post Description</div>
       <input
         id="postDesc"

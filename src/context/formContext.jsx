@@ -20,7 +20,7 @@ export const FormContextProvider = (props) => {
       return { ...prev, [event.target.id]: event.target.value };
     });
   };
-
+console.log(post)
   return (
     <FormContext.Provider
       value={{

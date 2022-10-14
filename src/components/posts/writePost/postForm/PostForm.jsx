@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import ImageUpload from "../../ImageUpload/ImageUpload";
 import PostDescription from "../postDescription/PostDescription";
+import PostTitle from "../postTitle/PostTitle";
 import { FormContextProvider } from "../../../../context/formContext";
 
 export default function PostForm() {
@@ -38,6 +39,7 @@ export default function PostForm() {
     <FormContextProvider>
       <div className="postDataContainer">
         <form className="postDataFormBox" onSubmit={submitHandler}>
+          <PostTitle />
           <PostDescription/>
           <ImageUpload  />
           <button type="submit" className="btn btn-primary">
