@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { PostLogin } from "../../../utils/httpRequests/HttpRequest";
-import AuthContext from "../../../authContext/authContext";
+import AuthContext from "../../../context/authContext";
 
 const Login = () => {
   const context = useContext(AuthContext);
