@@ -20,7 +20,10 @@ const ImageUpload = () => {
  const handleSubmit = (event) => {
   event.preventDefault();
   PostImage(context.imageFormData)
-    .then((res) => context.setImageKey(res.body.imageKey))
+    .then((res) => {
+      context.post.postImage = res.body.imageKey
+      context.setImageKey(res.body.imageKey)
+    })
     .catch((error) => console.log(error));
 };
   

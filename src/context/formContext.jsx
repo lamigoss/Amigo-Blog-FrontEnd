@@ -11,19 +11,19 @@ const FormContext = React.createContext({
 export const FormContextProvider = (props) => {
 // POST BLOG LOGIC
 const getUserName = window.localStorage.getItem("user");
-const randomId = Math.floor(Math.random() * 10000000).toString()
+const [valid, setValid] = useState(false);
+const [uploadImages, setUploadImages] = useState();
+const [imageKey, setImageKey] = useState()
+
 const initialForm = {
     imageUrl: '',
     username: getUserName,
     postTitle: "",
     postDesc: "",
-    postImage: randomId,
+    postImage: "",
 };
-
 const [post, setPost] = useState(initialForm);
-const [valid, setValid] = useState(false);
-const [uploadImages, setUploadImages] = useState();
-const [imageKey, setImageKey] = useState()
+
 
 const imageFormData = new FormData();
   imageFormData.append("image", uploadImages);
