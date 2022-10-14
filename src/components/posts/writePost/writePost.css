@@ -1,0 +1,58 @@
+.postDataContainer{
+    width: 100vw;
+    height: 100vh;
+    background-color: #f0f2f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.postDataFormBox{
+    height: 450px;
+    width: 500px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+.titleInput{
+    height: 30px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    font-size: 15px;
+    padding-left: 20px;
+}
+.descInput{
+    height: 250px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    font-size: 15px;
+    padding-left: 20px;
+
+
+}
+.imgInput{
+    height: 30px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    font-size: 10px;
+    padding-left: 20px;
+
+}
+.postDesc{
+
+}
+.ImgPost{
+
+}
+.postImg{
+
+}
+.pageTitleContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding:10px;
+}
