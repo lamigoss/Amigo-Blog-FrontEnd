@@ -8,10 +8,12 @@ import Logout from "./components/userAuth/logout/Logout";
 import BlogPostPage from "./pages/blogPostPage/BlogPostPage";
 import PostForm from "./components/posts/writePost/postForm/PostForm.jsx";
 import SinglePost from "./components/posts/singlePost/SinglePost";
+import { FormContextProvider } from "./context/formContext";
 
 const App = () => {
   
   return (
+    <FormContextProvider>
     <Router>
       <Topbar />
       <Routes>
@@ -25,6 +27,7 @@ const App = () => {
         <Route path="/signup" element={<Signup />} />
       </Routes>
     </Router>
+    </FormContextProvider>
   );
 };
 

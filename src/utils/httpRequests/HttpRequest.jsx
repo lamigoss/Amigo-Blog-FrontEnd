@@ -40,7 +40,7 @@ export const PostLogin = async (body, setIsLoggedIn, setAdmin) => {
 // POST IMAGES 
 export const PostImage = async (formData) => {
   try {
-    const res = await axios.post("http://localhost:8800/api/images", formData, {
+    const res = await axios.post(`${baseUrl}/images`, formData, {
       headers: { "Content-Type": "multipart/form-data" },
     });
     return res.data
@@ -48,3 +48,14 @@ export const PostImage = async (formData) => {
     console.log(error);
   }
 };
+
+// POST FORM
+export const PostFormData = async (formData) => {
+  console.log(formData)
+  try {
+    const res = await axios.post(`http://localhost:8800/api/posts/create`, formData)
+    return res.data
+  } catch (error) {
+    console.log(error)
+  }
+}

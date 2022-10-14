@@ -1,53 +1,40 @@
 import React from "react";
 import axios from "axios";
 import "./postForm.css";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import ImageUpload from "../../ImageUpload/ImageUpload";
 import PostDescription from "../postDescription/PostDescription";
 import PostTitle from "../postTitle/PostTitle";
-import { FormContextProvider } from "../../../../context/formContext";
+import FormContext from "../../../../context/formContext";
+import { PostFormData } from "../../../../utils/httpRequests/HttpRequest";
 
 export default function PostForm() {
-
-  // const [post, setPost] = useState('')
-  // const initialForm = {
-  //   username: getUserName,
-  //   postTitle: '',
-  //   postDesc: post,
-
-  // }
-
+  const context = useContext(FormContext)
   const [imageKey, setImageKey] = useState();
   const navigate = useNavigate();
-  
-  const submitHandler = () => {
-    console.log("clicked");
+
+  const submitHandler = (event) => {
+    event.preventDefault()
+    PostFormData(context.post)
+      .then((res) => console.log(res.data))
+      .catch((error) => console.log(error))
   };
-  
-  
-  // const getPostDescription = (post) => {
-  //  setPost(post)
-  // }
-  
-  const getImageKey = (key) => {
-    setImageKey(key);
-  };
- 
+
   return (
     <>
-    <FormContextProvider>
+   
       <div className="postDataContainer">
         <form className="postDataFormBox" onSubmit={submitHandler}>
           <PostTitle />
           <PostDescription/>
-          <ImageUpload  />
+          {/* <ImageUpload  /> */}
           <button type="submit" className="btn btn-primary">
             Click to Post!
           </button>
         </form>
       </div>
-    </FormContextProvider>
+
     </>
   );
 }

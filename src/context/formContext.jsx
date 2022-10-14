@@ -8,6 +8,7 @@ const FormContext = React.createContext({
 export const FormContextProvider = (props) => {
   const getUserName = window.localStorage.getItem("user");
   const initialForm = {
+    imageUrl: '',
     username: getUserName,
     postTitle: "",
     postDesc: "",
@@ -20,7 +21,7 @@ export const FormContextProvider = (props) => {
       return { ...prev, [event.target.id]: event.target.value };
     });
   };
-console.log(post)
+// console.log(post)
   return (
     <FormContext.Provider
       value={{
