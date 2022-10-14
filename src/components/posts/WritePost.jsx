@@ -1,16 +1,21 @@
 import React from "react";
 import axios from "axios";
-import "./postForm.css";
+import "./writePost.css";
 import { useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
 
-export default function PostForm() {
-  const navigate = useNavigate();
+export default function WritePost() {
+  const [title, setTitle] = useState();
+  const [desc, setDesc] = useState();
 
-  console.log(navigate);
-
-  const submitHandler = () => {
-    console.log("clicked");
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    const newPost = {
+      userId: "6344c9d878ed99b6e34b2cdf",
+      postTitle: title,
+      postDesc: desc,
+    };
+    const res = await axios.post("/posts/create", newPost);
+    window.location.replace("/posts/" + res.data._id);
   };
 
   return (
@@ -27,14 +32,20 @@ export default function PostForm() {
       <div className="postDataContainer">
         <form className="postDataFormBox" onSubmit={submitHandler}>
           <div className="titlePost">Post title</div>
-          <input type="text" placeholder="Post title" className="titleInput" />
+          <input
+            type="text"
+            placeholder="Post title"
+            className="titleInput"
+            onChange={(e) => setTitle(e.target.value)}
+          />
           <div className="descPost">Post Description</div>
           <input
             type="text"
             placeholder="share your thoughts"
             className="descInput"
+            onChange={(e) => setDesc(e.target.value)}
           />
-          <div className="ImgPost">Post Image</div>
+          {/* <div className="ImgPost">Post Image</div> */}
           <input type="text" className="imgInput" />
           <button type="submit" className="btn btn-primary">
             Click to Post!

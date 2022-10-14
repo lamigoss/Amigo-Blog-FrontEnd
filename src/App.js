@@ -6,7 +6,7 @@ import Topbar from "./components/topbar/Topbar";
 import Signup from "./components/userAuth/signup/Singup";
 import Logout from "./components/userAuth/logout/Logout";
 import BlogPostPage from "./pages/blogPostPage/BlogPostPage";
-import PostForm from "./components/posts/writePost/PostForm";
+import WritePost from "./components/posts/writePost/WritePost";
 import SinglePost from "./components/posts/singlePost/SinglePost";
 
 const App = () => {
@@ -18,7 +18,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/posts" element={<BlogPostPage />} />
         <Route path="/posts/:postId" element={<SinglePost />} />
-        <Route path="/posts/create" element={<PostForm />} />
+        <Route path="/posts/create" element={<WritePost />} />
         <Route path="/developers" element={<Developers />} />
         <Route path="/login" element={<Login />} />
         <Route path="/logout" element={<Logout />} />

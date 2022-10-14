@@ -38,8 +38,8 @@ const Posts = ({ post }) => {
             <div className="postsBottom">
               <span className="postsDesc">{post.postDesc}</span>
               <div className="postsBottomLeft">
-                <img src="/assets/like.png" alt="" className="likeIcon" />
-                <ChatOutlinedIcon className="postsCommentText" />
+                {/* <img src="/assets/like.png" alt="" className="likeIcon" />
+                <ChatOutlinedIcon className="postsCommentText" /> */}
               </div>
 
               {/* <div className="postsBottomRight">
@@ -49,8 +49,7 @@ const Posts = ({ post }) => {
           </div>
         </div>
       </div>
-      <div>this is the post page</div>
-      <ImageUpload />
+      {/* <ImageUpload /> */}
     </>
   );
 };
