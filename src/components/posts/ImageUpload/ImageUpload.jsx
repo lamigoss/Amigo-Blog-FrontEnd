@@ -1,32 +1,37 @@
-// import axios from "axios";
-// import React, { useState, useEffect } from "react";
-// import { PostImage } from "../../../utils/httpRequests/HttpRequest";
+import axios from "axios";
+import React, { useState, useContext } from "react";
+import { PostImage } from "../../../utils/httpRequests/HttpRequest";
+import ImageDisplay from "./imageDisplau/imageDisplay";
+import FormContext from "../../../context/formContext";
 
-// const ImageUpload = ({ getImageKey }) => {
-//   const [uploadImages, setUploadImages] = useState();
+const ImageUpload = () => {
+  const context = useContext(FormContext)
+  // const [uploadImages, setUploadImages] = useState();
 
-//   const formData = new FormData();
-//   formData.append("image", uploadImages);
+  // const imageFormData = new FormData();
+  // imageFormData.append("image", uploadImages);
 
-//   const handleChange = (event) => {
-//     const files = event.target.files[0];
-//     setUploadImages(files);
-//   };
+  const handleChange = (event) => {
+    const files = event.target.files[0];
+    context.setUploadImages(files);
+  };
 
-//   const handleSubmit = (event) => {
-//     event.preventDefault();
-//     PostImage(formData)
-//       .then((res) => getImageKey(res.body.imageKey))
-//       .catch((error) => console.log(error));
-//   };
+ // IMAGE SUBMIT HANDLER/ Change Handler
+ const handleSubmit = (event) => {
+  event.preventDefault();
+  PostImage(context.imageFormData)
+    .then((res) => context.setImageKey(res.body.imageKey))
+    .catch((error) => console.log(error));
+};
+  
+  return (
+    <div>
+      <div className="ImgPost">Post Image</div>
+      <input type="file" onChange={handleChange}></input>
+      <button onClick={handleSubmit}>Submit</button>
+      {context.imageKey === undefined ? <p>loading</p> : <ImageDisplay />}
+    </div>
+  );
+};
 
-//   return (
-//     <div>
-//       <div className="ImgPost">Post Image</div>
-//       <input type="file" onChange={handleChange}></input>
-//       <button onClick={handleSubmit}>Submit</button>
-//     </div>
-//   );
-// };
-
-// export default ImageUpload;
+export default ImageUpload;

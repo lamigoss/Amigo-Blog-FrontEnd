@@ -1,8 +1,13 @@
-import React, { useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import FormContext from "../../../../context/formContext";
 
 const PostTitle = () => {
   const context = useContext(FormContext);
+  const checkForm = context.post.postTitle.length !== 0;
+
+  useEffect(() => {
+    context.setValid(checkForm)
+  })
   return (
     <>
       <div className="titlePost">Post title</div>

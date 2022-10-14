@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import FormContext from "../../../../context/formContext";
 
 const PostDescription = () => {
@@ -10,10 +10,10 @@ const context = useContext(FormContext)
       <input
         id="postDesc"
         type="text"
-        onChange={context.handleDescForm}
-        value={context.post.postDesc}
         placeholder="share your thoughts"
         className="descInput"
+        onChange={context.handleDescForm}
+        value={context.post.postDesc}
       />
     </>
   );
