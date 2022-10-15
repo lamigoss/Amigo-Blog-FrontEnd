@@ -31,7 +31,7 @@ export default function SinglePost() {
   const handleDelete = async () => {
     try {
       await axios.delete(`/posts/${post._id}`, {});
-      window.location.replace("/");
+      window.location.replace("/posts");
     } catch (err) {}
   };
 
