@@ -14,7 +14,6 @@ const Posts = ({ post }) => {
                 className="profilePicture"
               />
               <span className="userName">{post.username}</span>
-              {/* <span className="postDate">{format(post.createdAt)}</span> */}
             </div>
             <div className="postsCeter">
               <span className="postTitle">{post.postTitle}</span>
