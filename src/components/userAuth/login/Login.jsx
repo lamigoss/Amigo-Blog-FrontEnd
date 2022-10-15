@@ -18,22 +18,9 @@ const Login = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    PostLogin(userLogin)
+    PostLogin(userLogin, context.setIsLoggedIn, context.setAdmin)
       .then((res) => {
-        if (res.user.isAdmin === true) {
-          window.localStorage.setItem("token", res.token);
-          window.localStorage.setItem("user", res.user.username);
-          window.localStorage.setItem("isAdmin", true);
-          window.localStorage.setItem("isLoggedIn", true);
-          context.setIsLoggedIn(true);
-          context.setAdmin(true);
-          navigate("/");
-        } else {
-          window.localStorage.setItem("user", res.user.username);
-          window.localStorage.setItem("isLoggedIn", true);
-          context.setIsLoggedIn(true);
-          navigate("/");
-        }
+        if(res) navigate("/")
       })
       .catch((err) => console.log(err));
   };

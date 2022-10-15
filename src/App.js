@@ -6,7 +6,7 @@ import Topbar from "./components/topbar/Topbar";
 import Signup from "./components/userAuth/signup/Singup";
 import Logout from "./components/userAuth/logout/Logout";
 import BlogPostPage from "./pages/blogPostPage/BlogPostPage";
-import WritePost from "./components/posts/writePost/WritePost";
+import WritePost from "./components/posts/writePost/post/WritePost";
 import SinglePost from "./components/posts/singlePost/SinglePost";
 
 const App = () => {
