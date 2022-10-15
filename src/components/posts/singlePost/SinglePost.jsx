@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import axios from "axios";
-import { Link } from "react-router-dom";
 
 export default function SinglePost() {
   const [post, setPost] = useState({});
   const location = useLocation();
-  const navigate = useNavigate();
   const [title, setTitle] = useState();
   const [desc, setDesc] = useState();
   const [updateMode, setUpdateMode] = useState(false);
+
+  const username = window.localStorage.getItem("user");
 
   // const post = "http://localhost:3000/posts/63460e4115d974d2c5a118ac";
 
@@ -22,6 +22,7 @@ export default function SinglePost() {
         setPost(res.data);
         setTitle(res.data.postTitle);
         setDesc(res.data.postDesc);
+        console.log(post);
       } catch (error) {}
     };
     getPost();
@@ -38,7 +39,7 @@ export default function SinglePost() {
     try {
       await axios.put(`/posts/${postId}`, {
         _id: postId,
-        userId: "6344c9d878ed99b6e34b2cdf", // this userId needs to be ref not hardcoded
+        username: username,
         postTitle: title,
         postDesc: desc,
       });
@@ -58,7 +59,7 @@ export default function SinglePost() {
         update this post
       </button>
       <div className="singlePostWrapper">
-        {post.postImg && <img src={""} alt="" className="singlePostImg" />}
+        {/* {post.postImg && <img src={""} alt="" className="singlePostImg" />} */}
         {updateMode ? (
           <input
             type="text"
@@ -70,10 +71,8 @@ export default function SinglePost() {
         ) : (
           <h1 className="singlePostTitle">{title}</h1>
         )}
-        {post.postTitle && (
-          <h1 className="singlePostTitle">{post.postTitle}</h1>
-        )}
-        <div className="singlePostDesc">{post.postDesc}</div>
+        <div className="author">Author:{post.username}</div>
+
         {updateMode ? (
           <textarea
             className="singlePostDescinput"
