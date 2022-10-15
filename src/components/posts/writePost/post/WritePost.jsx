@@ -1,45 +1,45 @@
-import React from "react";
-import axios from "axios";
+import React, { useState } from "react";
 import "./writePost.css";
-import { useState } from "react";
 import PostTitle from "../postTitle/PostTitle";
 import PostDesc from "../postDesc/PostDesc";
 import PostImg from "../postImg/PostImg";
 import { PostBlog } from "../../../../utils/httpRequests/HttpRequest";
 
 export default function WritePost() {
-  const [title, setTitle] = useState();
-  const [desc, setDesc] = useState();
-
   const username = window.localStorage.getItem("user");
-  const newPost = {
+  const imageId = window.localStorage.getItem("imageId")
+
+  const [form, setForm] = useState({
     username: username,
-    postTitle: title,
-    postDesc: desc,
+    postTitle: "",
+    postDesc: "",
+    imageId: imageId
+  });
+
+
+  const handleChange = (event) => {
+    setForm({ ...form, [event.target.id]: event.target.value });
   };
 
-  const submitHandler = async (e) => {
+  const postSubmitHandler = async (e) => {
     e.preventDefault();
     try {
-      const blog = await PostBlog(newPost)
-      console.log(blog)
+      const blog = await PostBlog(form);
       window.location.replace("/posts/" + blog._id);
-    } catch(error){
-      console.log(error)
+    } catch (error) {
+      console.log(error);
     }
   };
 
   return (
     <>
       <div className="pageTitleContainer">
-        <span>
-   
-        </span>
+        <span></span>
       </div>
       <div className="postDataContainer">
-        <form className="postDataFormBox" onSubmit={submitHandler}>
-          <PostTitle setTitle={setTitle} />
-          <PostDesc setDesc={setDesc}/>
+        <form className="postDataFormBox" onSubmit={postSubmitHandler}>
+          <PostTitle handleChange={handleChange} postTitle={form.postTitle} />
+          <PostDesc handleChange={handleChange} postDesc={form.postDesc} />
           <PostImg />
           <button type="submit" className="btn btn-primary">
             Click to Post!

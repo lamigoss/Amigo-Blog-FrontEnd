@@ -37,6 +37,29 @@ export const PostLogin = async (body, setIsLoggedIn, setAdmin) => {
   }
 };
 
+// GET IMAGES
+export const GetImage = async (key) => {
+  try {
+    const res = await axios.get(`${baseUrl}/images/${key}`)
+    return res
+  } catch(error) {
+    console.log(error)
+  }
+}
+
+
+// POST IMAGES 
+export const PostImage = async (formData) => {
+  try {
+    const res = await axios.post(`${baseUrl}/images`, formData, {
+      headers: { "Content-Type": "multipart/form-data" },
+    });
+    return res.data
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 
 // POST REQUEST FOR BLOGPOST
 export const PostBlog = async (body) => {

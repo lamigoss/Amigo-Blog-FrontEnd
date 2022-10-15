@@ -1,12 +1,14 @@
-const PostTitle = ({ setTitle }) => {
+const PostTitle = ({ handleChange, postTitle }) => {
   return (
     <>
       <div className="titlePost">Post title</div>
       <input
         type="text"
+        id='postTitle'
+        value={postTitle}
         placeholder="Post title"
         className="titleInput"
-          onChange={(e) => setTitle(e.target.value)}
+          onChange={handleChange}
       />
     </>
   );

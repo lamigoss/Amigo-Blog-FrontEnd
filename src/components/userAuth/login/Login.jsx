@@ -16,13 +16,14 @@ const Login = () => {
     setUserLogin({ ...userLogin, [event.target.id]: event.target.value });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    PostLogin(userLogin, context.setIsLoggedIn, context.setAdmin)
-      .then((res) => {
-        if(res) navigate("/")
-      })
-      .catch((err) => console.log(err));
+    try {
+      const post = PostLogin(userLogin, context.setIsLoggedIn, context.setAdmin)
+      if(post) navigate("/")
+    }catch (error) {
+      console.log(error)
+    }
   };
 
   return (
