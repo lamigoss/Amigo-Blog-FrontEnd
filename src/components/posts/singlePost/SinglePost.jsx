@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import React, { useState, useEffect, useContext } from "react";
+import { useLocation } from "react-router-dom"
+import AuthContext from "../../../authContext/authContext";
 import axios from "axios";
 
 export default function SinglePost() {
+  const context = useContext(AuthContext)
   const [post, setPost] = useState({});
   const location = useLocation();
   const [title, setTitle] = useState();
@@ -52,12 +54,12 @@ export default function SinglePost() {
 
   return (
     <div className="singlePostContainer">
-      <button
+     {context.admin && <button
         className="singlePostIcon far fa-edit"
         onClick={() => setUpdateMode(true)}
       >
         update this post
-      </button>
+      </button>}
       <div className="singlePostWrapper">
         {/* {post.postImg && <img src={""} alt="" className="singlePostImg" />} */}
         {updateMode ? (
@@ -88,7 +90,7 @@ export default function SinglePost() {
             Update
           </button>
         )}
-        <button onClick={handleDelete}>Delete this post</button>
+        {context.admin && <button onClick={handleDelete}>Delete this post</button>}
       </div>
     </div>
   );
