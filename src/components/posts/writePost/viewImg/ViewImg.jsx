@@ -4,14 +4,13 @@ import { GetImage } from "../../../../utils/httpRequests/HttpRequest";
 
 const ViewImg = ({ imageKey }) => {
   const [image, setImage] = useState();
-
   useEffect(() => {
     GetImage(imageKey).then((res) => setImage(res.data[0].imageUrl));
   }, []);
 
   return (
     <div>
-      <img src={image} />
+      <img className="postsImg" src={image} />
     </div>
   );
 };

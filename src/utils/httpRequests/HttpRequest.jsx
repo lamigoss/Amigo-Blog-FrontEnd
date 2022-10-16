@@ -47,6 +47,15 @@ export const GetImage = async (key) => {
   }
 }
 
+export const GetPostImage = async (id) => {
+  try {
+    const res = await axios.get(`${baseUrl}/images/post/${id}`)
+    return res
+  } catch(error) {
+    console.log(error)
+  }
+}
+
 
 // POST IMAGES 
 export const PostImage = async (formData) => {

@@ -11,7 +11,8 @@ export default function BlogPostPage() {
     const fetchData = async () => {
       const res = await axios.get("http://localhost:8800/api/posts/");
       setPosts(res.data);
-      console.log(posts.length);
+      // console.log(posts.length);
+      // console.log(res)
     };
     fetchData();
   }, []);

@@ -36,7 +36,7 @@ const PostImg = () => {
         Choose Image
       </button>
       {imageKey === undefined ? (
-        <p>ImageVie</p>
+        null
       ) : (
         <ViewImg imageKey={imageKey} />
       )}

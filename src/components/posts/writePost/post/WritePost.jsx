@@ -7,15 +7,15 @@ import { PostBlog } from "../../../../utils/httpRequests/HttpRequest";
 
 export default function WritePost() {
   const username = window.localStorage.getItem("user");
-  const imageId = window.localStorage.getItem("imageId")
+  const imageId = window.localStorage.getItem("imageId");
 
   const [form, setForm] = useState({
     username: username,
     postTitle: "",
     postDesc: "",
-    imageId: imageId
+    imageId: imageId,
   });
-
+  console.log(form.imageId);
 
   const handleChange = (event) => {
     setForm({ ...form, [event.target.id]: event.target.value });
