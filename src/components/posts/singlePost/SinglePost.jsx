@@ -26,6 +26,7 @@ export default function SinglePost() {
         setPost(res.data);
         setTitle(res.data.postTitle);
         setDesc(res.data.postDesc);
+    
       } catch (error) {}
     };
     getPost();
