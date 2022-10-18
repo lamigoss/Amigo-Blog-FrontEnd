@@ -38,8 +38,16 @@ export default function WritePost() {
       </div>
       <div className="postDataContainer">
         <form className="postDataFormBox" onSubmit={postSubmitHandler}>
-          <PostTitle handleChange={handleChange} postTitle={form.postTitle} />
-          <PostDesc handleChange={handleChange} postDesc={form.postDesc} />
+          <PostTitle
+            handleChange={handleChange}
+            postTitle={form.postTitle}
+            value={form.postTitle}
+          />
+          <PostDesc
+            handleChange={handleChange}
+            postDesc={form.postDesc}
+            value={form.postDesc}
+          />
           <PostImg />
           <button type="submit" className="btn btn-primary">
             Click to Post!

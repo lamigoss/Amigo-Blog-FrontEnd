@@ -1,15 +1,15 @@
-import React, {useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import ViewImg from "../writePost/viewImg/ViewImg";
 import "./posts.css";
 import { Link } from "react-router-dom";
 import { GetPostImage } from "../../../utils/httpRequests/HttpRequest";
 
 const Posts = ({ post }) => {
-  const[imageKey, setImageKey] = useState()
-console.log(post.imageId)
+  const [imageKey, setImageKey] = useState();
+  console.log(post.imageId);
   useEffect(() => {
-    GetPostImage(post.imageId).then((res) => setImageKey(res.data.imageKey))
-  },[])
+    GetPostImage(post.imageId).then((res) => setImageKey(res.data.imageKey));
+  }, []);
   return (
     <>
       <div className="postsContainer">
@@ -34,7 +34,7 @@ console.log(post.imageId)
           </div>
         </div>
         <Link to={`/posts/${post._id}`}>
-          <button className="btn btn-primary">!Click to view the post</button>
+          <button className="viewButton">!Click to view the post</button>
         </Link>
       </div>
     </>

@@ -9,7 +9,6 @@
     top: 0; 
     z-index: 999;
     border-radius: 8px;
-
 }
 
 
@@ -56,17 +55,4 @@ span.topbarLink{
 
 span.topbarLink:hover{
     text-decoration: underline whitesmoke;
-}
-
-.dropdown{
-    position: relative;
-}
-
-.dropdown-item{
-    position: absolute;
-    left: 0;
-    top:calc(100%+.25rem); 
-    background-color: white;
-    padding: .75rem;
-
 }

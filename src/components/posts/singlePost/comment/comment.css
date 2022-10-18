@@ -1,0 +1,25 @@
+.commentContainer{
+    top: 30px;
+    width: 50%;
+    background-color: aquamarine;
+    opacity: 80%;
+    display: flex;
+    margin-top: 20px;
+    border-radius: 8px;
+
+}
+
+.user{
+    display: flex;
+    flex: 2;
+    font-size: 15px;
+    font-weight: normal;
+    justify-content: space-around;
+
+}
+
+.comment{
+    display: flex;
+    flex: 2;
+    justify-content: space-between;
+}
