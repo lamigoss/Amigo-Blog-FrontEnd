@@ -16,7 +16,7 @@ const ViewImg = ({ imageKey }) => {
 
   return (
     <div>
-      <img className="postsImg" src={image} />
+      <img className="postsImg" src={image} alt="" />
     </div>
   );
 };
