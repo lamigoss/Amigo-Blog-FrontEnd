@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { GetPostImage } from "../../../utils/httpRequests/HttpRequest";
 
 const Posts = ({ post }) => {
+
   const[imageKey, setImageKey] = useState()
   useEffect(() => {
     GetPostImage(post.imageId).then((res) => {
