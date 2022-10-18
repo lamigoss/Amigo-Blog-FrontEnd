@@ -21,7 +21,7 @@ const PostImg = () => {
         alert("please select image");
       } else {
         const post = await PostImage(imageFormData);
-        setImageKey(post.body.imageKey);
+        setImageKey(post.body.imageKey)
         window.localStorage.setItem("imageId", post.body._id);
       }
     } catch (error) {
