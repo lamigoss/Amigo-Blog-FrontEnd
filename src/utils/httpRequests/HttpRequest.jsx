@@ -71,9 +71,9 @@ export const PostImage = async (formData) => {
 
 
 // POST REQUEST FOR BLOGPOST
-export const PostBlog = async (body) => {
+export const PostBlog = async (body, id) => {
   try {
-    const res = await axios.post("/posts/create", body);
+    const res = await axios.post(`/posts/create/${id}`, body);
     return res.data
   } catch(error) {
     console.log('POST BLOG ' + error)

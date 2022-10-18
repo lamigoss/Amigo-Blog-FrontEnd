@@ -18,7 +18,7 @@ export default function BlogPostPage() {
   }, []);
 
   //pagination needs to be added
-
+// console.log(posts)
   return (
     <>
       <div className="postingContainer">
