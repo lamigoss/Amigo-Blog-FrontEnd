@@ -5,20 +5,11 @@ import { Link } from "react-router-dom";
 import { GetPostImage } from "../../../utils/httpRequests/HttpRequest";
 
 const Posts = ({ post }) => {
-<<<<<<< HEAD
   const [imageKey, setImageKey] = useState();
   console.log(post.imageId);
   useEffect(() => {
     GetPostImage(post.imageId).then((res) => setImageKey(res.data.imageKey));
   }, []);
-=======
-  const[imageKey, setImageKey] = useState()
-  useEffect(() => {
-    GetPostImage(post.imageId).then((res) => {
-      setImageKey(res.data.imageKey)
-    })
-  },[])
->>>>>>> c9c5c31 (used useContext to pass imageId onto form field to submit for backend. Local storage caused issues where the new post uploaded the previous post imageid. To resolve that i set imageId state upon imageupload, then used that state to send in postblog request)
   return (
     <>
       <div className="postsContainer">
