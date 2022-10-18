@@ -7,15 +7,15 @@ import { PostBlog } from "../../../../utils/httpRequests/HttpRequest";
 import PostContext from "../../../../authContext/postContext";
 
 export default function WritePost() {
-  const context = useContext(PostContext);
+  const context = useContext(PostContext)
   const username = window.localStorage.getItem("user");
   const initialFormState = {
     username: username,
     postTitle: "",
     postDesc: "",
-  };
+  }
   const [form, setForm] = useState(initialFormState);
-  console.log("IN WRITE POST COMPONENT " + context.imageId);
+ console.log("IN WRITE POST COMPONENT " + context.imageId)
 
   const handleChange = (event) => {
     setForm({ ...form, [event.target.id]: event.target.value });
@@ -25,8 +25,8 @@ export default function WritePost() {
     e.preventDefault();
     try {
       const blog = await PostBlog(form, context.imageId);
-      console.log(blog);
-      window.localStorage.removeItem("imageId");
+      console.log(blog)
+      window.localStorage.removeItem('imageId')
       window.location.replace("/posts/" + blog._id);
       console.log("blog ID: " + blog._id);
     } catch (error) {
