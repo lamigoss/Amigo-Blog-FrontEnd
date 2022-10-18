@@ -22,9 +22,10 @@ export default function BlogPostPage() {
   return (
     <>
       <div className="postingContainer">
-        {posts.map((posting) => (
+        {posts && posts.map((posting) => (
           <Posts key={posting._id} post={posting} />
         ))}
+        {!posts && <p>loading</p>}
         {/* <Posts /> */}
       </div>
     </>
