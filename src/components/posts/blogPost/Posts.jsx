@@ -26,7 +26,7 @@ const Posts = ({ post }) => {
             <div className="postsCeter">
               <span className="postTitle">{post.postTitle}</span>
               {/* <img src="/assets/posts/1.jpeg" alt="" className="postsImg" /> */}
-              {!imageKey ? null : <ViewImg imageKey={imageKey} />}
+              {!imageKey ? <p>Loading</p> : <ViewImg imageKey={imageKey} />}
             </div>
             <div className="postsBottom">
               <span className="postsDesc">{post.postDesc}</span>
