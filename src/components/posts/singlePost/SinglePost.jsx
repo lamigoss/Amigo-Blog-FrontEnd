@@ -29,12 +29,7 @@ export default function SinglePost() {
         setPost(res.data);
         setTitle(res.data.postTitle);
         setDesc(res.data.postDesc);
-
-        GetPostImage(res.data.imageId).then((res) =>
-          setImageKey(res.data.imageKey)
-        );
-        console.log("this is singlepost: " + post.imageId);
-        console.log("postId: " + post.postId);
+    
       } catch (error) {}
     };
     getPost();
