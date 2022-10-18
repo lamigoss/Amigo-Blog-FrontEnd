@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import "./viewImg.css";
+import "./viewImage.css";
 import { GetImage } from "../../../../utils/httpRequests/HttpRequest";
 
-const ViewImg = ({ imageKey }) => {
+const ViewImage = ({ imageKey }) => {
   const [image, setImage] = useState();
   useEffect(() => {
     GetImage(imageKey).then((res) => setImage(res.data[0].imageUrl));
@@ -16,4 +16,4 @@ const ViewImg = ({ imageKey }) => {
   );
 };
 
-export default ViewImg;
+export default ViewImage;

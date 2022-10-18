@@ -3,6 +3,8 @@ import { useLocation } from "react-router-dom";
 import AuthContext from "../../../authContext/authContext";
 import axios from "axios";
 import Comment from "./comment/Comment";
+import { GetPostImage } from "../../../utils/httpRequests/HttpRequest";
+import ViewImage from "./viewImage/ViewImage";
 
 export default function SinglePost() {
   const context = useContext(AuthContext);
@@ -12,6 +14,7 @@ export default function SinglePost() {
   const [desc, setDesc] = useState();
   const [updateMode, setUpdateMode] = useState(false);
   const [view, setView] = useState(false);
+  const [imageKey, setImageKey] = useState();
 
   const username = window.localStorage.getItem("user");
 
@@ -26,6 +29,12 @@ export default function SinglePost() {
         setPost(res.data);
         setTitle(res.data.postTitle);
         setDesc(res.data.postDesc);
+
+        GetPostImage(res.data.imageId).then((res) =>
+          setImageKey(res.data.imageKey)
+        );
+        console.log("this is singlepost: " + post.imageId);
+        console.log("postId: " + post.postId);
       } catch (error) {}
     };
     getPost();
@@ -68,7 +77,8 @@ export default function SinglePost() {
             </button>
           )}
       <div className="singlePostWrapper">
-        {/* {post.postImg && <img src={""} alt="" className="singlePostImg" />} */}
+        {!imageKey ? null : <ViewImage imageKey={imageKey} />}
+        {/* <ViewImg imageKey={imageKey} /> */}
         {updateMode ? (
           <input
             type="text"
@@ -80,7 +90,7 @@ export default function SinglePost() {
         ) : (
           <h1 className="singlePostTitle">{title}</h1>
         )}
-        <div className="author">Author:{post.username}</div>
+        <div className="author">Author: {post.username}</div>
 
         {updateMode ? (
           <textarea
@@ -89,7 +99,7 @@ export default function SinglePost() {
             onChange={(e) => setDesc(e.target.value)}
           />
         ) : (
-          <p className="singlePostDesc">{desc}</p>
+          <p className="singlePostDesc">{post.postDesc}</p>
         )}
 
         {updateMode && (
