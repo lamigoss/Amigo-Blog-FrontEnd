@@ -1,4 +1,4 @@
-import React, {useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import ViewImg from "../writePost/viewImg/ViewImg";
 import "./posts.css";
 import { Link } from "react-router-dom";
@@ -35,7 +35,7 @@ const Posts = ({ post }) => {
           </div>
         </div>
         <Link to={`/posts/${post._id}`}>
-          <button className="btn btn-primary">!Click to view the post</button>
+          <button className="viewButton">!Click to view the post</button>
         </Link>
       </div>
     </>

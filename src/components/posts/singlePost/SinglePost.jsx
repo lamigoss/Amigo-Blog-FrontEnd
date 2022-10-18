@@ -1,15 +1,17 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useLocation } from "react-router-dom"
+import { useLocation } from "react-router-dom";
 import AuthContext from "../../../authContext/authContext";
 import axios from "axios";
+import Comment from "./comment/Comment";
 
 export default function SinglePost() {
-  const context = useContext(AuthContext)
+  const context = useContext(AuthContext);
   const [post, setPost] = useState({});
   const location = useLocation();
   const [title, setTitle] = useState();
   const [desc, setDesc] = useState();
   const [updateMode, setUpdateMode] = useState(false);
+  const [view, setView] = useState(false);
 
   const username = window.localStorage.getItem("user");
 
@@ -53,12 +55,18 @@ export default function SinglePost() {
 
   return (
     <div className="singlePostContainer">
-     {context.admin && <button
-        className="singlePostIcon far fa-edit"
-        onClick={() => setUpdateMode(true)}
-      >
-        update this post
-      </button>}
+      {updateMode
+        ? ""
+        : context.admin && (
+            <button
+              className="btn btn-primart mb-5"
+              onClick={() => {
+                setUpdateMode(true);
+              }}
+            >
+              update this post
+            </button>
+          )}
       <div className="singlePostWrapper">
         {/* {post.postImg && <img src={""} alt="" className="singlePostImg" />} */}
         {updateMode ? (
@@ -89,8 +97,27 @@ export default function SinglePost() {
             Update
           </button>
         )}
-        {context.admin && <button onClick={handleDelete}>Delete this post</button>}
+        {context.admin && (
+          <button onClick={handleDelete}>Delete this post</button>
+        )}
       </div>
+      {!updateMode && (
+        <div>
+          {view ? (
+            ""
+          ) : (
+            <button className="viewComment" onClick={() => setView(true)}>
+              view comments
+            </button>
+          )}
+          {view && (
+            <div className="commentsContainer">
+              <button onClick={() => setView(false)}>hide comments</button>
+              <Comment />
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 }
