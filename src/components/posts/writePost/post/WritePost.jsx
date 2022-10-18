@@ -28,7 +28,7 @@ export default function WritePost() {
       console.log(blog);
       window.localStorage.removeItem("imageId");
       window.location.replace("/posts/" + blog._id);
-      console.log("blog ID:  " + blog._id);
+      console.log("blog ID: " + blog._id);
     } catch (error) {
       console.log(error);
     }
