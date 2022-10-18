@@ -1,21 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "./writePost.css";
 import PostTitle from "../postTitle/PostTitle";
 import PostDesc from "../postDesc/PostDesc";
 import PostImg from "../postImg/PostImg";
 import { PostBlog } from "../../../../utils/httpRequests/HttpRequest";
+import PostContext from "../../../../authContext/postContext";
 
 export default function WritePost() {
+  const context = useContext(PostContext)
   const username = window.localStorage.getItem("user");
-  const imageId = window.localStorage.getItem("imageId");
-
-  const [form, setForm] = useState({
+  const initialFormState = {
     username: username,
     postTitle: "",
     postDesc: "",
-    imageId: imageId,
-  });
-  console.log(form.imageId);
+  }
+  const [form, setForm] = useState(initialFormState);
+ console.log("IN WRITE POST COMPONENT " + context.imageId)
 
   const handleChange = (event) => {
     setForm({ ...form, [event.target.id]: event.target.value });
@@ -24,7 +24,9 @@ export default function WritePost() {
   const postSubmitHandler = async (e) => {
     e.preventDefault();
     try {
-      const blog = await PostBlog(form);
+      const blog = await PostBlog(form, context.imageId);
+      console.log(blog)
+      window.localStorage.removeItem('imageId')
       window.location.replace("/posts/" + blog._id);
     } catch (error) {
       console.log(error);
