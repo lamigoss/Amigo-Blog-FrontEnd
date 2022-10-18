@@ -15,7 +15,6 @@ export default function WritePost() {
     postDesc: "",
   }
   const [form, setForm] = useState(initialFormState);
- console.log("IN WRITE POST COMPONENT " + context.imageId)
 
   const handleChange = (event) => {
     setForm({ ...form, [event.target.id]: event.target.value });
@@ -25,7 +24,6 @@ export default function WritePost() {
     e.preventDefault();
     try {
       const blog = await PostBlog(form, context.imageId);
-      console.log(blog)
       window.localStorage.removeItem('imageId')
       window.location.replace("/posts/" + blog._id);
       console.log("blog ID: " + blog._id);
