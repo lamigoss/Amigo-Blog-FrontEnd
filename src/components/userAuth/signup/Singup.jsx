@@ -18,9 +18,15 @@ const Signup = () => {
     setUserSignup({ ...userSignup, [event.target.id]: event.target.value });
   };
 
+  // Checks for 6 chars or more, checks for one or more capitalized, 
+  // Checks for at least 1 number, and one symbol
+  const reg = new RegExp(
+    "^(?=.*[a-z]{6,})(?=.*[A-Z]{1,})(?=.*[0-9])(?=.*[!@#$&*])"
+  );
+
   const checkForm =
     userSignup.email.includes("@") &&
-    userSignup.password.trim().length >= 6 &&
+    reg.test(userSignup.password) &&
     userSignup.username.trim().length >= 3;
 
   useEffect(() => {
@@ -31,7 +37,7 @@ const Signup = () => {
     event.preventDefault();
     PostSignUp(userSignup)
       .then((res) => {
-        if(res.status === true) {
+        if (res.status === true) {
           navigate("/login");
         }
       })
