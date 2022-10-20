@@ -50,8 +50,6 @@ const Signup = () => {
     <div>
       Signup
       <form onSubmit={handleSubmit}>
-        {/* <input placeholder="first name"></input>
-        <input placeholder="last name"></input> */}
         <input
           placeholder="email"
           id="email"
