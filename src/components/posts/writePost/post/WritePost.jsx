@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import "./writePost.css";
 import PostTitle from "../postTitle/PostTitle";
 import PostDesc from "../postDesc/PostDesc";
