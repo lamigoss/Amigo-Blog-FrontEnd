@@ -36,9 +36,9 @@ export default function SinglePost() {
         GetPostImage(res.data.imageId).then((res) =>
           setImageKey(res.data.imageKey)
         );
-        console.log("this is singlepost: " + post.imageId);
-        console.log("postId: " + post.postId);
-      } catch (error) {}
+      } catch (error) {
+        console.log(error);
+      }
     };
     getPost();
   }, []);
@@ -58,11 +58,11 @@ export default function SinglePost() {
         postTitle: title,
         postDesc: desc,
       });
+      console.log("desc: ", desc);
     } catch (err) {
       console.log(err);
     }
     setUpdateMode(false);
-    console.log("update clicked");
   };
 
   return (
