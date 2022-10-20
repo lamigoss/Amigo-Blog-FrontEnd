@@ -79,3 +79,14 @@ export const PostBlog = async (body, id) => {
     console.log('POST BLOG ' + error)
   }
 }
+
+// POST REQUEST FOR COMMENT
+export const GetComment = async(postId) => {
+  try {
+    console.log(postId)
+    const res = await axios.get(`${baseUrl}/comments/${postId}`);
+    return res
+  }catch(error) {
+    console.log("POST COMMENT " + error)
+  }
+}
