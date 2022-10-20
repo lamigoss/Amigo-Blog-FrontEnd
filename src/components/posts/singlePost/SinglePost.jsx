@@ -1,10 +1,15 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import AuthContext from "../../../authContext/authContext";
 import axios from "axios";
 import Comment from "./comment/Comment";
 import { GetPostImage } from "../../../utils/httpRequests/HttpRequest";
 import ViewImage from "./viewImage/ViewImage";
+import CommentTextBox from "./comment/commentTextbox/CommentTextBox";
+import "./singlepost.css";
+import Edit from "../../../img/edit.png";
+import Delete from "../../../img/delete.png";
+import PostImg from "../writePost/postImg/PostImg";
 
 export default function SinglePost() {
   const context = useContext(AuthContext);
@@ -17,8 +22,6 @@ export default function SinglePost() {
   const [imageKey, setImageKey] = useState();
 
   const username = window.localStorage.getItem("user");
-
-  // const post = "http://localhost:3000/posts/63460e4115d974d2c5a118ac";
 
   const postId = location.pathname.split("/")[2];
 
@@ -64,6 +67,18 @@ export default function SinglePost() {
 
   return (
     <div className="singlePostContainer">
+      <div className="edit">
+        <Link
+          to={`/write?edit=6350785ecfaf3bf595a78d76`}
+          className="editButton"
+          state={post}
+        >
+          <img src={Edit} alt="" />
+        </Link>
+      </div>
+      <div className="delete">
+        <img src={Delete} alt="" className="editButton" />
+      </div>
       {updateMode
         ? ""
         : context.admin && (
@@ -77,8 +92,12 @@ export default function SinglePost() {
             </button>
           )}
       <div className="singlePostWrapper">
-        {!imageKey ? null : <ViewImage imageKey={imageKey} />}
-        {/* <ViewImg imageKey={imageKey} /> */}
+        {updateMode ? (
+          <PostImg />
+        ) : !imageKey ? null : (
+          <ViewImage imageKey={imageKey} />
+        )}
+
         {updateMode ? (
           <input
             type="text"
@@ -123,6 +142,9 @@ export default function SinglePost() {
           {view && (
             <div className="commentsContainer">
               <button onClick={() => setView(false)}>hide comments</button>
+              <div className="commentBox">
+                <CommentTextBox />
+              </div>
               <Comment />
             </div>
           )}

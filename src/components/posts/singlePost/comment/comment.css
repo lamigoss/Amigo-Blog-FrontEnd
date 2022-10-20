@@ -6,20 +6,35 @@
     display: flex;
     margin-top: 20px;
     border-radius: 8px;
+    flex-direction: row;
+    justify-content: space-around;
 
+
+}
+
+.commentBox{
+    display: flex;
+    flex-direction: row;
 }
 
 .user{
     display: flex;
-    flex: 2;
+    padding-left:1px ;
     font-size: 15px;
     font-weight: normal;
-    justify-content: space-around;
 
 }
 
 .comment{
     display: flex;
-    flex: 2;
+    justify-content: space-around;
+}
+
+.commentInput{
+    display: flex;
+
+}
+.timeStamp{
+    display: flex;
     justify-content: space-between;
 }

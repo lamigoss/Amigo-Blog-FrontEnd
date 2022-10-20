@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 import "./comment.css";
-
 const Comment = () => {
   const [writeMode, setWriteMode] = useState(false);
 
