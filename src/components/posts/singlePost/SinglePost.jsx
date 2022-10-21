@@ -3,7 +3,7 @@ import { useLocation, Link, useNavigate } from "react-router-dom";
 import AuthContext from "../../../authContext/authContext";
 import PostContext from "../../../authContext/postContext";
 import axios from "axios";
-import Comment from "./comment/Comment";
+import Comments from "./comment/Comments";
 import { GetPostImage } from "../../../utils/httpRequests/HttpRequest";
 import ViewImage from "./viewImage/ViewImage";
 import CommentTextBox from "./comment/commentTextbox/CommentTextBox";
@@ -11,63 +11,53 @@ import "./singlepost.css";
 import Edit from "../../../img/edit.png";
 import Delete from "../../../img/delete.png";
 import PostImg from "../writePost/postImg/PostImg";
-import { GetPost } from "../../../utils/httpRequests/HttpRequest";
 
 export default function SinglePost() {
   const context = useContext(AuthContext);
   const imageCtx = useContext(PostContext);
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
-  const [post, setPost] = useState();
+  const [post, setPost] = useState({});
   const location = useLocation();
   const [title, setTitle] = useState();
   const [desc, setDesc] = useState();
   const [updateMode, setUpdateMode] = useState(false);
   const [view, setView] = useState(false);
   const [imageKey, setImageKey] = useState();
-  const [imageId, setImageId] = useState();
+  const [imageId, setImageId] = useState()
 
   const username = window.localStorage.getItem("user");
 
   const postId = location.pathname.split("/")[2];
 
   useEffect(() => {
-    console.log("IN USE EFFECT");
-    const fetchData = async() => {
+    console.log("IN USE EFFECT")
+    const getPost = async () => {
       try {
-        const getPost = await GetPost(postId)
-        setPost(getPost)
-        console.log(post)
-      } catch(error) {
-        console.log(error)
+        const res = await axios.get(`/posts/${postId}`);
+        setPost(res.data);
+        setTitle(res.data.postTitle);
+        setDesc(res.data.postDesc);
+        console.log("post Id: ", postId);
+
+        GetPostImage(res.data.imageId).then((res) =>
+          setImageKey(res.data.imageKey)
+        );
+      } catch (error) {
+        console.log(error);
       }
-    }
+    };
+    getPost();
+  }, [updateMode]);
 
-    fetchData()
 
-    // const getPost = GetPost(postId)
-    //   .then((res) => setPost(res))
-    //   .then(() => {
-    //     GetPostImage(post.imageId)
-    //   });
-    // console.log(post);
-    // setTitle(getPost.data.postTitle);
-    // setDesc(res.data.postDesc);
-    // console.log(res.data)
-    // GetPostImage(res.data.imageId).then((res) => {
-    //   setImageId(res.data._id)
-    //   setImageKey(res.data.imageKey);
-    // });
-    // console.log("this is singlepost: " + post.imageId);
-    // console.log("postId: " + post.postId);
-  }, []);
-  console.log(post)
+
   const handleDelete = async () => {
     try {
       await axios.delete(`/posts/${post._id}`, {});
       window.location.replace("/posts");
     } catch (err) {
-      console.log(err);
+      console.log(err)
     }
   };
 
@@ -79,15 +69,13 @@ export default function SinglePost() {
         postTitle: title,
         postDesc: desc,
       });
-      console.log(edit.data);
-      navigate(`/posts/${postId}`);
+      console.log(edit.data)
 
       // console.log(edit.data)
     } catch (err) {
       console.log(err);
     }
     setUpdateMode(false);
-    console.log("update clicked");
   };
 
   return (
@@ -104,9 +92,7 @@ export default function SinglePost() {
       <div className="delete">
         <img src={Delete} alt="" className="editButton" />
       </div>
-      {updateMode
-        ? ""
-        : context.admin && (
+      {context.admin && (
             <button
               className="btn btn-primart mb-5"
               onClick={() => {
@@ -134,7 +120,7 @@ export default function SinglePost() {
         ) : (
           <h1 className="singlePostTitle">{title}</h1>
         )}
-        <div className="author">Author: </div>
+        <div className="author">Author: {post.username}</div>
 
         {updateMode ? (
           <textarea
@@ -143,7 +129,7 @@ export default function SinglePost() {
             onChange={(e) => setDesc(e.target.value)}
           />
         ) : (
-          <p className="singlePostDesc"></p>
+          <p className="singlePostDesc">{post.postDesc}</p>
         )}
 
         {updateMode && (
@@ -155,6 +141,7 @@ export default function SinglePost() {
           <button onClick={handleDelete}>Delete this post</button>
         )}
       </div>
+      
       {!updateMode && (
         <div>
           {view ? (
@@ -170,7 +157,7 @@ export default function SinglePost() {
               <div className="commentBox">
                 <CommentTextBox />
               </div>
-              <Comment />
+              <Comments postId={postId} />
             </div>
           )}
         </div>
