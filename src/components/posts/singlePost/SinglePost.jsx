@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { useLocation, Link } from "react-router-dom";
 import AuthContext from "../../../authContext/authContext";
 import axios from "axios";
-import Comment from "./comment/Comment";
+import Comments from "./comment/Comments";
 import { GetPostImage } from "../../../utils/httpRequests/HttpRequest";
 import ViewImage from "./viewImage/ViewImage";
 import CommentTextBox from "./comment/commentTextbox/CommentTextBox";
@@ -32,6 +32,7 @@ export default function SinglePost() {
         setPost(res.data);
         setTitle(res.data.postTitle);
         setDesc(res.data.postDesc);
+        console.log("post Id: ", postId);
 
         GetPostImage(res.data.imageId).then((res) =>
           setImageKey(res.data.imageKey)
@@ -58,7 +59,6 @@ export default function SinglePost() {
         postTitle: title,
         postDesc: desc,
       });
-      console.log("desc: ", desc);
     } catch (err) {
       console.log(err);
     }
@@ -145,7 +145,7 @@ export default function SinglePost() {
               <div className="commentBox">
                 <CommentTextBox />
               </div>
-              <Comment />
+              <Comments postId={postId} />
             </div>
           )}
         </div>
