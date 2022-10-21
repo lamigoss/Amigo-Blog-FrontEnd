@@ -38,7 +38,6 @@ export default function SinglePost() {
         setPost(res.data);
         setTitle(res.data.postTitle);
         setDesc(res.data.postDesc);
-<<<<<<< HEAD
         console.log("post Id: ", postId);
 
         GetPostImage(res.data.imageId).then((res) =>
@@ -46,21 +45,10 @@ export default function SinglePost() {
         );
       } catch (error) {
         console.log(error);
-=======
-        console.log(res.data)
-        GetPostImage(res.data.imageId).then((res) => {
-          setImageId(res.data._id)
-          setImageKey(res.data.imageKey);
-        });
-        // console.log("this is singlepost: " + post.imageId);
-        // console.log("postId: " + post.postId);
-      } catch (error) {
-        console.log(error)
->>>>>>> 8d9d820 (able to show updated image, but image won't display on initial render, need to fix)
       }
     };
     getPost();
-  }, []);
+  }, [updateMode]);
 
 
 
@@ -82,7 +70,6 @@ export default function SinglePost() {
         postDesc: desc,
       });
       console.log(edit.data)
-      navigate(`/posts/${postId}`)
 
       // console.log(edit.data)
     } catch (err) {
@@ -105,13 +92,11 @@ export default function SinglePost() {
       <div className="delete">
         <img src={Delete} alt="" className="editButton" />
       </div>
-      {updateMode
-        ? ""
-        : context.admin && (
+      {context.admin && (
             <button
               className="btn btn-primart mb-5"
               onClick={() => {
-                setUpdateMode(true);
+                navigate(`/posts/${postId}/updatePost`);
               }}
             >
               update this post

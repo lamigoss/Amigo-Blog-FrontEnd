@@ -1,14 +1,14 @@
-const PostDesc = ({ handleChange, postDesc }) => {
+const PostDesc = (props) => {
   return (
     <>
       <div className="descPost">Post Description</div>
       <input
         type="text"
         id='postDesc'
-        value={postDesc}
+        value={props.postDesc}
         placeholder="share your thoughts"
         className="descInput"
-        onChange={handleChange}
+        onChange={props.handleChange}
       />
     </>
   );
