@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useLocation, Link } from "react-router-dom";
+import { useLocation, Link, useNavigate } from "react-router-dom";
 import AuthContext from "../../../authContext/authContext";
+import PostContext from "../../../authContext/postContext";
 import axios from "axios";
 import Comment from "./comment/Comment";
 import { GetPostImage } from "../../../utils/httpRequests/HttpRequest";
@@ -13,6 +14,9 @@ import PostImg from "../writePost/postImg/PostImg";
 
 export default function SinglePost() {
   const context = useContext(AuthContext);
+  const imageCtx = useContext(PostContext);
+  const navigate = useNavigate()
+
   const [post, setPost] = useState({});
   const location = useLocation();
   const [title, setTitle] = useState();
@@ -20,44 +24,57 @@ export default function SinglePost() {
   const [updateMode, setUpdateMode] = useState(false);
   const [view, setView] = useState(false);
   const [imageKey, setImageKey] = useState();
+  const [imageId, setImageId] = useState()
 
   const username = window.localStorage.getItem("user");
 
   const postId = location.pathname.split("/")[2];
 
   useEffect(() => {
+    console.log("IN USE EFFECT")
     const getPost = async () => {
       try {
         const res = await axios.get(`/posts/${postId}`);
         setPost(res.data);
         setTitle(res.data.postTitle);
         setDesc(res.data.postDesc);
-
-        GetPostImage(res.data.imageId).then((res) =>
-          setImageKey(res.data.imageKey)
-        );
-        console.log("this is singlepost: " + post.imageId);
-        console.log("postId: " + post.postId);
-      } catch (error) {}
+        console.log(res.data)
+        GetPostImage(res.data.imageId).then((res) => {
+          setImageId(res.data._id)
+          setImageKey(res.data.imageKey);
+        });
+        // console.log("this is singlepost: " + post.imageId);
+        // console.log("postId: " + post.postId);
+      } catch (error) {
+        console.log(error)
+      }
     };
     getPost();
-  }, []);
+  }, [updateMode]);
+
+
 
   const handleDelete = async () => {
     try {
       await axios.delete(`/posts/${post._id}`, {});
       window.location.replace("/posts");
-    } catch (err) {}
+    } catch (err) {
+      console.log(err)
+    }
   };
 
   const handleUpdate = async () => {
     try {
-      await axios.put(`/posts/${postId}`, {
+      const edit = await axios.put(`/posts/${postId}/${imageCtx.imageId}`, {
         _id: postId,
         username: username,
         postTitle: title,
         postDesc: desc,
       });
+      console.log(edit.data)
+      navigate(`/posts/${postId}`)
+
+      // console.log(edit.data)
     } catch (err) {
       console.log(err);
     }

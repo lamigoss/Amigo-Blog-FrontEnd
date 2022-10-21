@@ -6,7 +6,7 @@ const ViewImage = ({ imageKey }) => {
   const [image, setImage] = useState();
   useEffect(() => {
     GetImage(imageKey).then((res) => setImage(res.data[0].imageUrl));
-    console.log("this is from view " + image);
+    // console.log("this is from view " + image);
   }, []);
 
   return (
