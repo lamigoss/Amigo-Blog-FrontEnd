@@ -60,7 +60,7 @@ export default function SinglePost() {
       }
     };
     getPost();
-  }, [updateMode]);
+  }, []);
 
 
 
