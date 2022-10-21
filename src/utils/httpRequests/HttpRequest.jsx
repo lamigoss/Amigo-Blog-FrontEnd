@@ -69,6 +69,15 @@ export const PostImage = async (formData) => {
   }
 };
 
+// GET REQUEST FOR BLOGPOST
+export const GetPost = async(postId) => {
+  try{
+    const res = await axios.get(`/posts/${postId}`);
+    return res.data
+  } catch (error) {
+    console.log('GET BLOG ' + error)
+  }
+}
 
 // POST REQUEST FOR BLOGPOST
 export const PostBlog = async (body, id) => {
@@ -89,3 +98,4 @@ export const GetComment = async(postId) => {
     console.log("POST COMMENT " + error)
   }
 }
+

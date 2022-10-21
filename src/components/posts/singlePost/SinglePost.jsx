@@ -11,55 +11,63 @@ import "./singlepost.css";
 import Edit from "../../../img/edit.png";
 import Delete from "../../../img/delete.png";
 import PostImg from "../writePost/postImg/PostImg";
+import { GetPost } from "../../../utils/httpRequests/HttpRequest";
 
 export default function SinglePost() {
   const context = useContext(AuthContext);
   const imageCtx = useContext(PostContext);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  const [post, setPost] = useState({});
+  const [post, setPost] = useState();
   const location = useLocation();
   const [title, setTitle] = useState();
   const [desc, setDesc] = useState();
   const [updateMode, setUpdateMode] = useState(false);
   const [view, setView] = useState(false);
   const [imageKey, setImageKey] = useState();
-  const [imageId, setImageId] = useState()
+  const [imageId, setImageId] = useState();
 
   const username = window.localStorage.getItem("user");
 
   const postId = location.pathname.split("/")[2];
 
   useEffect(() => {
-    console.log("IN USE EFFECT")
-    const getPost = async () => {
+    console.log("IN USE EFFECT");
+    const fetchData = async() => {
       try {
-        const res = await axios.get(`/posts/${postId}`);
-        setPost(res.data);
-        setTitle(res.data.postTitle);
-        setDesc(res.data.postDesc);
-        console.log(res.data)
-        GetPostImage(res.data.imageId).then((res) => {
-          setImageId(res.data._id)
-          setImageKey(res.data.imageKey);
-        });
-        // console.log("this is singlepost: " + post.imageId);
-        // console.log("postId: " + post.postId);
-      } catch (error) {
+        const getPost = await GetPost(postId)
+        setPost(getPost)
+        console.log(post)
+      } catch(error) {
         console.log(error)
       }
-    };
-    getPost();
-  }, [updateMode]);
+    }
 
+    fetchData()
 
-
+    // const getPost = GetPost(postId)
+    //   .then((res) => setPost(res))
+    //   .then(() => {
+    //     GetPostImage(post.imageId)
+    //   });
+    // console.log(post);
+    // setTitle(getPost.data.postTitle);
+    // setDesc(res.data.postDesc);
+    // console.log(res.data)
+    // GetPostImage(res.data.imageId).then((res) => {
+    //   setImageId(res.data._id)
+    //   setImageKey(res.data.imageKey);
+    // });
+    // console.log("this is singlepost: " + post.imageId);
+    // console.log("postId: " + post.postId);
+  }, []);
+  console.log(post)
   const handleDelete = async () => {
     try {
       await axios.delete(`/posts/${post._id}`, {});
       window.location.replace("/posts");
     } catch (err) {
-      console.log(err)
+      console.log(err);
     }
   };
 
@@ -71,8 +79,8 @@ export default function SinglePost() {
         postTitle: title,
         postDesc: desc,
       });
-      console.log(edit.data)
-      navigate(`/posts/${postId}`)
+      console.log(edit.data);
+      navigate(`/posts/${postId}`);
 
       // console.log(edit.data)
     } catch (err) {
@@ -102,7 +110,7 @@ export default function SinglePost() {
             <button
               className="btn btn-primart mb-5"
               onClick={() => {
-                setUpdateMode(true);
+                navigate(`/posts/${postId}/updatePost`);
               }}
             >
               update this post
@@ -126,7 +134,7 @@ export default function SinglePost() {
         ) : (
           <h1 className="singlePostTitle">{title}</h1>
         )}
-        <div className="author">Author: {post.username}</div>
+        <div className="author">Author: </div>
 
         {updateMode ? (
           <textarea
@@ -135,7 +143,7 @@ export default function SinglePost() {
             onChange={(e) => setDesc(e.target.value)}
           />
         ) : (
-          <p className="singlePostDesc">{post.postDesc}</p>
+          <p className="singlePostDesc"></p>
         )}
 
         {updateMode && (
