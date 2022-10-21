@@ -9,6 +9,7 @@ const ViewImg = ({ imageKey }) => {
   useEffect(() => {
     GetImage(imageKey).then((res) => {
       // console.log(res.data[0]._id)
+      console.log(res.data[0].imageUrl)
       setImage(res.data[0].imageUrl);
       context.setImageId(res.data[0]._id);
     });

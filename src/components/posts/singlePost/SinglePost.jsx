@@ -1,45 +1,29 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useLocation, Link, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import AuthContext from "../../../authContext/authContext";
-import PostContext from "../../../authContext/postContext";
 import axios from "axios";
 import Comments from "./comment/Comments";
 import { GetPostImage } from "../../../utils/httpRequests/HttpRequest";
 import ViewImage from "./viewImage/ViewImage";
 import CommentTextBox from "./comment/commentTextbox/CommentTextBox";
 import "./singlepost.css";
-import Edit from "../../../img/edit.png";
-import Delete from "../../../img/delete.png";
-import PostImg from "../writePost/postImg/PostImg";
+
 
 export default function SinglePost() {
   const context = useContext(AuthContext);
-  const imageCtx = useContext(PostContext);
-  const navigate = useNavigate()
-
+  const navigate = useNavigate();
   const [post, setPost] = useState({});
   const location = useLocation();
-  const [title, setTitle] = useState();
-  const [desc, setDesc] = useState();
-  const [updateMode, setUpdateMode] = useState(false);
   const [view, setView] = useState(false);
   const [imageKey, setImageKey] = useState();
-  const [imageId, setImageId] = useState()
-
-  const username = window.localStorage.getItem("user");
-
   const postId = location.pathname.split("/")[2];
 
   useEffect(() => {
-    console.log("IN USE EFFECT")
+    console.log("IN USE EFFECT");
     const getPost = async () => {
       try {
         const res = await axios.get(`/posts/${postId}`);
         setPost(res.data);
-        setTitle(res.data.postTitle);
-        setDesc(res.data.postDesc);
-        console.log("post Id: ", postId);
-
         GetPostImage(res.data.imageId).then((res) =>
           setImageKey(res.data.imageKey)
         );
@@ -48,120 +32,44 @@ export default function SinglePost() {
       }
     };
     getPost();
-  }, [updateMode]);
-
-
-
-  const handleDelete = async () => {
-    try {
-      await axios.delete(`/posts/${post._id}`, {});
-      window.location.replace("/posts");
-    } catch (err) {
-      console.log(err)
-    }
-  };
-
-  const handleUpdate = async () => {
-    try {
-      const edit = await axios.put(`/posts/${postId}/${imageCtx.imageId}`, {
-        _id: postId,
-        username: username,
-        postTitle: title,
-        postDesc: desc,
-      });
-      console.log(edit.data)
-
-      // console.log(edit.data)
-    } catch (err) {
-      console.log(err);
-    }
-    setUpdateMode(false);
-  };
+  }, []);
 
   return (
     <div className="singlePostContainer">
-      <div className="edit">
-        <Link
-          to={`/write?edit=6350785ecfaf3bf595a78d76`}
-          className="editButton"
-          state={post}
-        >
-          <img src={Edit} alt="" />
-        </Link>
-      </div>
-      <div className="delete">
-        <img src={Delete} alt="" className="editButton" />
-      </div>
       {context.admin && (
-            <button
-              className="btn btn-primart mb-5"
-              onClick={() => {
-                navigate(`/posts/${postId}/updatePost`);
-              }}
-            >
-              update this post
-            </button>
-          )}
+        <button
+          className="btn btn-primart mb-5"
+          onClick={() => {
+            navigate(`/posts/${postId}/updatePost`);
+          }}
+        >
+          update this post
+        </button>
+      )}
       <div className="singlePostWrapper">
-        {updateMode ? (
-          <PostImg />
-        ) : !imageKey ? null : (
-          <ViewImage imageKey={imageKey} />
-        )}
+        {!imageKey && null}
+        {imageKey && <ViewImage imageKey={imageKey} />}
+        <h2>{post.postTitle}</h2>
+        <h3>{post.postDesc}</h3>
+        <h3>{post.username}</h3>
+      </div>
 
-        {updateMode ? (
-          <input
-            type="text"
-            value={title}
-            className="singlePostTitleInput"
-            autoFocus
-            onChange={(e) => setTitle(e.target.value)}
-          />
-        ) : (
-          <h1 className="singlePostTitle">{title}</h1>
-        )}
-        <div className="author">Author: {post.username}</div>
-
-        {updateMode ? (
-          <textarea
-            className="singlePostDescinput"
-            value={desc}
-            onChange={(e) => setDesc(e.target.value)}
-          />
-        ) : (
-          <p className="singlePostDesc">{post.postDesc}</p>
-        )}
-
-        {updateMode && (
-          <button className="singlePostButton" onClick={handleUpdate}>
-            Update
+      <div>
+        {view ? null : (
+          <button className="viewComment" onClick={() => setView(true)}>
+            view comments
           </button>
         )}
-        {context.admin && (
-          <button onClick={handleDelete}>Delete this post</button>
+        {view && (
+          <div className="commentsContainer">
+            <button onClick={() => setView(false)}>hide comments</button>
+            <div className="commentBox">
+              <CommentTextBox />
+            </div>
+            <Comments postId={postId} />
+          </div>
         )}
       </div>
-      
-      {!updateMode && (
-        <div>
-          {view ? (
-            ""
-          ) : (
-            <button className="viewComment" onClick={() => setView(true)}>
-              view comments
-            </button>
-          )}
-          {view && (
-            <div className="commentsContainer">
-              <button onClick={() => setView(false)}>hide comments</button>
-              <div className="commentBox">
-                <CommentTextBox />
-              </div>
-              <Comments postId={postId} />
-            </div>
-          )}
-        </div>
-      )}
     </div>
   );
 }
