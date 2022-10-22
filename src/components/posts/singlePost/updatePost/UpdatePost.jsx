@@ -12,7 +12,7 @@ import PostContext from "../../../../authContext/postContext";
 import "./updatePost.css";
 
 const UpdatePost = () => {
-    const navigate = useNavigate()
+  const navigate = useNavigate();
   const imageCtx = useContext(PostContext);
   const [post, setPost] = useState({
     username: "",
@@ -23,7 +23,7 @@ const UpdatePost = () => {
   const [imageKey, setImageKey] = useState("");
   const username = window.localStorage.getItem("user");
   const postId = location.pathname.split("/")[2];
-
+console.log(imageKey)
   useEffect(() => {
     console.log("IN USE EFFECT");
     const getPost = async () => {
@@ -32,13 +32,14 @@ const UpdatePost = () => {
         setPost(res.data);
         const imgRes = await GetPostImage(res.data.imageId);
         setImageKey(imgRes.data.imageKey);
+        console.log("IN USE EFFECT INSIDE ASYNC")
       } catch (error) {
         console.log(error);
       }
     };
     getPost();
   }, []);
-
+  console.log(post);
   const handleDelete = async () => {
     try {
       await axios.delete(`/posts/${post._id}`);
@@ -52,25 +53,32 @@ const UpdatePost = () => {
     event.preventDefault();
     setPost({ ...post, [event.target.id]: event.target.value });
   };
+
   const handleDeleteImg = async () => {
+    window.localStorage.removeItem("imageId");
+    window.localStorage.removeItem("imageKey");
     try {
-        const res = await axios.delete(`/images/${postId}/${imageKey}/${post.imageId}`)
-        setPost(res.data)
-        setImageKey(undefined)
-    }catch (error) {
-        console.log(error)
+      const res = await axios.delete(
+        `/images/${postId}/${imageKey}/${post.imageId}`
+      );
+    } catch (error) {
+      console.log(error);
     }
-  }
+  };
 
   const handleUpdate = async () => {
     try {
-      await axios.put(`/posts/${postId}/${imageCtx.imageId}`, {
-        _id: postId,
-        username: username,
-        postTitle: post.postTitle,
-        postDesc: post.postDesc,
-      });
-      navigate(`/posts/${post._id}`);
+      if (!imageCtx.imageId) {
+        console.log("NONONONONNONNNONONONONONNEEEEE");
+      } else {
+        await axios.put(`/posts/${postId}/${imageCtx.imageId}`, {
+          _id: postId,
+          username: username,
+          postTitle: post.postTitle,
+          postDesc: post.postDesc,
+        });
+        navigate(`/posts/${post._id}`);
+      }
     } catch (err) {
       console.log(err);
     }
@@ -98,7 +106,9 @@ const UpdatePost = () => {
           <div className="update-image-wrapper">
             {imageKey && <ViewImage imageKey={imageKey} />}
             {imageKey && null}
-            {imageKey && <button onClick={handleDeleteImg}>Delete Image</button>}
+            {imageKey && (
+              <button onClick={handleDeleteImg}>Delete Image</button>
+            )}
           </div>
           <button type="submit">Update</button>
           <button type="submit" onClick={handleDelete}>
