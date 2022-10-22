@@ -6,7 +6,7 @@ const PostContext = React.createContext({
 });
 
 export const PostContextProvider = (props) => {
-  const [imageId, setImageId] = useState()  
+  const [imageId, setImageId] = useState("")  
   const [imageKey, setImageKey] = useState()
 
   console.log("IMAGE ID " + imageId)

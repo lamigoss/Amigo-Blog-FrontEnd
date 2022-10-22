@@ -10,6 +10,7 @@ import PostContext from "../../../../authContext/postContext";
 // import { Edit } from "@mui/icons-material";
 // import { Delete } from "@mui/icons-material";
 import "./updatePost.css";
+import Context from "@mui/base/TabsUnstyled/TabsContext";
 
 const UpdatePost = () => {
   const navigate = useNavigate();
@@ -23,23 +24,23 @@ const UpdatePost = () => {
   const [imageKey, setImageKey] = useState("");
   const username = window.localStorage.getItem("user");
   const postId = location.pathname.split("/")[2];
-console.log(imageKey)
+
   useEffect(() => {
-    console.log("IN USE EFFECT");
+    window.localStorage.removeItem("imageId");
     const getPost = async () => {
       try {
         const res = await axios.get(`/posts/${postId}`);
         setPost(res.data);
         const imgRes = await GetPostImage(res.data.imageId);
         setImageKey(imgRes.data.imageKey);
-        console.log("IN USE EFFECT INSIDE ASYNC")
       } catch (error) {
         console.log(error);
       }
-    };
+    };      
+    imageCtx.setImageId("")
     getPost();
   }, []);
-  console.log(post);
+
   const handleDelete = async () => {
     try {
       await axios.delete(`/posts/${post._id}`);
@@ -61,6 +62,7 @@ console.log(imageKey)
       const res = await axios.delete(
         `/images/${postId}/${imageKey}/${post.imageId}`
       );
+
     } catch (error) {
       console.log(error);
     }
@@ -77,6 +79,7 @@ console.log(imageKey)
           postTitle: post.postTitle,
           postDesc: post.postDesc,
         });
+   
         navigate(`/posts/${post._id}`);
       }
     } catch (err) {
