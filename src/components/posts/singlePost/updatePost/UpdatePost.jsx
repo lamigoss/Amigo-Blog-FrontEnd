@@ -67,17 +67,24 @@ const UpdatePost = () => {
       console.log(error);
     }
   };
-
+console.log(post)
   const handleUpdate = async () => {
     try {
       if (!imageCtx.imageId) {
-        console.log("NONONONONNONNNONONONONONNEEEEE");
+        await axios.put(`/posts/${postId}`, {
+          _id: postId,
+          username: username,
+          postTitle: post.postTitle,
+          postDesc: post.postDesc,
+        });
+   
+        navigate(`/posts/${post._id}`);
       } else {
         await axios.put(`/posts/${postId}/${imageCtx.imageId}`, {
           _id: postId,
           username: username,
           postTitle: post.postTitle,
-          postDesc: post.postDesc,
+          postDesc: post.postDesc
         });
    
         navigate(`/posts/${post._id}`);
