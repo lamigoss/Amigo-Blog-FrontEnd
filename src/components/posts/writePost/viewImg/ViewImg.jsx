@@ -6,6 +6,7 @@ import PostContext from "../../../../authContext/postContext";
 const ViewImg = ({ imageKey }) => {
   const context = useContext(PostContext);
   const [image, setImage] = useState();
+
   useEffect(() => {
     GetImage(imageKey).then((res) => {
       // console.log(res.data[0]._id)
@@ -16,7 +17,8 @@ const ViewImg = ({ imageKey }) => {
 
   return (
     <div>
-      <img className="postsImg" src={image} alt="" />
+      {image && <img className="postsImg" src={image} alt="" />}
+      {!image && null}
     </div>
   );
 };
