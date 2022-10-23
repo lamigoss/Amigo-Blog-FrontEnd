@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { GetComment } from "../../../../utils/httpRequests/HttpRequest";
 
-import "./comment.css";
+import "./comments.css";
 const Comment = () => {
   const [writeMode, setWriteMode] = useState(false);
   const [comments, setComments] = useState();
