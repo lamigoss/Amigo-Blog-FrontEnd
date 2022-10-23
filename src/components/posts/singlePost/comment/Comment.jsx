@@ -5,7 +5,6 @@ import { GetComment } from "../../../../utils/httpRequests/HttpRequest";
 
 import "./comments.css";
 const Comment = () => {
-  const [writeMode, setWriteMode] = useState(false);
   const [comments, setComments] = useState();
 
   const { postId } = useParams();
