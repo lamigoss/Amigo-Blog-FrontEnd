@@ -6,7 +6,7 @@ import { GetPostImage } from "../../../utils/httpRequests/HttpRequest";
 
 const Posts = ({ post }) => {
   const [imageKey, setImageKey] = useState();
-  console.log("this is from post: " + post.imageId);
+  
   useEffect(() => {
     GetPostImage(post.imageId).then((res) => setImageKey(res.data.imageKey));
   }, []);

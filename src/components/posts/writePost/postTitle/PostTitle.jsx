@@ -1,14 +1,14 @@
-const PostTitle = ({ handleChange, postTitle }) => {
+const PostTitle = (props) => {
   return (
     <>
       <div className="titlePost">Post title</div>
       <input
         type="text"
-        id='postTitle'
-        value={postTitle}
+        id="postTitle"
+        value={props.postTitle}
         placeholder="Post title"
         className="titleInput"
-          onChange={handleChange}
+        onChange={props.handleChange}
       />
     </>
   );
