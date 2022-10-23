@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import "./commentTextBox.css";
 import { useLocation } from "react-router-dom";
@@ -14,11 +14,13 @@ const CommentTextBox = () => {
 
   const postId = location.pathname.split("/")[2];
 
+  // comment state being changed
   const handleChange = (e) => {
     const text = e.target.value;
     setComment({ postId: postId, desc: text, username: user });
   };
 
+  //comment post api
   const handleComment = () => {
     const res = axios.post("/comments", comment);
     console.log("comment working?: " + comment);
