@@ -9,6 +9,7 @@ const Comment = () => {
 
   const { postId } = useParams();
 
+  //gogo edit ? comment
   useEffect(() => {
     GetComment(postId)
       .then((res) => setComments(res.data))
