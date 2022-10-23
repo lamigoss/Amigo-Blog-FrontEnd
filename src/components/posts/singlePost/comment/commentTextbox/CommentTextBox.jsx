@@ -39,3 +39,5 @@ const CommentTextBox = () => {
     </>
   );
 };
+
+export default CommentTextBox;
