@@ -66,15 +66,18 @@ const UpdatePost = () => {
       console.log(error);
     }
   };
-
-  const handleUpdate = async (e) => {
-    e.preventDefault();
-    console.log(" before post title ::: " + post.postTitle);
-    console.log(" before post desc ::: " + post.postDesc);
-
-    console.log("update clicked");
+  console.log(post);
+  const handleUpdate = async () => {
     try {
       if (!imageCtx.imageId) {
+        await axios.put(`/posts/${postId}`, {
+          _id: postId,
+          username: username,
+          postTitle: post.postTitle,
+          postDesc: post.postDesc,
+        });
+
+        navigate(`/posts/${post._id}`);
       } else {
         await axios.put(`/posts/${postId}/${imageCtx.imageId}`, {
           _id: postId,
