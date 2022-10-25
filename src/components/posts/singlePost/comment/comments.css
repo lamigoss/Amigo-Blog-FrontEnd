@@ -1,21 +1,16 @@
-.commentContainer{
-    top: 30px;
-    width: 50%;
-    background-color: aquamarine;
-    opacity: 80%;
-    display: flex;
-    margin-top: 20px;
-    border-radius: 8px;
-    flex-direction: row;
-    justify-content: space-around;
-
-
+/* .commentContainer{
+    max-width: 1200px;
+    width: calc(100vw - 4rem);
+    margin: 2rem auto;
 }
 
 .commentBox{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    gap: 10px;
 }
+
+
 
 .user{
     display: flex;
@@ -37,4 +32,4 @@
 .timeStamp{
     display: flex;
     justify-content: space-between;
-}
+} */
