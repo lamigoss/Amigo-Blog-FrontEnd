@@ -54,7 +54,6 @@ const UpdatePost = () => {
       console.log(error);
     }
   };
-  console.log(post);
   const handleUpdate = async () => {
     try {
       if (!imageCtx.imageId) {
