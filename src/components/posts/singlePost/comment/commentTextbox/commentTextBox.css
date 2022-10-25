@@ -1,3 +1,15 @@
-.commentTextbox{
-    width: 450px;
+.textboxContainer{
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
+
+.commentTextbox{
+    border: none;
+    border-bottom: 1px solid ;
+    color: grey;
+    padding: 5px;
+    width: 100%;
+  }
+

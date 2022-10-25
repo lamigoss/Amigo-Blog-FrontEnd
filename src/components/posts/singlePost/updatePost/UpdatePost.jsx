@@ -7,10 +7,7 @@ import PostImg from "../../writePost/postImg/PostImg";
 import PostDesc from "../../writePost/postDesc/PostDesc";
 import { GetPostImage } from "../../../../utils/httpRequests/HttpRequest";
 import PostContext from "../../../../authContext/postContext";
-// import { Edit } from "@mui/icons-material";
-// import { Delete } from "@mui/icons-material";
 import "./updatePost.css";
-// import Context from "@mui/base/TabsUnstyled/TabsContext";
 
 const UpdatePost = () => {
   const navigate = useNavigate();
@@ -41,15 +38,6 @@ const UpdatePost = () => {
     getPost();
   }, []);
 
-  const handleDelete = async () => {
-    try {
-      await axios.delete(`/posts/${post._id}`);
-      window.location.replace("/posts");
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
   const handleChange = (event) => {
     event.preventDefault();
     setPost({ ...post, [event.target.id]: event.target.value });
@@ -77,7 +65,7 @@ const UpdatePost = () => {
           postDesc: post.postDesc,
         });
 
-        navigate(`/posts/${post._id}`);
+        navigate(`/posts`);
       } else {
         await axios.put(`/posts/${postId}/${imageCtx.imageId}`, {
           _id: postId,
@@ -85,18 +73,8 @@ const UpdatePost = () => {
           postTitle: post.postTitle,
           postDesc: post.postDesc,
         });
-        console.log(" post ::: " + post);
-        navigate(`/posts/${post._id}`);
+        navigate(`/posts`);
       }
-
-      //     await axios.put(`/posts/${postId}/${imageCtx.imageId}`, {
-      //       _id: postId,
-      //       username: username,
-      //       postTitle: post.postTitle,
-      //       postDesc: post.postDesc,
-      //     });
-      //     console.log(" post ::: " + post);
-      //     navigate(`/posts/${post._id}`);
     } catch (err) {
       console.log(err + post.postTitle);
     }
@@ -117,9 +95,6 @@ const UpdatePost = () => {
             )}
           </div>
           <button type="submit">Update</button>
-          <button type="delete" onClick={handleDelete}>
-            Delete post
-          </button>
         </form>
       </div>
     </div>

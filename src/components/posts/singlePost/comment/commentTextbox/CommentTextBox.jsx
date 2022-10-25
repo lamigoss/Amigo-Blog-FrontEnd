@@ -29,7 +29,7 @@ const CommentTextBox = () => {
   };
   return (
     <>
-      <form className="container" onSubmit={handleComment}>
+      <form className="textboxContainer" onSubmit={handleComment}>
         <input
           type="text"
           className="commentTextbox"

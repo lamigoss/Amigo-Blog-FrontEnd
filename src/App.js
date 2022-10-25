@@ -9,6 +9,9 @@ import BlogPostPage from "./pages/blogPostPage/BlogPostPage";
 import WritePost from "./components/posts/writePost/post/WritePost";
 import SinglePost from "./components/posts/singlePost/SinglePost";
 import UpdatePost from "./components/posts/singlePost/updatePost/UpdatePost";
+import "./index.css";
+
+
 
 const App = () => {
   

@@ -6,8 +6,10 @@ import Comments from "./comment/Comments";
 import { GetPostImage } from "../../../utils/httpRequests/HttpRequest";
 import ViewImage from "./viewImage/ViewImage";
 import CommentTextBox from "./comment/commentTextbox/CommentTextBox";
-import "./singlepost.css";
+import updateButton from "../../../img/edit.png";
+import deleteButton from "../../../img/delete.png";
 
+import "./singlePost.css";
 
 export default function SinglePost() {
   const context = useContext(AuthContext);
@@ -34,22 +36,45 @@ export default function SinglePost() {
     getPost();
   }, []);
 
+  const handleDelete = async () => {
+    try {
+      await axios.delete(`/posts/${post._id}`);
+      window.location.replace("/posts");
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <div className="singlePostContainer">
-      {context.admin && (
-        <button
-          className="btn btn-primart mb-5"
-          onClick={() => {
-            navigate(`/posts/${postId}/updatePost`);
-          }}
-        >
-          update this post
-        </button>
-      )}
       <div className="singlePostWrapper">
         {!imageKey && null}
         {imageKey && <ViewImage imageKey={imageKey} />}
-        <h2>{post.postTitle}</h2>
+
+        <h2>
+          {post.postTitle}
+
+          {context.admin && (
+            <img
+              className="button"
+              src={updateButton}
+              alt=""
+              onClick={() => {
+                navigate(`/posts/${postId}/updatePost`);
+              }}
+            />
+          )}
+
+          {context.admin && (
+            <img
+              className="button"
+              src={deleteButton}
+              alt=""
+              onClick={handleDelete}
+            />
+          )}
+        </h2>
+
         <h3>{post.postDesc}</h3>
         <h3>{post.username}</h3>
       </div>
