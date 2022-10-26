@@ -15,18 +15,18 @@ const Topbar = () => {
         <div className="grid grid-cols-3">
           <div className="topbarWrapper">
             <Link to="/">
-              <span className="hover:bg-white ">Home</span>
+              <span className="duration-100 hover:text-blue-400">Home</span>
             </Link>
           </div>
 
           <div className="post">
             <Link to="/posts">
-              <span className="topbarLink">Posts</span>
+              <span className="duration-100 hover:text-blue-400">Posts</span>
             </Link>
           </div>
           <div className="developers">
             <Link to="/developers">
-              <span className="topbarLink">Developers</span>
+              <span className="duration-100 hover:text-blue-400">Developers</span>
             </Link>
           </div>
         </div>
