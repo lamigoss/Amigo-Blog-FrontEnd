@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Home from "./pages/home/Home";
 import Login from "./components/userAuth/login/Login";
 import Developers from "./components/dev/Developers";
 import Topbar from "./components/topbar/Topbar";
@@ -16,6 +17,7 @@ const App = () => {
       <div>
         <Topbar />
         <Routes>
+          <Route path="/" element={<Home />} />
           <Route path="/posts" element={<BlogPostPage />} />
           <Route path="/posts/:postId" element={<SinglePost />} />
           <Route path="/posts/:postId/updatePost" element={<UpdatePost />} />

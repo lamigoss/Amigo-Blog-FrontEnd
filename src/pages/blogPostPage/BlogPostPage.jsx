@@ -21,7 +21,7 @@ export default function BlogPostPage() {
   // console.log(posts)
   return (
     <>
-      <div className="p-20">
+      <div className="p-">
         {posts &&
           posts.map((posting) => <Posts key={posting._id} post={posting} />)}
         {!posts && <p>loading</p>}
