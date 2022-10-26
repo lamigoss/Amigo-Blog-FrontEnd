@@ -11,13 +11,14 @@ const Topbar = () => {
 
   return (
     <>
-      <div className="border-b-[1px] border-blue-500 p-1 text-sm	text-blue-800">
-        <div className="topbarWrapper">
-          <Link to="/">
-            <span className="hover:bg-white ">Home</span>
-          </Link>
-        </div>
-        <div className="topbarCenter">
+      <div className="grid grid-cols-2 p-6 text-sm border-b[1px]	text-blue-800">
+        <div className="grid grid-cols-3">
+          <div className="topbarWrapper">
+            <Link to="/">
+              <span className="hover:bg-white ">Home</span>
+            </Link>
+          </div>
+
           <div className="post">
             <Link to="/posts">
               <span className="topbarLink">Posts</span>
@@ -28,35 +29,44 @@ const Topbar = () => {
               <span className="topbarLink">Developers</span>
             </Link>
           </div>
+        </div>
+        <div className="grid grid-cols-3">
           {context.isLoggedIn ? (
-            <div className="login developers">
+            <div className="col-end-4">
               <Link onClick={handleLogout} to="/logout">
-                <span className="topbarLink">Logout</span>
+                <span className="px-10 p-2 text-white transition duration-100 rounded-md bg-indigo-500 hover:bg-indigo-700 justify-self-center mt-6 shadow-lg">
+                  Logout
+                </span>
               </Link>
             </div>
           ) : (
             <>
-              <div className="">
+              <div className="col-end-4">
                 <Link to="/login">
-                  <span className="topbarLink">Login</span>
+                  <span className="px-10 p-2 text-white transition duration-100 rounded-md bg-indigo-500 hover:bg-indigo-700 justify-self-center mt-6 shadow-lg">
+                    Login
+                  </span>
                 </Link>
               </div>
-              <div className="login developers">
+              <div className="col-end-5">
                 <Link to="/signup">
-                  <span className="topbarLink">Sign Up</span>
+                  <span className="px-10 p-2 text-white transition duration-100 rounded-md bg-indigo-500 hover:bg-indigo-700 justify-self-center mt-6 shadow-lg">
+                    Sign Up
+                  </span>
                 </Link>
               </div>
             </>
           )}
+          {context.admin ? (
+            <div className="col-end-5">
+              <Link to="/posts/create">
+                <span className="px-10 p-2 text-white transition duration-100 rounded-md bg-indigo-500 hover:bg-indigo-700 justify-self-center mt-6 shadow-lg">
+                  Blog
+                </span>
+              </Link>
+            </div>
+          ) : null}
         </div>
-        <div className="topbarLeft"></div>
-        {context.admin ? (
-          <div className="login developers">
-            <Link to="/posts/create">
-              <span className="topbarLink">Create a blog post</span>
-            </Link>
-          </div>
-        ) : null}
       </div>
     </>
   );
