@@ -47,11 +47,6 @@
 
 }
 
-span.topbarLink{
-    font-family: 'Courier New', Courier, monospace;
-    color: black;
-}
-
 span.topbarLink:hover{
     text-decoration: underline black;
 }

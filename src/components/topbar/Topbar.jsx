@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import "./topbar.css";
 import { Link } from "react-router-dom";
 import AuthContext from "../../authContext/authContext";
 
@@ -12,7 +11,7 @@ const Topbar = () => {
   if (context.isLoggedIn) {
     return (
       <>
-        <div className="topbarContainer">
+        <div className="border-b-[1px] border-blue-500 p-1">
           <div className="topbarLeft">
             <Link to="/" style={{ textDecoration: "none" }}>
               <span className="logo">Home</span>
@@ -53,7 +52,7 @@ const Topbar = () => {
   } else {
     return (
       <>
-        <div className="topbarContainer">
+        <div className="grid justify-items-start border-b-[.5px] border-indigo-500 p-2">
           <div className="topbarLeft">
             <Link to="/" style={{ textDecoration: "none" }}>
               <span className="logo">Home</span>
@@ -70,7 +69,7 @@ const Topbar = () => {
                 <span className="topbarLink">Developers</span>
               </Link>
             </div>
-            <div className="login developers">
+            <div className="">
               <Link to="/login" style={{ textDecoration: "none" }}>
                 <span className="topbarLink">Login</span>
               </Link>
