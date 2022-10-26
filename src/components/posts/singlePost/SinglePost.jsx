@@ -9,7 +9,7 @@ import CommentTextBox from "./comment/commentTextbox/CommentTextBox";
 import updateButton from "../../../img/edit.png";
 import deleteButton from "../../../img/delete.png";
 
-import "./singlePost.css";
+import "./singlepost.css";
 
 export default function SinglePost() {
   const context = useContext(AuthContext);
