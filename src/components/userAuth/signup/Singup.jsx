@@ -48,7 +48,6 @@ const Signup = () => {
             <span className="text-slate-600">Email:</span>
             <input
               className="bg-transparent outline-none text-slate-800 border-b-[1px] border-blue-500 p-1"
-              placeholder="email"
               id="email"
               onChange={handleChange}
               value={userSignup.email}
@@ -56,7 +55,6 @@ const Signup = () => {
             <span className="text-slate-600 mt-5">Username:</span>
             <input
               className="bg-transparent outline-none text-slate-800 border-b-[1px] border-blue-500 p-1"
-              placeholder="username"
               id="username"
               onChange={handleChange}
               value={userSignup.username}
@@ -64,7 +62,6 @@ const Signup = () => {
             <span className="text-slate-600 mt-5">Password:</span>
             <input
               className="bg-transparent outline-none text-slate-800 border-b-[1px] border-blue-500 p-1"
-              placeholder="password"
               id="password"
               type="password"
               onChange={handleChange}
@@ -73,18 +70,22 @@ const Signup = () => {
             <span className="text-slate-600 mt-5">isAdmin:</span>
             <input
               className="bg-transparent outline-none text-slate-800 border-b-[1px] border-blue-500 p-1"
-              placeholder="isAdmin"
               id="isAdmin"
               onChange={handleChange}
               value={userSignup.isAdmin}
             ></input>
-              <button
-                className="w-1/2 px-10 p-2 text-white transition duration-300 rounded-md hover:from-indigo-500 hover:to-blue-500 ease bg-gradient-to-br from-blue-400 to-indigo-400 justify-self-center mt-6 shadow-lg"
-                type="submit"
-              >
-                Submit
-              </button>
-            
+            {formIsValid &&  <button
+              className="w-1/2 px-10 p-2 text-white transition duration-300 rounded-md hover:from-indigo-500 hover:to-blue-500 ease bg-gradient-to-br from-blue-400 to-indigo-400 justify-self-center mt-6 shadow-lg"
+              type="submit"
+            >
+              Submit
+            </button>}
+           {!formIsValid &&  <button disabled
+              className="w-1/2 px-10 p-2 text-white transition duration-300 rounded-md bg-gradient-to-br from-blue-200 to-indigo-200 justify-self-center mt-6 shadow-lg"
+              type="submit"
+            >
+              Submit
+            </button>}
           </div>
         </form>
       </div>
