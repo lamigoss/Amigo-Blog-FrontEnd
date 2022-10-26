@@ -11,24 +11,23 @@ import SinglePost from "./components/posts/singlePost/SinglePost";
 import UpdatePost from "./components/posts/singlePost/updatePost/UpdatePost";
 import "./index.css";
 
-
-
 const App = () => {
-  
   return (
     <Router>
-      <Topbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/posts" element={<BlogPostPage />} />
-        <Route path="/posts/:postId" element={<SinglePost />} />
-        <Route path="/posts/:postId/updatePost" element={<UpdatePost />} />
-        <Route path="/posts/create" element={<WritePost />} />
-        <Route path="/developers" element={<Developers />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/logout" element={<Logout />} />
-        <Route path="/signup" element={<Signup />} />
-      </Routes>
+      <div>
+        <Topbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/posts" element={<BlogPostPage />} />
+          <Route path="/posts/:postId" element={<SinglePost />} />
+          <Route path="/posts/:postId/updatePost" element={<UpdatePost />} />
+          <Route path="/posts/create" element={<WritePost />} />
+          <Route path="/developers" element={<Developers />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/logout" element={<Logout />} />
+          <Route path="/signup" element={<Signup />} />
+        </Routes>
+      </div>
     </Router>
   );
 };

@@ -18,13 +18,12 @@ export default function BlogPostPage() {
   }, []);
 
   //pagination needs to be added
-// console.log(posts)
+  // console.log(posts)
   return (
     <>
-      <div className="postingContainer">
-        {posts && posts.map((posting) => (
-          <Posts key={posting._id} post={posting} />
-        ))}
+      <div className="p-">
+        {posts &&
+          posts.map((posting) => <Posts key={posting._id} post={posting} />)}
         {!posts && <p>loading</p>}
         {/* <Posts /> */}
       </div>
