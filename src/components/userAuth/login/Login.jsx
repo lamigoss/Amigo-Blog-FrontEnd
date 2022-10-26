@@ -51,7 +51,7 @@ const Login = () => {
               type="password"
             />
             <button
-              className="w-1/2 px-10 p-2 text-white transition duration-300 rounded-md hover:from-teal-6000 hover:to-sky-700 ease bg-gradient-to-br from-sky-500 to-teal-500 justify-self-center mt-6 shadow-lg"
+               className="w-1/2 px-10 p-2 text-white transition duration-300 rounded-md hover:from-indigo-500 hover:to-blue-500 ease bg-gradient-to-br from-blue-400 to-indigo-400 justify-self-center mt-6 shadow-lg"
               type="submit"
             >
               Login
