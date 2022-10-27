@@ -7,7 +7,6 @@ import PostImg from "../../writePost/postImg/PostImg";
 import PostDesc from "../../writePost/postDesc/PostDesc";
 import { GetPostImage } from "../../../../utils/httpRequests/HttpRequest";
 import PostContext from "../../../../authContext/postContext";
-import "./updatePost.css";
 
 const UpdatePost = () => {
   const navigate = useNavigate();

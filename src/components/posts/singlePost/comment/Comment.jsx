@@ -1,6 +1,5 @@
 import axios from "axios";
 import React from "react";
-import "./comment.css";
 import deleting from "../../../../img/delete.png";
 
 const Comment = ({ comment }) => {

@@ -36,26 +36,36 @@ export default function WritePost() {
 
   return (
     <>
-      <div className="pageTitleContainer">
-        <span></span>
-      </div>
-      <div className="postDataContainer">
-        <form className="postDataFormBox" onSubmit={postSubmitHandler}>
-          <PostTitle
-            handleChange={handleChange}
-            postTitle={form.postTitle}
-            value={form.postTitle}
-          />
-          <PostDesc
-            handleChange={handleChange}
-            postDesc={form.postDesc}
-            value={form.postDesc}
-          />
-          <PostImg />
-          <button type="submit" className="btn btn-primary">
-            Click to Post!
-          </button>
-        </form>
+      <div className="flex items-center justify-center mt-40">
+        <div className="bg-white bg-opacity-50 text-black shadow-lg rounded-md w-3/5 h-4/6">
+          <form className="postDataFormBox" onSubmit={postSubmitHandler}>
+            <div className="grid grid-rows gap-6">
+              <div className="text-slate-800 border-b-[.5px] border-blue-200 ">
+                <PostTitle
+                  handleChange={handleChange}
+                  postTitle={form.postTitle}
+                  value={form.postTitle}
+                />
+              </div>
+              <div className="text-slate-800 border-b-[.5px] border-blue-200 ">
+                <PostDesc
+                  handleChange={handleChange}
+                  postDesc={form.postDesc}
+                  value={form.postDesc}
+                />
+              </div>
+              <div className="text-slate-800 border-b-[.5px] border-blue-200">
+              <PostImg />
+              </div>
+              <button
+                type="submit"
+                className="w-1/2 px-10 p-2 text-white transition duration-300 rounded-md hover:from-indigo-500 hover:to-blue-500 ease bg-gradient-to-br from-blue-400 to-indigo-400 justify-self-center mt-10 mb-8 shadow-lg"
+              >
+                Post
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </>
   );

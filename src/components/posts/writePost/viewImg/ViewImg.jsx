@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext } from "react";
-import "./viewImg.css";
 import { GetImage } from "../../../../utils/httpRequests/HttpRequest";
 import PostContext from "../../../../authContext/postContext";
 
@@ -16,11 +15,9 @@ const ViewImg = ({ imageKey }) => {
   }, []);
 
   return (
-    <div>
+    <div className="mt-10 mb-10">
       {image ? (
-        <div className="scale-90">
-          <img className="postsImg" src={image} alt="" />{" "}
-        </div>
+        <img className="object-contain h-48 w-96" src={image} alt="" />
       ) : null}
     </div>
   );

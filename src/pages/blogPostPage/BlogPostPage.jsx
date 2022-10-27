@@ -17,7 +17,7 @@ export default function BlogPostPage() {
 
   return (
     <>
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-5 md:gap-3">
+      <div className="">
         {posts ? (
           posts.map((posting) => (
             <div className="">

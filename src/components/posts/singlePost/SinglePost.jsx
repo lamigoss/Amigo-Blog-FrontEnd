@@ -9,8 +9,6 @@ import CommentTextBox from "./comment/commentTextbox/CommentTextBox";
 import updateButton from "../../../img/edit.png";
 import deleteButton from "../../../img/delete.png";
 
-import "./singlepost.css";
-
 export default function SinglePost() {
   const context = useContext(AuthContext);
   const navigate = useNavigate();
