@@ -17,7 +17,7 @@ const Comment = ({ comment }) => {
   return (
     <div className="commentContainer">
       <div className="commentDetails">
-        <div className="break-all w-full">
+        <div className="commentNamediv">
           <span className="break-all w-full">{comment.username}</span>
 {/* 
           <img
@@ -27,7 +27,8 @@ const Comment = ({ comment }) => {
             alt=""
           /> */}
         </div>
-        <span className="commentText"> {comment.desc}</span>
+        {!comment.desc && <span className="commentText"> {comment.desc}</span>}
+        {comment.desc && <span className="commentText"> {comment.desc}</span>}
       </div>
     </div>
   );

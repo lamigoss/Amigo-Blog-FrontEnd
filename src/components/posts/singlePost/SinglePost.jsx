@@ -46,8 +46,8 @@ export default function SinglePost() {
   };
 
   return (
-    <div className="grid">
-      <div className="m-10 justify-self-center justify-center">
+    <div className="grid border-l border-r ">
+      <div className="m-10 justify-self-center justify-center border-blue-800  h-full ml-10 mr-10">
         <span className=" grid grid-cols-2 pt-4 pl-6 pb-2 pr-10">
           <img
             className="w-10 h-10 rounded-full col-end-1"
@@ -58,7 +58,7 @@ export default function SinglePost() {
           </div>
         </span>
       </div>
-      <div className="flex items-center justify-center border-l border-r border-blue-800 h-full ml-10 mr-10">
+      <div className="flex items-center justify-center h-full ml-10 mr-10">
         <div className="grid grid-cols-[60%_40%] text-black w-full h-full ml-10 mr-10">
           <div className="grid-rows-2">
             <h2 className="text-center text-6xl text-blue-800 break-words">
@@ -92,20 +92,20 @@ export default function SinglePost() {
           </div>
           <div className="ml-10">
             <div>
-              {view ? null : (
+              {/* {view ? null : (
                 <button className="viewComment" onClick={() => setView(true)}>
                   view comments
                 </button>
-              )}
-              {view && (
+              )} */}
+              {/* {view && ( */}
                 <div className="">
-                  <button onClick={() => setView(false)}>hide comments</button>
+                  {/* <button onClick={() => setView(false)}>hide comments</button> */}
                   <div className="">
                     <CommentTextBox />
                   </div>
-                  <Comments postId={postId} />
+                  <Comments />
                 </div>
-              )}
+              {/* )} */}
             </div>
           </div>
         </div>
