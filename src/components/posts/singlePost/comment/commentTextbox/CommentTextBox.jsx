@@ -30,9 +30,8 @@ const CommentTextBox = () => {
   return (
     <>
       <form className="textboxContainer" onSubmit={handleComment}>
-        <input
+        <textarea className="border-b-[2px] border-blue-800"
           type="text"
-          className="commentTextbox"
           placeholder="write your thoughts about this blog post and share with other readers!"
           onChange={handleChange}
         />
