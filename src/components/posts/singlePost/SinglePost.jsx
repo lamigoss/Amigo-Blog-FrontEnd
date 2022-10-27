@@ -46,7 +46,7 @@ export default function SinglePost() {
   };
 
   return (
-    <div className="grid grid-rows-[20%_150%]">
+    <div className="grid">
       <div className="m-10 justify-self-center justify-center">
         <span className=" grid grid-cols-2 pt-4 pl-6 pb-2 pr-10">
           <img
