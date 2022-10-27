@@ -32,7 +32,7 @@ const PostImg = () => {
     <>
       <div className="grid grid-cols-[20%_80%] gap-x-2 pt-4 pl-6 pb-2 pr-10">
         <div className="text-blue-500">Post Image:</div>
-        <div className="">
+        <div className="grid">
         <input onChange={handleChange} type="file" />
           {imageKey === undefined ? null : <ViewImg imageKey={imageKey} />}
           <button onClick={handleSumbit} type="submit" className="px-10 p-2 text-white transition duration-100 rounded-md bg-indigo-500 hover:bg-indigo-700 justify-self-center mt-6 shadow-lg">

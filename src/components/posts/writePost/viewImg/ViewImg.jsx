@@ -16,7 +16,7 @@ const ViewImg = ({ imageKey }) => {
   }, []);
 
   return (
-    <div>
+    <div className="mt-10 mb-10">
       {image && <img className="object-contain h-48 w-96" src={image} alt="" />}
       {!image && null}
     </div>
