@@ -17,8 +17,11 @@ const ViewImg = ({ imageKey }) => {
 
   return (
     <div>
-      {image && <img className="postsImg" src={image} alt="" />}
-      {!image && null}
+      {image ? (
+        <div className="scale-90">
+          <img className="postsImg" src={image} alt="" />{" "}
+        </div>
+      ) : null}
     </div>
   );
 };
