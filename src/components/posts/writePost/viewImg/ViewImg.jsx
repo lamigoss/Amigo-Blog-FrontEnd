@@ -17,7 +17,7 @@ const ViewImg = ({ imageKey }) => {
 
   return (
     <div>
-      {image && <img className="postsImg" src={image} alt="" />}
+      {image && <img className="object-contain h-48 w-96" src={image} alt="" />}
       {!image && null}
     </div>
   );
