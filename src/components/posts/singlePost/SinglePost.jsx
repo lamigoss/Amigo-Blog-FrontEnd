@@ -47,41 +47,47 @@ export default function SinglePost() {
 
   return (
     <div className="singlePostContainer">
-      <div className="singlePostWrapper">
-        {!imageKey && null}
-        {imageKey && <ViewImage imageKey={imageKey} />}
+      <div className="grid grid-cols-3">
+        {imageKey ? (
+          <div className="scale-70 m-10">
+            <ViewImage imageKey={imageKey} />
+          </div>
+        ) : null}
+        <div>
+          <div className="grid scale-50 grid-cols-2">
+            <div className="scale-50">
+              {context.admin ? (
+                <img
+                  className="scale-50"
+                  src={updateButton}
+                  alt=""
+                  onClick={() => {
+                    navigate(`/posts/${postId}/updatePost`);
+                  }}
+                />
+              ) : null}
 
-        <h2>
-          {post.postTitle}
-
-          {context.admin && (
-            <img
-              className="button"
-              src={updateButton}
-              alt=""
-              onClick={() => {
-                navigate(`/posts/${postId}/updatePost`);
-              }}
-            />
-          )}
-
-          {context.admin && (
-            <img
-              className="button"
-              src={deleteButton}
-              alt=""
-              onClick={handleDelete}
-            />
-          )}
-        </h2>
-
-        <h3>{post.postDesc}</h3>
-        <h3>{post.username}</h3>
+              {context.admin ? (
+                <img
+                  className="scale-50"
+                  src={deleteButton}
+                  alt=""
+                  onClick={handleDelete}
+                />
+              ) : null}
+            </div>
+          </div>
+          <h3>{post.postTitle}</h3>
+          <h3>{post.username}</h3>
+        </div>
+        <div>
+          <h3>{post.postDesc}</h3>
+        </div>
       </div>
 
       <div>
         {view ? null : (
-          <button className="viewComment" onClick={() => setView(true)}>
+          <button className="contents-center" onClick={() => setView(true)}>
             view comments
           </button>
         )}

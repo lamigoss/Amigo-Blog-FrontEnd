@@ -11,21 +11,22 @@ export default function BlogPostPage() {
     const fetchData = async () => {
       const res = await axios.get("http://localhost:8800/api/posts/");
       setPosts(res.data);
-      // console.log(posts.length);
-      // console.log(res)
     };
     fetchData();
   }, []);
 
-  //pagination needs to be added
-  // console.log(posts)
   return (
     <>
-      <div className="p-">
-        {posts &&
-          posts.map((posting) => <Posts key={posting._id} post={posting} />)}
-        {!posts && <p>loading</p>}
-        {/* <Posts /> */}
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-5 md:gap-3">
+        {posts ? (
+          posts.map((posting) => (
+            <div className="">
+              <Posts key={posting._id} post={posting} />
+            </div>
+          ))
+        ) : (
+          <p>loading</p>
+        )}
       </div>
     </>
   );

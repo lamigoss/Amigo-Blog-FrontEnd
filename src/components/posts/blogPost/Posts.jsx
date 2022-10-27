@@ -10,27 +10,33 @@ const Posts = ({ post }) => {
   useEffect(() => {
     GetPostImage(post.imageId).then((res) => setImageKey(res.data.imageKey));
   }, []);
+
   return (
     <>
-      <Link to={`/posts/${post._id}`}>
-        <div className="border-4 border-black rounded-md flex items-center">
-          <div className="postsWrapper">
-            <div className="postsTop">
-              <div className="">
-                {!imageKey ? <p>Loading</p> : <ViewImg imageKey={imageKey} />}
-              </div>
-
-              <span className="font-bold">{post.postTitle}</span>
-              <div className="author">
-                <span className="userName">
-                  <strong>Writer</strong>: {post.username}
-                </span>
-              </div>
-              <span className="postsDesc">{post.postDesc}</span>
+      <div className="bg-white rounded-md p-1 m-5 h-50 w-60 hover:scale-150">
+        <Link to={`/posts/${post._id}`}>
+          <div className="scale-100">
+            <div className="">
+              {!imageKey ? (
+                <p>Loading</p>
+              ) : (
+                <div className="">
+                  <ViewImg imageKey={imageKey} />
+                </div>
+              )}
             </div>
           </div>
-        </div>
-      </Link>
+          <div className="items-center">
+            <span className="font-bold">{post.postTitle}</span>
+            <div className="author">
+              <span className="userName">
+                <strong>Writer</strong>: {post.username}
+              </span>
+            </div>
+            <span className="postsDesc">{post.postDesc}</span>
+          </div>
+        </Link>
+      </div>
     </>
   );
 };

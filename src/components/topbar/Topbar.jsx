@@ -11,9 +11,9 @@ const Topbar = () => {
 
   return (
     <>
-      <div className="grid grid-cols-2 p-6 text-sm border-b[1px]	text-blue-800">
-        <div className="grid grid-cols-3">
-          <div className="topbarWrapper">
+      <div className="grid md:grid-cols-2  md:p-6 text-sm md:border-b[1px]	text-blue-800 ">
+        <div className="grid md:grid-cols-3 grid-cols-1 ">
+          <div className="">
             <Link to="/">
               <span className="duration-100 hover:text-blue-400">Home</span>
             </Link>
@@ -26,13 +26,15 @@ const Topbar = () => {
           </div>
           <div className="developers">
             <Link to="/developers">
-              <span className="duration-100 hover:text-blue-400">Developers</span>
+              <span className="duration-100 hover:text-blue-400">
+                Developers
+              </span>
             </Link>
           </div>
         </div>
-        <div className="grid grid-cols-3">
+        <div className="grid md:grid-cols-3 grid-cols-1 gap-2">
           {context.isLoggedIn ? (
-            <div className="col-end-4">
+            <div className="md:col-end-4 grid-cols-1">
               <Link onClick={handleLogout} to="/logout">
                 <span className="px-10 p-2 text-white transition duration-100 rounded-md bg-indigo-500 hover:bg-indigo-700 justify-self-center mt-6 shadow-lg">
                   Logout
@@ -41,7 +43,7 @@ const Topbar = () => {
             </div>
           ) : (
             <>
-              <div className="col-end-4">
+              <div className="md:col-end-4 grid-cols-1">
                 <Link to="/login">
                   <span className="px-10 p-2 text-white transition duration-100 rounded-md bg-indigo-500 hover:bg-indigo-700 justify-self-center mt-6 shadow-lg">
                     Login
@@ -61,7 +63,7 @@ const Topbar = () => {
             <div className="col-end-5">
               <Link to="/posts/create">
                 <span className="px-10 p-2 text-white transition duration-100 rounded-md bg-indigo-500 hover:bg-indigo-700 justify-self-center mt-6 shadow-lg">
-                  Blog
+                  Write a Blog Post
                 </span>
               </Link>
             </div>
