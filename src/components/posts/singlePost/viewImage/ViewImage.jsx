@@ -11,7 +11,7 @@ const ViewImage = ({ imageKey }) => {
 
   return (
     <div>
-      <img className="postsImg" src={image} alt="" />
+      <img className="max-w-lg" src={image} alt="" />
     </div>
   );
 };

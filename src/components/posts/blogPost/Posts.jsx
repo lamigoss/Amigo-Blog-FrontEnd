@@ -13,8 +13,8 @@ const Posts = ({ post }) => {
 
   return (
     <>
-      <Link to={`/posts/${post._id}`}>
-        <div className="bg-white bg-opacity-50 text-black shadow-lg rounded-md w-3/5 h-4/6 m-20">
+      <div className="bg-white bg-opacity-50 text-black shadow-lg rounded-md w-3/5 h-4/6 m-20">
+        <Link to={`/posts/${post._id}`}>
           <div className="grid grid-cols-[30%_70%] gap-1">
             <div className="grid grid-row-[20%_80%] text-slate-800 border-b-[.5px] border-blue-200 pt-4 pl-6 pb-2 pr-10">
               <div className="border-b-[.5px] border-blue-500">
@@ -38,8 +38,8 @@ const Posts = ({ post }) => {
               </div>
             </div>
           </div>
-        </div>
-      </Link>
+        </Link>
+      </div>
     </>
   );
 };

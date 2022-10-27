@@ -29,14 +29,16 @@ const CommentTextBox = () => {
   };
   return (
     <>
-      <form className="textboxContainer" onSubmit={handleComment}>
+      <form className="text-sm  text-blue-800 " onSubmit={handleComment}>
         <input
           type="text"
-          className="commentTextbox"
+          className="opacity-60 rounded-md w-9/12  h-8 relative m-10 shadow-lg"
           placeholder="write your thoughts about this blog post and share with other readers!"
           onChange={handleChange}
         />
-        <button type="submit">Submit</button>
+        {/* <span className="bg-blue-400  rounded-md p-2 hover:bg-blue-300 relative shadow-lg cursor-pointer">
+          Submit
+        </span> */}
       </form>
     </>
   );

@@ -15,14 +15,13 @@ const Comment = ({ comment }) => {
 
   return (
     <div className="commentContainer">
-      <div className="commentDetails">
-        <div className="commentNamediv">
+      <div className="p-3 border-b-[.5px] border-blue-400">
+        <div className="grid grid-cols-12">
           <span className="commentName">{comment.username}</span>
-
           <img
             src={deleting}
             onClick={handleDelete}
-            className="button"
+            className="h-4 w-4 opacity-70 cursor-pointer hover:scale-110"
             alt=""
           />
         </div>

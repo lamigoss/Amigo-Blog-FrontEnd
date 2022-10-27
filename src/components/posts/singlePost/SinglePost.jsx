@@ -44,60 +44,62 @@ export default function SinglePost() {
   };
 
   return (
-    <div className="singlePostContainer">
-      <div className="grid grid-cols-3">
-        {imageKey ? (
-          <div className="scale-70 m-10">
-            <ViewImage imageKey={imageKey} />
-          </div>
-        ) : null}
-        <div>
-          <div className="grid scale-50 grid-cols-2">
-            <div className="scale-50">
-              {context.admin ? (
-                <img
-                  className="scale-50"
-                  src={updateButton}
-                  alt=""
-                  onClick={() => {
-                    navigate(`/posts/${postId}/updatePost`);
-                  }}
-                />
-              ) : null}
+    <div className="flex items-center w-3/5 h-4/6 justify-center">
+      <div className="grid grid-rows-2">
+        <div className="">
+          {imageKey ? <ViewImage imageKey={imageKey} /> : null}
+        </div>
 
-              {context.admin ? (
-                <img
-                  className="scale-50"
-                  src={deleteButton}
-                  alt=""
-                  onClick={handleDelete}
-                />
-              ) : null}
-            </div>
-          </div>
+        <div className="text-center underline">
           <h3>{post.postTitle}</h3>
           <h3>{post.username}</h3>
-        </div>
-        <div>
-          <h3>{post.postDesc}</h3>
-        </div>
-      </div>
 
-      <div>
-        {view ? null : (
-          <button className="contents-center" onClick={() => setView(true)}>
-            view comments
-          </button>
-        )}
-        {view && (
-          <div className="commentsContainer">
-            <button onClick={() => setView(false)}>hide comments</button>
-            <div className="commentBox">
-              <CommentTextBox />
-            </div>
-            <Comments postId={postId} />
+          <div className="">
+            <h3>{post.postDesc}</h3>
           </div>
-        )}
+        </div>
+
+        <div className="flex opacity-70">
+          <div className="h-10 w-10">
+            {context.admin ? (
+              <img
+                className="hover:scale-110 cursor-pointer"
+                src={updateButton}
+                alt=""
+                onClick={() => {
+                  navigate(`/posts/${postId}/updatePost`);
+                }}
+              />
+            ) : null}
+          </div>
+          <div className="h-10 w-10">
+            {context.admin ? (
+              <img
+                className="hover:scale-110 cursor-pointer"
+                src={deleteButton}
+                alt=""
+                onClick={handleDelete}
+              />
+            ) : null}
+          </div>
+        </div>
+
+        <div className="">
+          {view ? null : (
+            <button className="" onClick={() => setView(true)}>
+              view comments
+            </button>
+          )}
+          {view && (
+            <div className="commentsContainer">
+              <button onClick={() => setView(false)}>hide comments</button>
+              <div className="commentBox">
+                <CommentTextBox />
+              </div>
+              <Comments postId={postId} />
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

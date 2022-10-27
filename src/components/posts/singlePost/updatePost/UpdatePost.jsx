@@ -84,13 +84,12 @@ const UpdatePost = () => {
         <form className="update-post-form" onSubmit={handleUpdate}>
           <PostTitle postTitle={post.postTitle} handleChange={handleChange} />
           <PostDesc postDesc={post.postDesc} handleChange={handleChange} />
-          {!imageKey && <PostImg />}
+          {!imageKey ? <PostImg /> : null}
           <div className="update-image-wrapper">
-            {imageKey && <ViewImage imageKey={imageKey} />}
-            {imageKey && null}
-            {imageKey && (
+            {imageKey ? <ViewImage imageKey={imageKey} /> : null}
+            {imageKey ? (
               <button onClick={handleDeleteImg}>Delete Image</button>
-            )}
+            ) : null}
           </div>
           <button type="submit">Update</button>
         </form>
