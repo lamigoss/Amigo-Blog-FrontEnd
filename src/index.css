@@ -4,12 +4,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Exo:wght@500&display=swap');
 html {
   font-family: 'Exo', sans-serif;
-  color: #404040
+  color: #404040;
 
 }
 
 body {
   height: 100vh;
-  background-image: linear-gradient(to top right, #ede9fe, #bfdbfe);
   font-size: 14px;
 }
