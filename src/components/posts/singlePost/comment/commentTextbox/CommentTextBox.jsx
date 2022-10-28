@@ -1,7 +1,3 @@
-import React, { useState } from "react";
-import axios from "axios";
-import "./commentTextBox.css";
-import { useParams } from "react-router-dom";
 const CommentTextBox = ({ handleComment, handleChange, comment }) => {
   console.log(comment);
   return (
@@ -15,9 +11,9 @@ const CommentTextBox = ({ handleComment, handleChange, comment }) => {
           placeholder="write your thoughts about this blog post and share with other readers!"
           onChange={handleChange}
         />
-        {/* <span className="bg-blue-400  rounded-md p-2 hover:bg-blue-300 relative shadow-lg cursor-pointer">
+        <span className="bg-blue-400  rounded-md p-2 hover:bg-blue-300 relative shadow-lg cursor-pointer">
           Submit
-        </span> */}
+        </span>
       </form>
     </>
   );

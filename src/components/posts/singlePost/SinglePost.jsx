@@ -9,8 +9,6 @@ import updateButton from "../../../img/edit.png";
 import deleteButton from "../../../img/delete.png";
 import CommentTextBox from "./comment/commentTextbox/CommentTextBox";
 
-// import "./singlepost.css";
-
 export default function SinglePost() {
   const context = useContext(AuthContext);
   const navigate = useNavigate();
@@ -35,15 +33,6 @@ export default function SinglePost() {
     };
     getPost();
   }, [postId]);
-
-  // const handleDelete = async () => {
-  //   try {
-  //     await axios.delete(`/posts/${post._id}`);
-  //     window.location.replace("/posts");
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
 
   return (
     <div className="grid border-l border-r ">

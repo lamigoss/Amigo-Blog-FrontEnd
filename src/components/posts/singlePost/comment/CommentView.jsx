@@ -20,12 +20,12 @@ const CommentView = ({ comment }) => {
         <div className="commentNamediv">
           <span className="break-all w-full">{comment.username}</span>
 
-          {/* <img
+          <img
             src={deleting}
             onClick={handleDelete}
             className="button"
             alt=""
-          /> */}
+          />
         </div>
         {!comment.desc && <span className="commentText"> {comment.desc}</span>}
         {comment.desc && <span className="commentText"> {comment.desc}</span>}
