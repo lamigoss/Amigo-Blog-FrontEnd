@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext } from "react";
-import "./viewImg.css";
 import { GetImage } from "../../../../utils/httpRequests/HttpRequest";
 import PostContext from "../../../../authContext/postContext";
 

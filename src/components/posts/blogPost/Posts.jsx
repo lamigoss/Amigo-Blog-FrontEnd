@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import ViewImg from "../writePost/viewImg/ViewImg";
-// import "./posts.css";
 import { Link } from "react-router-dom";
 import { GetPostImage } from "../../../utils/httpRequests/HttpRequest";
 

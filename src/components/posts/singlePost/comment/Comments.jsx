@@ -7,7 +7,7 @@ import CommentTextBox from "./commentTextbox/CommentTextBox";
 const Comments = () => {
   const { postId } = useParams();
   const [comments, setComments] = useState([]);
-  const [commentInput, setCommentInput] = useState("")
+  const [commentInput, setCommentInput] = useState("");
   const user = window.localStorage.getItem("user");
 
   useEffect(() => {
@@ -15,7 +15,6 @@ const Comments = () => {
       try {
         const res = await axios.get(`/comments/${postId}`);
         setComments(res.data);
-        // console.log("can i see the comments:  " + res.data);
       } catch (err) {
         console.log(err);
       }
@@ -33,11 +32,13 @@ const Comments = () => {
   const handleComment = (e) => {
     e.preventDefault();
     try {
-      axios.post("/comments", {
-        username: user,
-        postId: postId,
-        desc: commentInput,
-      }).then(() => setCommentInput(""));
+      axios
+        .post("/comments", {
+          username: user,
+          postId: postId,
+          desc: commentInput,
+        })
+        .then(() => setCommentInput(""));
     } catch (err) {
       console.log(err);
     }
@@ -46,10 +47,16 @@ const Comments = () => {
   return (
     <>
       <div className="commentContainer">
-        <CommentTextBox handleComment={handleComment} handleChange={handleChange} comment={commentInput}/>
-        {comments &&
-          comments.map((ele) => <CommentView key={ele._id} comment={ele} />)}
-        {!comments && <p>no comments</p>}
+        <CommentTextBox
+          handleComment={handleComment}
+          handleChange={handleChange}
+          comment={commentInput}
+        />
+        {comments ? (
+          comments.map((ele) => <CommentView key={ele._id} comment={ele} />)
+        ) : (
+          <p>no comments</p>
+        )}
       </div>
     </>
   );
