@@ -47,8 +47,8 @@ const Posts = ({ post }) => {
             </div>
             <span className="postsDesc">{post.postDesc}</span>
           </div>
-      </div>
-        </Link>
+        </div>
+      </Link>
     </>
   );
 };
