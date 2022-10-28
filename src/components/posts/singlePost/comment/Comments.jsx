@@ -1,14 +1,15 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import CommentTextBox from "./commentTextbox/CommentTextBox";
 import CommentView from "./CommentView";
+import CommentTextBox from "./commentTextbox/CommentTextBox";
 
 const Comments = () => {
   const { postId } = useParams();
   const [comments, setComments] = useState([]);
   const [commentInput, setCommentInput] = useState("");
   const user = window.localStorage.getItem("user");
+
   useEffect(() => {
     const fetchComments = async () => {
       try {
@@ -42,7 +43,7 @@ const Comments = () => {
       console.log(err);
     }
   };
-  console.log(commentInput);
+
   return (
     <>
       <div className="commentContainer">

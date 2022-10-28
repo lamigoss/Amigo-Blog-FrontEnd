@@ -4,7 +4,8 @@ import React from "react";
 import deleting from "../../../../img/delete.png";
 
 const CommentView = ({ comment }) => {
-  const handleDelete = async () => {
+  const handleDelete = async (e) => {
+    e.preventDefault()
     console.log(comment.postId);
     try {
       await axios.delete(`/comments/${comment.postId}/${comment._id}`);

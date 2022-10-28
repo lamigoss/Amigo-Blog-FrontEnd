@@ -1,5 +1,6 @@
+import React from "react";
+
 const CommentTextBox = ({ handleComment, handleChange, comment }) => {
-  console.log(comment);
   return (
     <>
       <form className="textboxContainer" onSubmit={handleComment}>
