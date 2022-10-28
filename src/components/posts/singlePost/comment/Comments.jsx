@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import Comment from "./Comment";
+import CommentView from "./CommentView";
 import CommentTextBox from "./commentTextbox/CommentTextBox";
 
 const Comments = () => {
@@ -9,6 +9,7 @@ const Comments = () => {
   const [comments, setComments] = useState([]);
   const [commentInput, setCommentInput] = useState("")
   const user = window.localStorage.getItem("user");
+
   useEffect(() => {
     const fetchComments = async () => {
       try {
@@ -21,13 +22,6 @@ const Comments = () => {
     };
     fetchComments();
   }, [commentInput]);
-
-  // const initialFormState = {
-  //   username: "",
-  //   postId: "",
-  //   desc: "",
-  // };
-  const [comment, setComment] = useState("");
 
   // comment state being changed
   const handleChange = (e) => {
@@ -48,13 +42,13 @@ const Comments = () => {
       console.log(err);
     }
   };
-  console.log(commentInput);
+
   return (
     <>
       <div className="commentContainer">
         <CommentTextBox handleComment={handleComment} handleChange={handleChange} comment={commentInput}/>
         {comments &&
-          comments.map((ele) => <Comment key={ele._id} comment={ele} />)}
+          comments.map((ele) => <CommentView key={ele._id} comment={ele} />)}
         {!comments && <p>no comments</p>}
       </div>
     </>

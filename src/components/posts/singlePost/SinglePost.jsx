@@ -22,7 +22,6 @@ export default function SinglePost() {
  
 
   useEffect(() => {
-    console.log("IN USE EFFECT");
     const getPost = async () => {
       try {
         const res = await axios.get(`/posts/${postId}`);
@@ -37,14 +36,14 @@ export default function SinglePost() {
     getPost();
   }, []);
 
-  // const handleDelete = async () => {
-  //   try {
-  //     await axios.delete(`/posts/${post._id}`);
-  //     window.location.replace("/posts");
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
+  const handleDelete = async () => {
+    try {
+      await axios.delete(`/posts/${post._id}`);
+      window.location.replace("/posts");
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <div className="grid border-l border-r ">
