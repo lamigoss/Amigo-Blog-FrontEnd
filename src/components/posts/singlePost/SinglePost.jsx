@@ -9,6 +9,8 @@ import updateButton from "../../../img/edit.png";
 import deleteButton from "../../../img/delete.png";
 import CommentTextBox from "./comment/commentTextbox/CommentTextBox";
 
+// import "./singlepost.css";
+
 export default function SinglePost() {
   const context = useContext(AuthContext);
   const navigate = useNavigate();
@@ -46,6 +48,10 @@ export default function SinglePost() {
     <div className="grid border-l border-r ">
       <div className="m-10 justify-self-center justify-center border-blue-800  h-full ml-10 mr-10">
         <span className=" grid grid-cols-2 pt-4 pl-6 pb-2 pr-10">
+          <img
+            className="w-10 h-10 rounded-full col-end-1"
+            src="https://assets.vogue.com/photos/594be9149a441f6fe326781f/master/w_2560%2Cc_limit/00-lede-emma-watson-celeb-bty.jpg"
+          />
           <div className="mt-3">
             <span className="text-xl ml-5 text-neutral-400">
               {post.username}

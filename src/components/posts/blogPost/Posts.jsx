@@ -9,7 +9,6 @@ const Posts = ({ post }) => {
   useEffect(() => {
     GetPostImage(post.imageId).then((res) => setImageKey(res.data.imageKey));
   }, []);
-
   return (
     <>
       <Link to={`/posts/${post._id}`}>
@@ -21,7 +20,6 @@ const Posts = ({ post }) => {
                   <img
                     className="w-10 h-10 rounded-full"
                     src="https://assets.vogue.com/photos/594be9149a441f6fe326781f/master/w_2560%2Cc_limit/00-lede-emma-watson-celeb-bty.jpg"
-                    alt=""
                   />
                   <div className="mt-3">
                     <span>{post.username}</span>
