@@ -1,10 +1,6 @@
-import React, { useState } from "react";
-import axios from "axios";
-import "./commentTextBox.css";
-import { useParams } from "react-router-dom";
-const CommentTextBox = ({handleComment, handleChange, comment}) => {
- 
-  console.log(comment);
+import React from "react";
+
+const CommentTextBox = ({ handleComment, handleChange, comment }) => {
   return (
     <>
       <form className="textboxContainer" onSubmit={handleComment}>

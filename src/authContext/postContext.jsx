@@ -9,7 +9,7 @@ export const PostContextProvider = (props) => {
   const [imageId, setImageId] = useState("")  
   const [imageKey, setImageKey] = useState()
 
-  console.log("IMAGE ID " + imageId)
+  // console.log("IMAGE ID " + imageId)
   return (
     <PostContext.Provider
       value={{
