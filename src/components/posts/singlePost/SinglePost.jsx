@@ -9,7 +9,7 @@ import CommentTextBox from "./comment/commentTextbox/CommentTextBox";
 import updateButton from "../../../img/edit.png";
 import deleteButton from "../../../img/delete.png";
 
-import "./singlepost.css";
+// import "./singlepost.css";
 
 export default function SinglePost() {
   const context = useContext(AuthContext);
@@ -46,60 +46,69 @@ export default function SinglePost() {
   };
 
   return (
-    <div className="singlePostContainer">
-      <div className="grid grid-cols-3">
-        {imageKey ? (
-          <div className="scale-70 m-10">
-            <ViewImage imageKey={imageKey} />
+    <div className="grid grid-rows-[20%_150%]">
+      <div className="m-10 justify-self-center justify-center">
+        <span className=" grid grid-cols-2 pt-4 pl-6 pb-2 pr-10">
+          <img
+            className="w-10 h-10 rounded-full col-end-1"
+            src="https://assets.vogue.com/photos/594be9149a441f6fe326781f/master/w_2560%2Cc_limit/00-lede-emma-watson-celeb-bty.jpg"
+          />
+          <div className="mt-3">
+            <span className="text-xl ml-5 text-neutral-400">{post.username}</span>
           </div>
-        ) : null}
-        <div>
-          <div className="grid scale-50 grid-cols-2">
-            <div className="scale-50">
-              {context.admin ? (
-                <img
-                  className="scale-50"
-                  src={updateButton}
-                  alt=""
-                  onClick={() => {
-                    navigate(`/posts/${postId}/updatePost`);
-                  }}
-                />
-              ) : null}
+        </span>
+      </div>
+      <div className="flex items-center justify-center border-l border-r border-blue-800 h-full ml-10 mr-10">
+        <div className="grid grid-cols-[60%_40%] text-black w-full h-full ml-10 mr-10">
+          <div className="grid-rows-2">
+            <h2 className="text-center text-6xl text-blue-800 break-words">
+              {post.postTitle}
 
-              {context.admin ? (
+              {/* {context.admin && (
                 <img
-                  className="scale-50"
+                className="button"
+                src={updateButton}
+                alt=""
+                onClick={() => {
+                  navigate(`/posts/${postId}/updatePost`);
+                }}
+                />
+                )}
+                
+                {context.admin && (
+                  <img
+                  className="button"
                   src={deleteButton}
                   alt=""
                   onClick={handleDelete}
-                />
-              ) : null}
+                  />
+                )} */}
+            </h2>
+            <div className="pt-4 pl-6 pb-2 pr-10 justify-self-center w-2/5">
+              {!imageKey && null}
+              {imageKey && <ViewImage imageKey={imageKey} />}
+            </div>
+            <h3 className="text-left mt-10 break-all w-full">{post.postDesc}</h3>
+          </div>
+          <div className="ml-10">
+            <div>
+              {view ? null : (
+                <button className="viewComment" onClick={() => setView(true)}>
+                  view comments
+                </button>
+              )}
+              {view && (
+                <div className="">
+                  <button onClick={() => setView(false)}>hide comments</button>
+                  <div className="">
+                    <CommentTextBox />
+                  </div>
+                  <Comments postId={postId} />
+                </div>
+              )}
             </div>
           </div>
-          <h3>{post.postTitle}</h3>
-          <h3>{post.username}</h3>
         </div>
-        <div>
-          <h3>{post.postDesc}</h3>
-        </div>
-      </div>
-
-      <div>
-        {view ? null : (
-          <button className="contents-center" onClick={() => setView(true)}>
-            view comments
-          </button>
-        )}
-        {view && (
-          <div className="commentsContainer">
-            <button onClick={() => setView(false)}>hide comments</button>
-            <div className="commentBox">
-              <CommentTextBox />
-            </div>
-            <Comments postId={postId} />
-          </div>
-        )}
       </div>
     </div>
   );
