@@ -19,7 +19,20 @@ module.exports = {
         '4': '4px',
         '6': '6px',
         '8': '8px',
-      }
+      },
+      screens: {
+        'xs': '475px',
+        // => @medai (mid-width: 475px) { ... }
+        'sm': '576px',
+        // => @media (min-width: 576px) { ... }
+        'md': '960px',
+        // => @media (min-width: 960px) { ... }
+        'lg': '1440px',
+        // => @media (min-width: 1440px) { ... }
+        'tablet': '640px',
+        'laptop': '1040px',
+        'desktop': '1024px',
+      },
     },
   },
   plugins: [],

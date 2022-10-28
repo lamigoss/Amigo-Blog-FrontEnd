@@ -11,8 +11,8 @@ const Topbar = () => {
 
   return (
     <>
-    <div className="grid grid-cols-2 p-6 text-sm border-b[1px]	text-blue-800">
-      <div className="grid grid-cols-3">
+    <div className="grid laptop:grid-cols-2 p-6 text-sm border-b[1px]	text-blue-800">
+      <div className="grid grid-cols-5 md:grid-cols-6 laptop:ml-30 md:ml-20">
         <div className="topbarWrapper">
           <Link to="/">
             <span className="duration-100 hover:text-blue-400">Home</span>
@@ -30,9 +30,9 @@ const Topbar = () => {
           </Link>
         </div>
       </div>
-      <div className="grid grid-cols-3">
+      <div className="grid laptop:grid-cols-2 md:col-end-3 tablet:col-end-3 laptop:mr-40">
         {context.isLoggedIn ? (
-          <div className="col-end-4">
+          <div className="col-end-4 laptop:mr-5 tablet:mr-3">
             <Link onClick={handleLogout} to="/logout">
               <span className="px-10 p-2 text-white transition duration-100 rounded-md bg-indigo-500 hover:bg-indigo-700 justify-self-center mt-6 shadow-lg">
                 Logout
