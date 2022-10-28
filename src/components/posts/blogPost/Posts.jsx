@@ -10,7 +10,6 @@ const Posts = ({ post }) => {
   useEffect(() => {
     GetPostImage(post.imageId).then((res) => setImageKey(res.data.imageKey));
   }, []);
-
   return (
     <>
       <Link to={`/posts/${post._id}`}>
@@ -37,15 +36,6 @@ const Posts = ({ post }) => {
                 </div>
               </div>
             </div>
-          </div>
-          <div className="items-center">
-            <span className="font-bold">{post.postTitle}</span>
-            <div className="author">
-              <span className="userName">
-                <strong>Writer</strong>: {post.username}
-              </span>
-            </div>
-            <span className="postsDesc">{post.postDesc}</span>
           </div>
         </div>
       </Link>
