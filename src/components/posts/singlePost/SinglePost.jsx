@@ -5,9 +5,9 @@ import axios from "axios";
 import Comments from "./comment/Comments";
 import { GetPostImage } from "../../../utils/httpRequests/HttpRequest";
 import ViewImage from "./viewImage/ViewImage";
-import CommentTextBox from "./comment/commentTextbox/CommentTextBox";
 import updateButton from "../../../img/edit.png";
 import deleteButton from "../../../img/delete.png";
+import CommentTextBox from "./comment/commentTextbox/CommentTextBox";
 
 // import "./singlepost.css";
 
@@ -16,9 +16,10 @@ export default function SinglePost() {
   const navigate = useNavigate();
   const [post, setPost] = useState({});
   const location = useLocation();
-  const [view, setView] = useState(false);
+  // const [view, setView] = useState(false);
   const [imageKey, setImageKey] = useState();
   const postId = location.pathname.split("/")[2];
+ 
 
   useEffect(() => {
     console.log("IN USE EFFECT");
@@ -36,14 +37,14 @@ export default function SinglePost() {
     getPost();
   }, []);
 
-  const handleDelete = async () => {
-    try {
-      await axios.delete(`/posts/${post._id}`);
-      window.location.replace("/posts");
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  // const handleDelete = async () => {
+  //   try {
+  //     await axios.delete(`/posts/${post._id}`);
+  //     window.location.replace("/posts");
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
 
   return (
     <div className="grid border-l border-r ">
@@ -100,9 +101,9 @@ export default function SinglePost() {
               {/* {view && ( */}
                 <div className="">
                   {/* <button onClick={() => setView(false)}>hide comments</button> */}
-                  <div className="">
+                  {/* <div className="">
                     <CommentTextBox />
-                  </div>
+                  </div> */}
                   <Comments />
                 </div>
               {/* )} */}
