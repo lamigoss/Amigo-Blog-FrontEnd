@@ -21,11 +21,9 @@ const CommentTextBox = () => {
   };
 
   //comment post api
-  const handleComment = () => {
-    const res = axios.post("/comments", comment);
-    console.log("comment working?: " + comment);
-    console.log("res.data: " + res.data);
-    return res.data;
+  const handleComment = (e) => {
+    e.preventDefault();
+    axios.post("/comments", comment);
   };
   return (
     <>

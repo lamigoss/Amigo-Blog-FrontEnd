@@ -2,8 +2,6 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import Comment from "./Comment";
 
-// import "./comments.css";
-
 const Comments = ({ postId }) => {
   const [comments, setComments] = useState([]);
 
@@ -12,7 +10,6 @@ const Comments = ({ postId }) => {
       try {
         const res = await axios.get(`/comments/${postId}`);
         setComments(res.data);
-        // console.log("can i see the comments:  " + res.data);
       } catch (err) {
         console.log(err);
       }
