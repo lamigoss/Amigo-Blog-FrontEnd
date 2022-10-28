@@ -13,17 +13,30 @@ const Posts = ({ post }) => {
 
   return (
     <>
-      <div className="bg-white rounded-md p-1 m-5 h-50 w-60 hover:scale-150">
-        <Link to={`/posts/${post._id}`}>
-          <div className="scale-100">
-            <div className="">
-              {!imageKey ? (
-                <p>Loading</p>
-              ) : (
-                <div className="">
-                  <ViewImg imageKey={imageKey} />
+      <Link to={`/posts/${post._id}`}>
+        <div className="flex items-center justify-center mt-40">
+          <div className="bg-white bg-opacity-50 text-black shadow-lg rounded-md w-3/5 h-4/6">
+            <div className="grid grid-cols-[30%_70%] gap-1">
+              <div className="grid grid-row-[20%_80%] text-slate-800 border-b-[.5px] border-blue-200 pt-4 pl-6 pb-2 pr-10">
+                <div className="border-b-[.5px] border-blue-500">
+                  <img
+                    className="w-10 h-10 rounded-full"
+                    src="https://assets.vogue.com/photos/594be9149a441f6fe326781f/master/w_2560%2Cc_limit/00-lede-emma-watson-celeb-bty.jpg"
+                  />
                 </div>
-              )}
+                <span className="">{post.username}</span>
+              </div>
+              <div className="border-l-[.5px] border-blue-200 pt-4 pl-6 pb-2 pr-10">
+                <div className="">
+                  <span className="font-bold">{post.postTitle}</span>
+                </div>
+                <div className="">
+                  {!imageKey ? <p>Loading</p> : <ViewImg imageKey={imageKey} />}
+                </div>
+                <div>
+                  <span className="postsDesc">{post.postDesc}</span>
+                </div>
+              </div>
             </div>
           </div>
           <div className="items-center">
@@ -35,8 +48,8 @@ const Posts = ({ post }) => {
             </div>
             <span className="postsDesc">{post.postDesc}</span>
           </div>
-        </Link>
       </div>
+        </Link>
     </>
   );
 };
