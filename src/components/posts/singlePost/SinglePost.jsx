@@ -5,16 +5,18 @@ import axios from "axios";
 import Comments from "./comment/Comments";
 import { GetPostImage } from "../../../utils/httpRequests/HttpRequest";
 import ViewImage from "./viewImage/ViewImage";
-import CommentTextBox from "./comment/commentTextbox/CommentTextBox";
 import updateButton from "../../../img/edit.png";
 import deleteButton from "../../../img/delete.png";
+import CommentTextBox from "./comment/commentTextbox/CommentTextBox";
+
+// import "./singlepost.css";
 
 export default function SinglePost() {
   const context = useContext(AuthContext);
   const navigate = useNavigate();
   const [post, setPost] = useState({});
   const location = useLocation();
-  const [view, setView] = useState(false);
+  // const [view, setView] = useState(false);
   const [imageKey, setImageKey] = useState();
   const postId = location.pathname.split("/")[2];
 
@@ -34,71 +36,78 @@ export default function SinglePost() {
     getPost();
   }, [postId]);
 
-  const handleDelete = async () => {
-    try {
-      await axios.delete(`/posts/${post._id}`);
-      window.location.replace("/posts");
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  // const handleDelete = async () => {
+  //   try {
+  //     await axios.delete(`/posts/${post._id}`);
+  //     window.location.replace("/posts");
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
 
   return (
-    <div className="flex items-center w-3/5 h-4/6 justify-center">
-      <div className="grid grid-rows-2">
-        <div className="">
-          {imageKey ? <ViewImage imageKey={imageKey} /> : null}
-        </div>
-
-        <div className="text-center underline">
-          <h3>{post.postTitle}</h3>
-          <h3>{post.username}</h3>
-
-          <div className="">
-            <h3>{post.postDesc}</h3>
+    <div className="grid border-l border-r ">
+      <div className="m-10 justify-self-center justify-center border-blue-800  h-full ml-10 mr-10">
+        <span className=" grid grid-cols-2 pt-4 pl-6 pb-2 pr-10">
+          <div className="mt-3">
+            <span className="text-xl ml-5 text-neutral-400">
+              {post.username}
+            </span>
           </div>
-        </div>
+        </span>
+      </div>
+      <div className="flex items-center justify-center h-full ml-10 mr-10">
+        <div className="grid grid-cols-[60%_40%] text-black w-full h-full ml-10 mr-10">
+          <div className="grid-rows-2">
+            <h2 className="text-center text-6xl text-blue-800 break-words">
+              {post.postTitle}
 
-        <div className="flex opacity-70">
-          <div className="h-10 w-10">
-            {context.admin ? (
-              <img
-                className="hover:scale-110 cursor-pointer"
+              {/* {context.admin && (
+                <img
+                className="button"
                 src={updateButton}
                 alt=""
                 onClick={() => {
                   navigate(`/posts/${postId}/updatePost`);
                 }}
-              />
-            ) : null}
-          </div>
-          <div className="h-10 w-10">
-            {context.admin ? (
-              <img
-                className="hover:scale-110 cursor-pointer"
-                src={deleteButton}
-                alt=""
-                onClick={handleDelete}
-              />
-            ) : null}
-          </div>
-        </div>
-
-        <div className="">
-          {view ? null : (
-            <button className="" onClick={() => setView(true)}>
-              view comments
-            </button>
-          )}
-          {view && (
-            <div className="commentsContainer">
-              <button onClick={() => setView(false)}>hide comments</button>
-              <div className="commentBox">
-                <CommentTextBox />
-              </div>
-              <Comments postId={postId} />
+                />
+                )}
+                
+                {context.admin && (
+                  <img
+                  className="button"
+                  src={deleteButton}
+                  alt=""
+                  onClick={handleDelete}
+                  />
+                )} */}
+            </h2>
+            <div className="pt-4 pl-6 pb-2 pr-10 justify-self-center w-2/5">
+              {!imageKey && null}
+              {imageKey && <ViewImage imageKey={imageKey} />}
             </div>
-          )}
+            <h3 className="text-left mt-10 break-all w-full">
+              {post.postDesc}
+            </h3>
+          </div>
+          <div className="ml-10">
+            <div>
+              {/* {view ? null : (
+                <button className="viewComment" onClick={() => setView(true)}>
+                  view comments
+                </button>
+              )} */}
+              {/* {view && ( */}
+              <div className="">
+                {/* <button onClick={() => setView(false)}>hide comments</button> */}
+                {/* <div className="">
+                    <CommentTextBox />
+                  </div> */}
+                <Comments />
+              </div>
+              {/* )} */}
+            </div>
+          </div>
         </div>
       </div>
     </div>

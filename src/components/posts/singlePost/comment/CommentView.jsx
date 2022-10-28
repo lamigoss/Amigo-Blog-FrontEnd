@@ -1,8 +1,9 @@
 import axios from "axios";
 import React from "react";
+
 import deleting from "../../../../img/delete.png";
 
-const Comment = ({ comment }) => {
+const CommentView = ({ comment }) => {
   const handleDelete = async () => {
     console.log(comment.postId);
     try {
@@ -18,11 +19,11 @@ const Comment = ({ comment }) => {
       <div className="commentDetails">
         <div className="commentNamediv">
           <span className="break-all w-full">{comment.username}</span>
-          {/* 
-          <img
+
+          {/* <img
             src={deleting}
             onClick={handleDelete}
-            className="h-4 w-4 opacity-70 cursor-pointer hover:scale-110"
+            className="button"
             alt=""
           /> */}
         </div>
@@ -33,4 +34,4 @@ const Comment = ({ comment }) => {
   );
 };
 
-export default Comment;
+export default CommentView;
