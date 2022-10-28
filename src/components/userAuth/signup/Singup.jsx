@@ -42,7 +42,7 @@ const Signup = () => {
 
   return (
     <div className="flex items-center justify-center mt-40">
-      <div className="bg-white bg-opacity-75 text-black shadow-lg rounded-md p-10 w-1/3">
+      <div className="bg-white bg-opacity-75 text-black shadow-lg rounded-md p-10 xs:w-10/12 sm:w-8/12 msm:w-7/12 md:w-6/12 laptop:w-5/12 desktop:w-4/12 lg:w-3/12">
         <form onSubmit={handleSubmit}>
           <div className="grid grid-rows">
             <span className="text-slate-600">Email:</span>

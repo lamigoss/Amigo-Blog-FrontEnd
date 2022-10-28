@@ -30,18 +30,18 @@ const Topbar = () => {
           </Link>
         </div>
       </div>
-      <div className="grid laptop:grid-cols-2 md:col-end-3 tablet:col-end-3 laptop:mr-40">
+      <div className="grid laptop:grid-cols-2 md:col-end-3 tablet:col-end-3 sm:col-end-3 laptop:mr-40">
         {context.isLoggedIn ? (
-          <div className="col-end-4 laptop:mr-5 tablet:mr-3">
+          <div className="col-end-4 laptop:mr-5 tablet:mr-3 sm:mr-2">
             <Link onClick={handleLogout} to="/logout">
-              <span className="px-10 p-2 text-white transition duration-100 rounded-md bg-indigo-500 hover:bg-indigo-700 justify-self-center mt-6 shadow-lg">
+              <span className="px-10 sm:px-6 p-2 text-white transition duration-100 rounded-md bg-indigo-500 hover:bg-indigo-700 justify-self-center mt-6 shadow-lg">
                 Logout
               </span>
             </Link>
           </div>
         ) : (
           <>
-            <div className="col-end-4">
+            <div className="col-end-4 laptop:mr-5 tablet:mr-3 sm:mr-2">
               <Link to="/login">
                 <span className="px-10 p-2 text-white transition duration-100 rounded-md bg-indigo-500 hover:bg-indigo-700 justify-self-center mt-6 shadow-lg">
                   Login
@@ -50,7 +50,7 @@ const Topbar = () => {
             </div>
             <div className="col-end-5">
               <Link to="/signup">
-                <span className="px-10 p-2 text-white transition duration-100 rounded-md bg-indigo-500 hover:bg-indigo-700 justify-self-center mt-6 shadow-lg">
+                <span className="px-9 p-2 text-white transition duration-100 rounded-md bg-indigo-500 hover:bg-indigo-700 justify-self-center mt-6 shadow-lg">
                   Sign Up
                 </span>
               </Link>
@@ -60,7 +60,7 @@ const Topbar = () => {
         {context.admin ? (
           <div className="col-end-5">
             <Link to="/posts/create">
-              <span className="px-10 p-2 text-white transition duration-100 rounded-md bg-indigo-500 hover:bg-indigo-700 justify-self-center mt-6 shadow-lg">
+              <span className="px-10 sm:px-8 p-2 text-white transition duration-100 rounded-md bg-indigo-500 hover:bg-indigo-700 justify-self-center mt-6 shadow-lg">
                 Blog
               </span>
             </Link>
