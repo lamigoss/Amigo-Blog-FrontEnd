@@ -31,6 +31,12 @@ const Topbar = () => {
               </span>
             </Link>
           </div>
+          </div>
+        </div>
+        <div className="topbarLeft">
+          {/* <Link to="/login" style={{ textDecoration: "none" }}>
+              <span className="topbarLink">Login</span>
+            </Link> */}
         </div>
         <div className="grid md:grid-cols-3 grid-cols-1 gap-2">
           {context.isLoggedIn ? (
