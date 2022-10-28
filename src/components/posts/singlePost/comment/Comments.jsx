@@ -52,9 +52,11 @@ const Comments = () => {
           handleChange={handleChange}
           comment={commentInput}
         />
-        {comments &&
-          comments.map((ele) => <CommentView key={ele._id} comment={ele} />)}
-        {!comments && <p>no comments</p>}
+        {comments ? (
+          comments.map((ele) => <CommentView key={ele._id} comment={ele} />)
+        ) : (
+          <p>no comments</p>
+        )}
       </div>
     </>
   );
