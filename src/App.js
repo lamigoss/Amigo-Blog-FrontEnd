@@ -9,6 +9,8 @@ import BlogPostPage from "./pages/blogPostPage/BlogPostPage";
 import WritePost from "./components/posts/writePost/post/WritePost";
 import SinglePost from "./components/posts/singlePost/SinglePost";
 import UpdatePost from "./components/posts/singlePost/updatePost/UpdatePost";
+import Steve from "./components/dev/SteveLee"; 
+import Roy from "./components/dev/RoyceHong"; 
 import "./index.css";
 
 const App = () => {
@@ -23,6 +25,8 @@ const App = () => {
           <Route path="/posts/:postId/updatePost" element={<UpdatePost />} />
           <Route path="/posts/create" element={<WritePost />} />
           <Route path="/developers" element={<Developers />} />
+          <Route path="/developers/stevelee" element={<Steve/>}/>
+          <Route path="/developers/roycehong" element={<Roy/>}/>
           <Route path="/login" element={<Login />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="/signup" element={<Signup />} />

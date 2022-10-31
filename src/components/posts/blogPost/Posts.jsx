@@ -17,10 +17,6 @@ const Posts = ({ post }) => {
             <div className="grid grid-rows-[20%_80%]">
               <div className="text-slate-800 ">
                 <div className="grid grid-cols-[15%_85%] border-b-[.5px] border-blue-200 pt-4 pl-6 pb-2 pr-10">
-                  <img
-                    className="w-10 h-10 rounded-full"
-                    src="https://assets.vogue.com/photos/594be9149a441f6fe326781f/master/w_2560%2Cc_limit/00-lede-emma-watson-celeb-bty.jpg"
-                  />
                   <div className="mt-3">
                     <span>{post.username}</span>
                   </div>

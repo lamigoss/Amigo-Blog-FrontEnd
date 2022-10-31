@@ -1,5 +1,6 @@
 import React from "react";
 import Typed from "react-typed";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -13,7 +14,7 @@ const Hero = () => {
         </h1>
         <div className="flex justify-center items-center">
           <p className="md:text-5xl sm:text-4xl text-xl font-bold py-4">
-            You'll be able see our
+            You'll see our
           </p>
           <Typed
             className="md:text-5xl sm:text-4xl text-xl font-bold pl-2 md:pl-4"
@@ -27,8 +28,10 @@ const Hero = () => {
           Monitor how our platform improves with future projects and
           experiences.
         </p>
-        <button className=" bg-indigo-500 hover:bg-indigo-700 rounded-md font-medium my-6 mx-auto p-3 text-bold">
-          Read more about how this blog was made by these two amigos
+        <button className="bg-indigo-500 hover:bg-indigo-700 rounded-md font-medium text-white my-6 mx-auto p-3 text-bold">
+          <Link to={"/posts"}>
+            Read more about how this blog was made by these two amigos
+          </Link>
         </button>
       </div>
     </div>

@@ -2,7 +2,6 @@ import React from "react";
 import Posts from "../../components/posts/blogPost/Posts";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import "./blogPostPage.css";
 
 export default function BlogPostPage() {
   const [posts, setPosts] = useState([]);
