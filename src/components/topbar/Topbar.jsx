@@ -81,7 +81,7 @@ const Topbar = () => {
       </button> */}
       <button
         onClick={() => setOpen(true)}
-        className="xs:hidden cursor-pointer p-4 absolute right-2 top-0 space-y-2 bg-white"
+        className="xs:hidden cursor-pointer p-4 absolute right-2 top-0 space-y-2"
       >
         <div className="w-8 h-0.5 bg-gray-600"></div>
         <div className="w-8 h-0.5 bg-gray-600"></div>

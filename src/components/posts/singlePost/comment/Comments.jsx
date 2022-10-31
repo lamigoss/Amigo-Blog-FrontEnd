@@ -1,10 +1,12 @@
 import axios from "axios";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import CommentView from "./CommentView";
 import CommentTextBox from "./commentTextbox/CommentTextBox";
+import AuthContext from "../../../../authContext/authContext";
 
 const Comments = () => {
+  const context = useContext(AuthContext)
   const { postId } = useParams();
   const [comments, setComments] = useState([]);
   const [commentInput, setCommentInput] = useState("");
@@ -47,11 +49,11 @@ const Comments = () => {
   return (
     <>
       <div className="commentContainer">
-        <CommentTextBox
+        {context.isLoggedIn && <CommentTextBox
           handleComment={handleComment}
           handleChange={handleChange}
           comment={commentInput}
-        />
+        />}
         {comments ? (
           comments.map((ele) => <CommentView key={ele._id} comment={ele} />)
         ) : (
