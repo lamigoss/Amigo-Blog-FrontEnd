@@ -10,16 +10,10 @@ const Topbar = () => {
     context.setIsLoggedIn(false);
   };
 
-
   return (
     <>
-<<<<<<< HEAD
-      <div className="grid grid-cols-2 p-6 text-sm border-b[1px]	text-blue-800">
-        <div className="grid grid-cols-3">
-=======
       <div className="mwxs:hidden grid laptop:grid-cols-2 p-6 text-sm border-b[1px]	text-blue-800">
         <div className="grid grid-cols-5 md:grid-cols-6 laptop:ml-30 md:ml-20">
->>>>>>> 05aa5393e19479d57d702c97ca3267f9044eb902
           <div className="topbarWrapper">
             <Link to="/">
               <span className="duration-100 hover:text-blue-400">Home</span>
@@ -39,45 +33,27 @@ const Topbar = () => {
             </Link>
           </div>
         </div>
-<<<<<<< HEAD
-        <div className="grid grid-cols-3">
-          {context.isLoggedIn ? (
-            <div className="col-end-4">
-              <Link onClick={handleLogout} to="/logout">
-                <span className="px-10 p-2 text-white transition duration-100 rounded-md bg-indigo-500 hover:bg-indigo-700 justify-self-center mt-6 shadow-lg">
-=======
         <div className="grid laptop:grid-cols-2 xs:col-end-3 sm:col-end-3 md:col-end-3 tablet:col-end-3 laptop:mr-40">
           {context.isLoggedIn ? (
             <div className="col-end-4 laptop:mr-5 tablet:mr-3 sm:mr-2 xs:mr-1">
               <Link onClick={handleLogout} to="/logout">
                 <span className="px-10 xs:px-4 sm:px-6 p-2 text-white transition duration-100 rounded-md bg-indigo-500 hover:bg-indigo-700 justify-self-center mt-6 shadow-lg">
->>>>>>> 05aa5393e19479d57d702c97ca3267f9044eb902
                   Logout
                 </span>
               </Link>
             </div>
           ) : (
             <>
-<<<<<<< HEAD
-              <div className="col-end-4">
-                <Link to="/login">
-                  <span className="px-10 p-2 text-white transition duration-100 rounded-md bg-indigo-500 hover:bg-indigo-700 justify-self-center mt-6 shadow-lg">
-=======
               <div className="col-end-4 laptop:mr-5 tablet:mr-3 sm:mr-2">
                 <Link to="/login">
                   <span className="px-10 sm:px-6 p-2 xs:px-4 xs:mr-1 text-white transition duration-100 rounded-md bg-indigo-500 hover:bg-indigo-700 justify-self-center mt-6 shadow-lg">
->>>>>>> 05aa5393e19479d57d702c97ca3267f9044eb902
                     Login
                   </span>
                 </Link>
               </div>
               <div className="col-end-5">
                 <Link to="/signup">
-<<<<<<< HEAD
-                  <span className="px-10 p-2 text-white transition duration-100 rounded-md bg-indigo-500 hover:bg-indigo-700 justify-self-center mt-6 shadow-lg">
-=======
                   <span className="sm:px-8 p-2 xs:px-2 text-white transition duration-100 rounded-md bg-indigo-500 hover:bg-indigo-700 justify-self-center mt-6 shadow-lg">
->>>>>>> 05aa5393e19479d57d702c97ca3267f9044eb902
                     Sign Up
                   </span>
                 </Link>
@@ -87,19 +63,13 @@ const Topbar = () => {
           {context.admin ? (
             <div className="col-end-5">
               <Link to="/posts/create">
-<<<<<<< HEAD
-                <span className="px-10 p-2 text-white transition duration-100 rounded-md bg-indigo-500 hover:bg-indigo-700 justify-self-center mt-6 shadow-lg">
-=======
                 <span className="xs:px-6 sm:px-8 p-2 text-white transition duration-100 rounded-md bg-indigo-500 hover:bg-indigo-700 justify-self-center mt-6 shadow-lg">
->>>>>>> 05aa5393e19479d57d702c97ca3267f9044eb902
                   Blog
                 </span>
               </Link>
             </div>
           ) : null}
         </div>
-<<<<<<< HEAD
-=======
       </div>
 
       {/* HABURGER NAV */}
@@ -109,14 +79,19 @@ const Topbar = () => {
       >
         HELLO
       </button> */}
-        <button onClick={() => setOpen(true)} className="xs:hidden cursor-pointer p-4 absolute right-2 top-0 space-y-2 bg-white">
-          <div className="w-8 h-0.5 bg-gray-600"></div>
-          <div className="w-8 h-0.5 bg-gray-600"></div>
-          <div className="w-8 h-0.5 bg-gray-600"></div>
-        </button>
+      <button
+        onClick={() => setOpen(true)}
+        className="xs:hidden cursor-pointer p-4 absolute right-2 top-0 space-y-2 bg-white"
+      >
+        <div className="w-8 h-0.5 bg-gray-600"></div>
+        <div className="w-8 h-0.5 bg-gray-600"></div>
+        <div className="w-8 h-0.5 bg-gray-600"></div>
+      </button>
       <div
         id="mobile-menu"
-        className={`xs:hidden absolute top-1 space-y-2 bg-white pt-2 w-full text-5xl flex flex-col justify-content-center ${open ? 'flex' : 'hidden'}`}
+        className={`xs:hidden absolute top-1 space-y-2 bg-white pt-2 w-full text-5xl flex flex-col justify-content-center ${
+          open ? "flex" : "hidden"
+        }`}
       >
         <button
           onClick={() => setOpen(false)}
@@ -129,7 +104,7 @@ const Topbar = () => {
           aria-label="mobile"
         >
           <div className="w-full text-center py-6 hover:text-blue-400">
-            <Link onClick={() => setOpen(false)}to="/">
+            <Link onClick={() => setOpen(false)} to="/">
               <span className="duration-100 hover:text-blue-400 text-xl">
                 Home
               </span>
@@ -151,10 +126,13 @@ const Topbar = () => {
           </div>
           {context.isLoggedIn ? (
             <div className="w-full text-center py-6 hover:text-blue-400">
-              <Link onClick={() => {
-                setOpen(false);
-                handleLogout()
-              }} to="/logout">
+              <Link
+                onClick={() => {
+                  setOpen(false);
+                  handleLogout();
+                }}
+                to="/logout"
+              >
                 <span className="duration-100 hover:text-blue-400 text-xl">
                   Logout
                 </span>
@@ -188,7 +166,6 @@ const Topbar = () => {
             </div>
           ) : null}
         </div>
->>>>>>> 05aa5393e19479d57d702c97ca3267f9044eb902
       </div>
     </>
   );

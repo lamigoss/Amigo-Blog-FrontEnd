@@ -3,31 +3,31 @@ import Typed from "react-typed";
 
 const Hero = () => {
   return (
-    <div className="text-white">
+    <div className="text-black">
       <div className="max-w-[800px] mt-[-96px] w-full h-screen mx-auto text-center flex flex-col justify-center">
-        <p className="text-[#00df9a] font-bold p-2">
-          Growing with data analytics
+        <p className=" text-indigo-700 font-bold p-2">
+          Watch two amigos growing as Developers
         </p>
         <h1 className="md:text-7xl sm:text-6xl text-4xl font-bold md:py-6 ">
-          grow with data.
+          In this BLOG
         </h1>
         <div className="flex justify-center items-center">
           <p className="md:text-5xl sm:text-4xl text-xl font-bold py-4">
-            Fast, Flexible financing for
+            You'll be able see our
           </p>
           <Typed
             className="md:text-5xl sm:text-4xl text-xl font-bold pl-2 md:pl-4"
-            strings={["BTB", "BTC", "SASS"]}
+            strings={["Passion", "Frustration", "Vision"]}
             typeSpeed={120}
             backSpeed={140}
             loop
           />
         </div>
         <p className="md:text-2xl text-xl font-bold text-gray-500">
-          Monitor your data analytics to increase revenue for BTB, BTC, & SASS
-          platforms
+          Monitor how our platform improves with future projects and
+          experiences.
         </p>
-        <button className="bg-[#00df9a] rounded-md font-medium my-6 mx-auto p-3 text-bold">
+        <button className=" bg-indigo-500 hover:bg-indigo-700 rounded-md font-medium my-6 mx-auto p-3 text-bold">
           Read more about how this blog was made by these two amigos
         </button>
       </div>
