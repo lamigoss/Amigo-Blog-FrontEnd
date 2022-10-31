@@ -5,7 +5,7 @@ import deleting from "../../../../img/delete.png";
 
 const CommentView = ({ comment }) => {
   const handleDelete = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     console.log(comment.postId);
     try {
       await axios.delete(`/comments/${comment.postId}/${comment._id}`);
@@ -16,11 +16,9 @@ const CommentView = ({ comment }) => {
   };
 
   return (
-    <div className="commentContainer">
+    <div className="">
       <div className="commentDetails">
-        <div className="commentNamediv">
-          <span className="break-all w-full">{comment.username}</span>
-
+        <div className="">
           {/* <img
             src={deleting}
             onClick={handleDelete}
@@ -28,8 +26,11 @@ const CommentView = ({ comment }) => {
             alt=""
           /> */}
         </div>
-        {!comment.desc && <span className="commentText"> {comment.desc}</span>}
-        {comment.desc && <span className="commentText"> {comment.desc}</span>}
+        <div className="grid">
+          <span className="break-all w-full pb-3 pt-3 text-indigo-300">{comment.username}</span>
+          {!comment.desc && <span className="pb-3 pt-3"> {comment.desc}</span>}
+          {comment.desc && <span className="pb-3"> {comment.desc}</span>}
+        </div>
       </div>
     </div>
   );

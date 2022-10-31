@@ -54,6 +54,7 @@ const Comments = () => {
           handleChange={handleChange}
           comment={commentInput}
         />}
+        {!context.isLoggedIn && <p>Please log in to write a comment</p>}
         {comments ? (
           comments.map((ele) => <CommentView key={ele._id} comment={ele} />)
         ) : (
