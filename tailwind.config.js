@@ -21,6 +21,7 @@ module.exports = {
       },
       screens: {
         mwxs: { max: "475px" },
+        mws: { max: "576px"},
         xs: "475px",
         // => @medai (mid-width: 475px) { ... }
         sm: "576px",

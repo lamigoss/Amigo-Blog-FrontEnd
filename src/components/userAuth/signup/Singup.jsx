@@ -42,7 +42,7 @@ const Signup = () => {
 
   return (
     <div className="flex items-center justify-center mt-40">
-      <div className="bg-white bg-opacity-75 text-black shadow-lg rounded-md p-10 xs:w-10/12 sm:w-8/12 msm:w-7/12 md:w-6/12 laptop:w-5/12 desktop:w-4/12 lg:w-3/12">
+      <div className="bg-white bg-opacity-75 text-black shadow-lg rounded-md p-10 mws:w-10/12 sm:w-8/12 msm:w-7/12 md:w-6/12 laptop:w-5/12 desktop:w-4/12 lg:w-3/12">
         <form onSubmit={handleSubmit}>
           <div className="grid grid-rows">
             <span className="text-slate-600">Email:</span>
@@ -81,7 +81,7 @@ const Signup = () => {
               Submit
             </button>}
            {!formIsValid &&  <button disabled
-              className="w-1/2 px-10 p-2 text-white transition duration-300 rounded-md bg-gradient-to-br from-blue-200 to-indigo-200 justify-self-center mt-6 shadow-lg"
+              className="w-1/2 px-10 mws:px-6 p-2 text-white transition duration-300 rounded-md bg-gradient-to-br from-blue-200 to-indigo-200 justify-self-center mt-6 shadow-lg"
               type="submit"
             >
               Submit
