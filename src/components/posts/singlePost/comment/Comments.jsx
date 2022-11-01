@@ -48,7 +48,7 @@ const Comments = () => {
 
   return (
     <>
-      <div className="commentContainer">
+      <div className="">
         <div className="w-full mb-4">
           <CommentTextBox
             handleComment={handleComment}
@@ -57,7 +57,7 @@ const Comments = () => {
           />
         </div>
 
-        <div className="bg-slate-200 border-solid-2 rounded-lg p-10">
+        <div className="bg-slate-200 border-solid-2 rounded-lg p-10 shadow-lg">
           {!context.isLoggedIn && <p>Please log in to write a comment</p>}
           {comments ? (
             comments.map((ele) => <CommentView key={ele._id} comment={ele} />)
