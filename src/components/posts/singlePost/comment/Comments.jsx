@@ -45,7 +45,7 @@ const Comments = () => {
       console.log(err);
     }
   };
-
+console.log(comments)
   return (
     <>
       <div className="">

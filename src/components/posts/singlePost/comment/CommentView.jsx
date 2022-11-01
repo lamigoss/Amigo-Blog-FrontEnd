@@ -2,8 +2,14 @@ import axios from "axios";
 import React from "react";
 
 import deleting from "../../../../img/delete.png";
-
 const CommentView = ({ comment }) => {
+  const date = new Date(comment.updatedAt);
+  const formattedDate = date.toLocaleString("en-GB", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+
   const handleDelete = async (e) => {
     e.preventDefault();
     console.log(comment.postId);
@@ -27,7 +33,12 @@ const CommentView = ({ comment }) => {
           /> */}
         </div>
         <div className="grid">
-          <span className="break-all w-full pb-3 pt-3 text-indigo-300">{comment.username}</span>
+          <div className="grid grid-cols-2">
+            <span className="break-all w-full pb-3 pt-3 text-indigo-300">
+              {comment.username}
+            </span>
+            <span className="text-sm justify-self-end pb-3 pt-3">{formattedDate}</span>
+          </div>
           {!comment.desc && <span className="pb-3 pt-3"> {comment.desc}</span>}
           {comment.desc && <span className="pb-3"> {comment.desc}</span>}
         </div>
