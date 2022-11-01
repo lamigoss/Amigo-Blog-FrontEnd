@@ -9,12 +9,13 @@ const Posts = ({ post }) => {
   useEffect(() => {
     GetPostImage(post.imageId).then((res) => setImageKey(res.data.imageKey));
   }, []);
+
   return (
     <>
-      <Link to={`/posts/${post._id}`}>
-        <div className="flex items-center justify-center mt-40">
-          <div className="bg-white bg-opacity-50 text-black shadow-lg rounded-md w-2/5 h-4/6">
-            <div className="grid grid-rows-[20%_80%]">
+      <div className="flex items-center justify-center mt-40">
+        <div className="bg-white bg-opacity-50 text-black shadow-lg rounded-md w-2/5 h-4/6">
+          <div className="grid grid-rows-[20%_80%]">
+            <Link to={`/posts/${post._id}`}>
               <div className="text-slate-800 ">
                 <div className="grid grid-cols-[15%_85%] border-b-[.5px] border-blue-200 pt-4 pl-6 pb-2 pr-10">
                   <div className="mt-3">
@@ -30,10 +31,10 @@ const Posts = ({ post }) => {
                   {!imageKey ? <p>Loading</p> : <ViewImg imageKey={imageKey} />}
                 </div>
               </div>
-            </div>
+            </Link>
           </div>
         </div>
-      </Link>
+      </div>
     </>
   );
 };
