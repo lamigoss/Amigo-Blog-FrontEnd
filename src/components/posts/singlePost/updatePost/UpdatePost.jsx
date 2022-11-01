@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
-import ViewImage from "../viewImage/ViewImage";
+import ViewImg from "../../writePost/viewImg/ViewImg";
 import PostTitle from "../../writePost/postTitle/PostTitle";
 import PostImg from "../../writePost/postImg/PostImg";
 import PostDesc from "../../writePost/postDesc/PostDesc";
@@ -86,7 +86,7 @@ const UpdatePost = () => {
           <PostDesc postDesc={post.postDesc} handleChange={handleChange} />
           {!imageKey ? <PostImg /> : null}
           <div className="update-image-wrapper">
-            {imageKey ? <ViewImage imageKey={imageKey} /> : null}
+            {imageKey ? <ViewImg imageKey={imageKey} /> : null}
             {imageKey ? (
               <button onClick={handleDeleteImg}>Delete Image</button>
             ) : null}

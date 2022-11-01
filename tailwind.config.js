@@ -5,6 +5,10 @@ module.exports = {
   content: ["./src/**/*.{html,jsx}"],
   theme: {
     extend: {
+      padding: {
+        '1/3': '33.33333%',
+        '2/3': '66.66667%'
+      },
       colors: {
         primary: "#0d9488",
         secondary: "#0284c7",

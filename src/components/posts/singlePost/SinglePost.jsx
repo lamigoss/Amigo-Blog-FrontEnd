@@ -4,9 +4,9 @@ import AuthContext from "../../../authContext/authContext";
 import axios from "axios";
 import Comments from "./comment/Comments";
 import { GetPostImage } from "../../../utils/httpRequests/HttpRequest";
-import ViewImage from "./viewImage/ViewImage";
-import updateButton from "../../../img/edit.png";
-import deleteButton from "../../../img/delete.png";
+import ViewImg from "../writePost/viewImg/ViewImg";
+// import updateButton from "../../../img/edit.png";
+// import deleteButton from "../../../img/delete.png";
 
 export default function SinglePost() {
   const context = useContext(AuthContext);
@@ -42,67 +42,49 @@ export default function SinglePost() {
   };
 
   return (
-    <div className="grid">
-      <div className="laptop:flex m-10 justify-self-center justify-center border-blue-800 flex h-full ml-10 mr-10">
-        <span className="grid grid-cols-2 pt-4 pl-6 pb-2 pr-10">
-          <div className="mt-3">
-            <h2 className="text-center text-6xl text-blue-800 break-words">
-              {post.postTitle}
-            </h2>
-          </div>
-        </span>
-      </div>
-      <div className="flex items-center justify-center h-full ml-10 mr-10">
-        <div className="grid grid-cols-[60%_40%] text-black w-full h-full ml-10 mr-10">
-          <div className="grid-rows-2">
-            <span className="text-xl ml-5 text-neutral-400">
-              {post.username}
-            </span>
-            <div className="pt-4 pl-6 pb-2 pr-10 justify-self-center w-2/5">
-              {imageKey ? <ViewImage imageKey={imageKey} /> : null}
-            </div>
-            <div className="w-2/5 m-2 flex">
-              {context.admin ? (
-                <img
-                  className="w-1/12 m-1"
-                  src={updateButton}
-                  alt=""
-                  onClick={() => {
-                    navigate(`/posts/${postId}/updatePost`);
-                  }}
-                />
-              ) : null}
-
-              {context.admin ? (
-                <img
-                  className="w-1/12 m-1"
-                  src={deleteButton}
-                  alt=""
-                  onClick={handleDelete}
-                />
-              ) : null}
-            </div>
-          </div>
-
-          <h3 className="text-left mt-10 break-word w-full">{post.postDesc}</h3>
-        </div>
-      </div>
-
-      <div className="m-20">
-        <div>
-          {view ? null : (
-            <button className="viewComment" onClick={() => setView(true)}>
-              view comments
-            </button>
+    <div className="">
+      <div className="w-2/">
+        <h2 className="text-center text-6xl text-blue-800 break-words">
+          {post.postTitle}
+        </h2>
+        <span className="text-xl ml-5 text-neutral-400">{post.username}</span>
+        <div className="justify-self-center">
+          {!imageKey ? (
+            <p>Loading</p>
+          ) : (
+            <ViewImg key={imageKey._id} imageKey={imageKey} />
           )}
-          <div className="">
-            {view ? (
-              <>
-                <button onClick={() => setView(false)}>hide comments</button>
-                <Comments />
-              </>
-            ) : null}
-          </div>
+        </div>
+
+        {/* {context.admin ? (
+        <img
+          className=""
+          src={updateButton}
+          alt=""
+          onClick={() => {
+            navigate(`/posts/${postId}/updatePost`);
+          }}
+        />
+      ) : null}
+
+      {context.admin ? (
+        <img className="" src={deleteButton} alt="" onClick={handleDelete} />
+      ) : null} */}
+
+        <h3 className="text-left mt-10 break-word w-full">{post.postDesc}</h3>
+
+        {view ? null : (
+          <button className="viewComment" onClick={() => setView(true)}>
+            view comments
+          </button>
+        )}
+        <div className="">
+          {view ? (
+            <>
+              <button onClick={() => setView(false)}>hide comments</button>
+              <Comments />
+            </>
+          ) : null}
         </div>
       </div>
     </div>
