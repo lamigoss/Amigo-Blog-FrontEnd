@@ -48,7 +48,7 @@ export default function SinglePost() {
           {post.postTitle}
         </h2>
         <span className="text-xl ml-5 text-neutral-400">{post.username}</span>
-        <div className="justify-self-center">
+        <div className="justify-self-center w-2/3">
           {!imageKey ? (
             <p>Loading</p>
           ) : (

@@ -15,8 +15,8 @@ const ViewImg = ({ imageKey }) => {
   }, []);
 
   return (
-    <div className="relative h-0 pb-2/3 ">
-      {image && <img className="absolute inset-0 w-full h-full object-cover rounded-lg" src={image} alt="" />}
+    <div className="relative h-0 pb-2/3 pt-1/3 ">
+      {image && <img className="absolute inset-0 w-full h-full object-cover rounded-2xl scale-75" src={image} alt="" />}
       {!image && null}
     </div>
   );
