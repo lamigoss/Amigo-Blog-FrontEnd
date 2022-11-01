@@ -6,7 +6,7 @@ import CommentTextBox from "./commentTextbox/CommentTextBox";
 import AuthContext from "../../../../authContext/authContext";
 
 const Comments = () => {
-  const context = useContext(AuthContext)
+  const context = useContext(AuthContext);
   const { postId } = useParams();
   const [comments, setComments] = useState([]);
   const [commentInput, setCommentInput] = useState("");
@@ -49,17 +49,22 @@ const Comments = () => {
   return (
     <>
       <div className="commentContainer">
-        {context.isLoggedIn && <CommentTextBox
-          handleComment={handleComment}
-          handleChange={handleChange}
-          comment={commentInput}
-        />}
-        {!context.isLoggedIn && <p>Please log in to write a comment</p>}
-        {comments ? (
-          comments.map((ele) => <CommentView key={ele._id} comment={ele} />)
-        ) : (
-          <p>no comments</p>
-        )}
+        <div className="w-full mb-4">
+          <CommentTextBox
+            handleComment={handleComment}
+            handleChange={handleChange}
+            comment={commentInput}
+          />
+        </div>
+
+        <div className="bg-slate-200 border-solid-2 rounded-lg p-10">
+          {!context.isLoggedIn && <p>Please log in to write a comment</p>}
+          {comments ? (
+            comments.map((ele) => <CommentView key={ele._id} comment={ele} />)
+          ) : (
+            <p>no comments</p>
+          )}
+        </div>
       </div>
     </>
   );
