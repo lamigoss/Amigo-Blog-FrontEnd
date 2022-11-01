@@ -43,8 +43,8 @@ export default function SinglePost() {
 
   return (
     <div className="grid">
-      <div className="m-10 justify-self-center justify-center border-blue-800  h-full ml-10 mr-10">
-        <span className=" grid grid-cols-2 pt-4 pl-6 pb-2 pr-10">
+      <div className="laptop:flex m-10 justify-self-center justify-center border-blue-800 flex h-full ml-10 mr-10">
+        <span className="grid grid-cols-2 pt-4 pl-6 pb-2 pr-10">
           <div className="mt-3">
             <h2 className="text-center text-6xl text-blue-800 break-words">
               {post.postTitle}

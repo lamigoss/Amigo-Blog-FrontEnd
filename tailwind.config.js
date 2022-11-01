@@ -35,7 +35,7 @@ module.exports = {
         mobile: "300px",
         tablet: "640px",
         laptop: "1040px",
-        desktop: "1024px",
+        desktop: "1240px",
       },
       keyframes: {
         "open-menu": {
