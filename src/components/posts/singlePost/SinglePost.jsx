@@ -42,18 +42,25 @@ export default function SinglePost() {
   };
 
   return (
-    <div className="">
-      <div className="w-2/">
-        <h2 className="text-center text-6xl text-blue-800 break-words">
-          {post.postTitle}
-        </h2>
+    <div className="flex justify-center">
+      <div className="w-10/12 desktopLG:w-6/12 tablet:w-8/12 h-full laptop:mr-10 laptop:ml-10 border-t-[1px] mt-20">
         <span className="text-xl ml-5 text-neutral-400">{post.username}</span>
-        <div className="justify-self-center w-2/3">
-          {!imageKey ? (
-            <p>Loading</p>
-          ) : (
-            <ViewImg key={imageKey._id} imageKey={imageKey} />
-          )}
+        <div className="laptop:ml-40 laptop:mr-40 tablet:mt-20 mt-32">
+          <h2 className="text-center laptop:text-6xl tablet:text-5xl text-blue-800 break-words">
+            {post.postTitle}
+          </h2>
+        </div>
+        <div className="laptop:grid laptop:grid-cols-2 tablet:mt-20 laptop:mt-32 border-b-[1px]">
+          <div className="laptop:w-5/6 tablet:w-7/12 place-content-center">
+            {!imageKey ? (
+              <p>Loading</p>
+            ) : (
+              <ViewImg key={imageKey._id} imageKey={imageKey} />
+            )}
+          </div>
+          <div className="">
+            <h3 className="tablet:mt-20 laptop:mt-0 tablet:text-sm text-left break-word mb-20">{post.postDesc}</h3>
+          </div>
         </div>
 
         {/* {context.admin ? (
@@ -70,21 +77,20 @@ export default function SinglePost() {
       {context.admin ? (
         <img className="" src={deleteButton} alt="" onClick={handleDelete} />
       ) : null} */}
-
-        <h3 className="text-left mt-10 break-word w-full">{post.postDesc}</h3>
-
-        {view ? null : (
-          <button className="viewComment" onClick={() => setView(true)}>
-            view comments
-          </button>
-        )}
-        <div className="">
-          {view ? (
+        <div className="flex justify-center mt-20 mb-32 items-center">
+          <div className="grow">
+          {!view && (
+              <button className="tablet:text-xs laptop:text-sm" onClick={() => setView(true)}>
+                view comments
+              </button>
+          )}
+          {view && (
             <>
-              <button onClick={() => setView(false)}>hide comments</button>
+              <button onClick={() => setView(false)} className='tablet:text-xs laptop:text-sm'>hide comments</button>
               <Comments />
             </>
-          ) : null}
+          )}
+          </div>
         </div>
       </div>
     </div>

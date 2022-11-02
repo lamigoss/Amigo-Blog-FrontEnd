@@ -45,9 +45,8 @@ const Comments = () => {
       console.log(err);
     }
   };
-console.log(comments)
   return (
-    <>
+  
       <div className="">
         <div className="w-full mb-4">
           <CommentTextBox
@@ -58,15 +57,15 @@ console.log(comments)
         </div>
 
         <div className="bg-slate-200 border-solid-2 rounded-lg p-10 shadow-lg">
-          {!context.isLoggedIn && <p>Please log in to write a comment</p>}
+          {!context.isLoggedIn && <p className="tablet:text-xs laptop:text-sm">Please log in to write a comment</p>}
           {comments ? (
             comments.map((ele) => <CommentView key={ele._id} comment={ele} />)
           ) : (
-            <p>no comments</p>
+            <p className="tablet:text-xs laptop:text-sm">no comments</p>
           )}
         </div>
       </div>
-    </>
+  
   );
 };
 

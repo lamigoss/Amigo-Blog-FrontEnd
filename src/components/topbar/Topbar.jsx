@@ -13,7 +13,7 @@ const Topbar = () => {
 
   return (
     <>
-      <div className="mwxs:hidden grid laptop:grid-cols-2 p-6 text-sm border-b[1px]	text-blue-800">
+      <div className="mwxs:hidden grid laptop:grid-cols-2 p-6 text-sm	text-blue-800">
         <div className="grid grid-cols-5 md:grid-cols-6 laptop:ml-30 md:ml-20">
           <div className="topbarWrapper">
             <Link to="/">

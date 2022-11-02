@@ -24,7 +24,7 @@ const CommentTextBox = ({ handleComment, handleChange, comment }) => {
         <div className="grid">
           {context.isLoggedIn && (
             <button
-              className="justify-self-end px-6 p-1 text-white transition duration-300 rounded-md hover:from-indigo-500 hover:to-blue-500 ease bg-gradient-to-br from-blue-400 to-indigo-400 mt-2 shadow-lg"
+              className="justify-self-end px-6 p-1 text-white transition duration-300 rounded-md hover:from-indigo-500 hover:to-blue-500 ease bg-gradient-to-br from-blue-400 to-indigo-400 mt-2 shadow-lg tablet:text-sm laptop:text-sm"
               type="submit"
             >
               Submit
