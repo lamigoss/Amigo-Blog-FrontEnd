@@ -8,7 +8,6 @@ const Dropdown = () => {
 
   const toggleDrop = () => {
     setDrop((prev) => !prev);
-    console.log("drop: " + drop);
   };
 
   return (
@@ -27,7 +26,7 @@ const Dropdown = () => {
       </div>
 
       {drop ? (
-        <div className="h-40 w-40 bg-white text-purple rounded-md shadow-md">
+        <div className="h-40 w-40 bg-white text-purple rounded-md shadow-md absolute">
           <Link to={"/developers/stevelee"}>
             <div className="hover:bg-indigo-300 p-5">Steve Lee</div>
           </Link>
