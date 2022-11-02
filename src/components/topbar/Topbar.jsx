@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import AuthContext from "../../authContext/authContext";
+import Dropdown from "../dropdownMenu/Dropdown";
 
 const Topbar = () => {
   const [open, setOpen] = useState(false);
@@ -26,11 +27,9 @@ const Topbar = () => {
             </Link>
           </div>
           <div className="developers">
-            <Link to="/developers">
-              <span className="duration-100 hover:text-blue-400">
-                Developers
-              </span>
-            </Link>
+            <span className="duration-100 hover:text-blue-400">
+              <Dropdown />
+            </span>
           </div>
         </div>
         <div className="grid laptop:grid-cols-2 xs:col-end-3 sm:col-end-3 md:col-end-3 tablet:col-end-3 laptop:mr-40">
