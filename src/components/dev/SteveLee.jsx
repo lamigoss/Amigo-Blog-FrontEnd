@@ -1,15 +1,15 @@
 import React from "react";
 import Leftbar from "../leftbar/Leftbar";
-import Steve from "../../img/steve.jpg";
+import HeroSteve from "./Steve/HeroSteve";
+import MidSteve from "./Steve/MidSteve";
 
-export default function SteveLee() {
+const SteveLee = () => {
   return (
     <>
-      <div className="text-center">
-        <img src={Steve} alt="/" />
-        <p> Hello this is Steve Lee and I am really gay</p>
-      </div>
-      <Leftbar />
+      <HeroSteve />
+      <MidSteve />
     </>
   );
-}
+};
+
+export default SteveLee;
