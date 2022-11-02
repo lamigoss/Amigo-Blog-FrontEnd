@@ -1,4 +1,5 @@
 import React from "react";
+import BottomMid from "./BottomMid";
 import Hero from "./Hero";
 import { Mid } from "./Mid";
 
@@ -7,6 +8,7 @@ const Home = () => {
     <>
       <Hero />
       <Mid />
+      <BottomMid />
     </>
   );
 };

@@ -7,8 +7,9 @@ const Developers = () => {
   return (
     <>
       <div className="text-center items-center justify-center">
-        <p> Dev Page</p>
-        <h1>Select the developer you want to know more about</h1>
+        <h1 className="m-5 text-5xl">
+          Select the developer you want to know more about
+        </h1>
         <div className="grid grid-cols-2 p-10 scale-75">
           <div className="hover:text-black hover:scale-150 opacity-10 hover:opacity-90 m-10">
             <Link to={"/developers/stevelee"}>

@@ -1,15 +1,15 @@
 import React from "react";
-import Steve from "../../img/steve.jpg";
 import { Link } from "react-router-dom";
+import Roy from "../../img/roy.jpg";
 
-export const Mid = () => {
+const BottomMid = () => {
   return (
-    <div className="bg-white w-full ">
-      <img className="w-[500px] mx-auto my-4 rounded-md" src={Steve} alt="/" />
+    <div className="bg-gray-100 m-5">
+      <img className="w-[500px] mx-auto my-4 rounded-md" src={Roy} alt="" />
       <div className="flex flex-col justify-center">
-        <p className="text-indigo-500">CEO</p>
+        <p className="text-indigo-500">This is Roy</p>
         <h1 className="md:text-4xl sm:text-3xl text-2xl font-bold py-2">
-          Manger Boy
+          Vice-Manger Boy
         </h1>
         <p>
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque
@@ -18,9 +18,11 @@ export const Mid = () => {
           consectetur laudantium facere.
         </p>
         <button className="bg-indigo-500 hover:bg-indigo-700 rounded-md  font-medium my-6 mx-auto p-3 text-bold text-white">
-          <Link to={"/developers/stevelee"}>Read more about Esteban</Link>
+          <Link to={"/developers/roycehong"}>Read more about Roy</Link>
         </button>
       </div>
     </div>
   );
 };
+
+export default BottomMid;
