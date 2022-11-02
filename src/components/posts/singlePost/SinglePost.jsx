@@ -84,7 +84,7 @@ export default function SinglePost() {
             </div>
           </div>
 
-          <h3 className="text-left mt-10 break-all w-full">{post.postDesc}</h3>
+          <h3 className="text-left mt-10 break-word w-full">{post.postDesc}</h3>
         </div>
       </div>
 

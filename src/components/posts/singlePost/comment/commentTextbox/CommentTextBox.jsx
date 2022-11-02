@@ -1,20 +1,38 @@
-import React from "react";
+import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import AuthContext from "../../../../../authContext/authContext";
 
 const CommentTextBox = ({ handleComment, handleChange, comment }) => {
+  const context = useContext(AuthContext);
+  const navigate = useNavigate();
+
   return (
-    <>
-      <form className="textboxContainer" onSubmit={handleComment}>
+    <div className="grid grid-rows-1">
+      <form className="" onSubmit={handleComment}>
         <textarea
-          className="border-b-[2px] border-blue-800"
+          className="border-b-[.5px] border-blue-800 bg-transparent resize-none p-3 w-full"
           id="desc"
           value={comment}
           type="text"
-          placeholder="write your thoughts about this blog post and share with other readers!"
+          placeholder={
+            context.isLoggedIn
+              ? `write your thoughts about this blog post and share with other readers!`
+              : `please login in to submit comment`
+          }
           onChange={handleChange}
         />
-        <button type="submit">Submit</button>
+        <div className="grid">
+          {context.isLoggedIn && (
+            <button
+              className="justify-self-end px-6 p-1 text-white transition duration-300 rounded-md hover:from-indigo-500 hover:to-blue-500 ease bg-gradient-to-br from-blue-400 to-indigo-400 mt-2 shadow-lg"
+              type="submit"
+            >
+              Submit
+            </button>
+          )}
+        </div>
       </form>
-    </>
+    </div>
   );
 };
 
