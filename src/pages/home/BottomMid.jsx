@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Roy from "../../img/roy.jpg";
+import Typed from "react-typed";
 
 const BottomMid = () => {
   return (
@@ -9,7 +10,13 @@ const BottomMid = () => {
       <div className="flex flex-col justify-center">
         <p className="text-indigo-500">This is Roy</p>
         <h1 className="md:text-4xl sm:text-3xl text-2xl font-bold py-2">
-          Vice-Manger Boy
+          <Typed
+            className="md:text-5xl sm:text-4xl text-xl font-bold pl-2 md:pl-4"
+            strings={["Vice-Manager Boy: Roy Hong"]}
+            typeSpeed={120}
+            backSpeed={140}
+            loop
+          />{" "}
         </h1>
         <p>
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque
