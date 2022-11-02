@@ -59,7 +59,7 @@ const Comments = () => {
         <div className="bg-slate-200 border-solid-2 rounded-lg p-10 shadow-lg">
           {!context.isLoggedIn && <p className="tablet:text-xs laptop:text-sm">Please log in to write a comment</p>}
           {comments ? (
-            comments.map((ele) => <CommentView key={ele._id} comment={ele} />)
+            comments.slice(0).reverse().map((ele) => <CommentView key={ele._id} comment={ele} />)
           ) : (
             <p className="tablet:text-xs laptop:text-sm">no comments</p>
           )}
