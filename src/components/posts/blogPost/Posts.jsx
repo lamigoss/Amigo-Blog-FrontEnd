@@ -5,6 +5,11 @@ import { GetPostImage } from "../../../utils/httpRequests/HttpRequest";
 
 const Posts = ({ post }) => {
   const [imageKey, setImageKey] = useState();
+  const date = new Date(post.updatedAt);
+  const formattedDate = date.toLocaleString("en-GB", {
+    month: "long",
+    day: "numeric",
+  });
 
   useEffect(() => {
     GetPostImage(post.imageId).then((res) => setImageKey(res.data.imageKey));
@@ -12,29 +17,25 @@ const Posts = ({ post }) => {
 
   return (
     <>
-      <div className="flex items-center justify-center mt-40">
-        <div className="bg-white bg-opacity-50 text-black shadow-lg rounded-md w-2/5 h-4/6">
-          <div className="grid grid-rows-[20%_80%]">
-            <Link to={`/posts/${post._id}`}>
-              <div className="text-slate-800 ">
-                <div className="grid grid-cols-[15%_85%] border-b-[.5px] border-blue-200 pt-4 pl-6 pb-2 pr-10">
-                  <div className="mt-3">
-                    <span>{post.username}</span>
-                  </div>
-                </div>
+      <Link to={`/posts/${post._id}`}>
+        <div className="grid justify-items-center">
+          <div className="grid grid-cols-2 w-6/12 border-b-[.5px] border-gray-300 ">
+            <div className="grid grid-rows-[20%_80%] mt-5 mb-5">
+              <span className="text-blue-500 mobile:text-xs tablet:text-sm">
+                {post.username}
+              </span>
+              <div className="grid">
+                <span className="font-bold mobile:text-sm tablet:text-lg laptop:text-xl">{post.postTitle}</span>
+                <span className="mobile:text-xs tablet:text-sm text-gray-400">{formattedDate}</span>
               </div>
-              <div className="justify-self-center">
-                <div className="">
-                  <span className="font-bold">{post.postTitle}</span>
-                </div>
-                <div className="">
-                  {!imageKey ? <p>Loading</p> : <ViewImg imageKey={imageKey} />}
-                </div>
-              </div>
-            </Link>
+            </div>
+            <div className="mobile:w-7/12 tablet:w-4/12 mobile:mb-10 justify-self-end mt-5">
+              {!imageKey ? <p>Loading</p> : <ViewImg imageKey={imageKey} />}
+            </div>
           </div>
+          <div className="grid"></div>
         </div>
-      </div>
+      </Link>
     </>
   );
 };

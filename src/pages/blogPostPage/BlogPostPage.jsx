@@ -16,7 +16,7 @@ export default function BlogPostPage() {
 
   return (
     <>
-      <div className="">
+      <div className="mt-20 mb-20">
         {posts ? (
           posts.map((posting) => <Posts key={posting._id} post={posting} />)
         ) : (
