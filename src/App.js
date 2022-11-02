@@ -12,6 +12,7 @@ import UpdatePost from "./components/posts/singlePost/updatePost/UpdatePost";
 import Steve from "./components/dev/SteveLee"; 
 import Roy from "./components/dev/RoyceHong"; 
 import "./index.css";
+import Footer from "./components/footer/Footer";
 
 const App = () => {
   return (
@@ -31,6 +32,7 @@ const App = () => {
           <Route path="/logout" element={<Logout />} />
           <Route path="/signup" element={<Signup />} />
         </Routes>
+        <Footer/>
       </div>
     </Router>
   );
