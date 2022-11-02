@@ -7,10 +7,12 @@ import Dropdown from "../../components/dropdownMenu/Dropdown";
 const Home = () => {
   return (
     <>
-      <Hero />
-      <Mid />
-      <BottomMid />
-      <Dropdown />
+      <div className="mobile:mr-20 mobile:ml-20">
+        <Hero />
+        <Mid />
+        <BottomMid />
+        <Dropdown />
+      </div>
     </>
   );
 };
