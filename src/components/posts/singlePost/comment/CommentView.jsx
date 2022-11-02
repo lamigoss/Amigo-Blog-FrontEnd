@@ -34,13 +34,13 @@ const CommentView = ({ comment }) => {
         </div>
         <div className="grid">
           <div className="grid grid-cols-2">
-            <span className="break-all w-full pb-3 pt-3 text-indigo-300 tablet:text-xs laptop:text-sm">
+            <span className="break-all w-full pb-3 pt-3 text-indigo-300 tablet:text-xs laptop:text-sm mobile:text-xs">
               {comment.username}
             </span>
-            <span className="text-sm justify-self-end pb-3 pt-3 tablet:text-xs">{formattedDate}</span>
+            <span className="text-sm justify-self-end pb-3 pt-3 tablet:text-xs mobile:text-xs">{formattedDate}</span>
           </div>
-          {!comment.desc && <span className="pb-3 pt-3 tablet:text-xs laptop:text-sm"> {comment.desc}</span>}
-          {comment.desc && <span className="pb-3 tablet:text-xs laptop:text-sm"> {comment.desc}</span>}
+          {!comment.desc && <span className="pb-3 pt-3 tablet:text-xs laptop:text-sm mobile:text-xs"> {comment.desc}</span>}
+          {comment.desc && <span className="pb-3 tablet:text-xs laptop:text-sm mobile:text-xs"> {comment.desc}</span>}
         </div>
       </div>
     </div>

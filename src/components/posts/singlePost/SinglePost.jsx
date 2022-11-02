@@ -43,15 +43,15 @@ export default function SinglePost() {
 
   return (
     <div className="flex justify-center">
-      <div className="w-10/12 desktopLG:w-6/12 tablet:w-8/12 h-full laptop:mr-10 laptop:ml-10 border-t-[1px] mt-20">
-        <span className="text-xl ml-5 text-neutral-400">{post.username}</span>
-        <div className="laptop:ml-40 laptop:mr-40 tablet:mt-20 mt-32">
-          <h2 className="text-center laptop:text-6xl tablet:text-5xl text-blue-800 break-words">
+      <div className="w-10/12 desktopLG:w-6/12 tablet:w-8/12 mobile:mt-20 h-full laptop:mr-10 laptop:ml-10 border-t-[1px] mt-20">
+        <span className="text-xl ml-5 text-neutral-400 laptop:text-sm mobile:text-xs">{post.username}</span>
+        <div className="laptop:ml-40 laptop:mr-40 tablet:mt-20 mobile:mt-10 mt-32">
+          <h2 className="text-center laptop:text-6xl tablet:text-5xl mobile:text-4xl text-blue-800 break-words">
             {post.postTitle}
           </h2>
         </div>
-        <div className="laptop:grid laptop:grid-cols-2 tablet:mt-20 laptop:mt-32 border-b-[1px]">
-          <div className="laptop:w-5/6 tablet:w-7/12 place-content-center">
+        <div className="laptop:grid laptop:grid-cols-2 tablet:mt-20 laptop:mt-32 mobile:mt-10 border-b-[1px]">
+          <div className="laptop:w-5/6 tablet:w-7/12 mobile:w-6/12 mobile:mb-10 place-content-center">
             {!imageKey ? (
               <p>Loading</p>
             ) : (
@@ -59,7 +59,7 @@ export default function SinglePost() {
             )}
           </div>
           <div className="">
-            <h3 className="tablet:mt-20 laptop:mt-0 tablet:text-sm text-left break-word mb-20">{post.postDesc}</h3>
+            <h3 className="tablet:mt-20 laptop:mt-0 tablet:text-sm mobile:text-xs text-left break-word mb-20">{post.postDesc}</h3>
           </div>
         </div>
 
@@ -80,13 +80,13 @@ export default function SinglePost() {
         <div className="flex justify-center mt-20 mb-32 items-center">
           <div className="grow">
           {!view && (
-              <button className="tablet:text-xs laptop:text-sm" onClick={() => setView(true)}>
+              <button className="tablet:text-xs laptop:text-sm mobile:text-xs" onClick={() => setView(true)}>
                 view comments
               </button>
           )}
           {view && (
             <>
-              <button onClick={() => setView(false)} className='tablet:text-xs laptop:text-sm'>hide comments</button>
+              <button onClick={() => setView(false)} className='laptop:text-sm mobile:text-xs'>hide comments</button>
               <Comments />
             </>
           )}
