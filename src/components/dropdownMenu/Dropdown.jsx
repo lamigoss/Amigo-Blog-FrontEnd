@@ -8,6 +8,7 @@ const Dropdown = () => {
 
   const toggleDrop = () => {
     setDrop((prev) => !prev);
+    // console.log()
   };
 
   return (
