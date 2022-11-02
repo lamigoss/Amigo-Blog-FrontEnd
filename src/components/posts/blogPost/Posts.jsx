@@ -18,7 +18,7 @@ const Posts = ({ post }) => {
   return (
     <>
       <Link to={`/posts/${post._id}`}>
-        <div className="grid justify-items-center">
+        <div className="grid grid-row-reverse justify-items-center">
           <div className="grid grid-cols-2 w-6/12 border-b-[.5px] border-gray-300 ">
             <div className="grid grid-rows-[20%_80%] mt-5 mb-5">
               <span className="text-blue-500 mobile:text-xs tablet:text-sm">

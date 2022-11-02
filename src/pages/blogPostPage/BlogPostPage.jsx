@@ -18,7 +18,9 @@ export default function BlogPostPage() {
     <>
       <div className="mt-20 mb-20">
         {posts ? (
-          posts.map((posting) => <Posts key={posting._id} post={posting} />)
+          posts.slice(0).reverse().map((posting) => (
+          <Posts key={posting._id} post={posting} />
+          ))
         ) : (
           <p>loading</p>
         )}
