@@ -47,7 +47,7 @@ const CommentView = ({ comment }) => {
             <img
               src={deleting}
               onClick={handleDelete}
-              className="justify-self-end w-6 cursor-pointer group-hover:block"
+              className="justify-self-end w-6 cursor-pointer"
               alt=""
             />
           </div>

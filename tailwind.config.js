@@ -5,7 +5,6 @@ module.exports = {
   content: ["./src/**/*.{html,jsx}"],
   theme: {
     extend: {
-      display: ["group-hover"],
       padding: {
         '1/3': '33.33333%',
         '2/3': '66.66667%'
