@@ -2,25 +2,14 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className=" w-full h-60 bg-black opacity-60 items-center">
-      <div className="mx-20 p-10 grid grid-cols-3 justify-center items-center">
-        <ul>
-          <li>world</li>
-          <li>This</li>
-          <li>world</li>
-        </ul>
+    <div className=" w-full h-20 border-stone-300 border-t-2 items-center">
+      <div className="flex justify-center items-center pl-30 pt-5">
+        <span className="text-slate-400">Copyright © 2022 Lee&Hong Inc.</span>
+        <span className="text-slate-400 px-5">|</span>
 
-        <ul>
-          <li>world</li>
-          <li>This</li>
-          <li>world</li>
-        </ul>
-
-        <ul>
-          <li>world</li>
-          <li>This</li>
-          <li>world</li>
-        </ul>
+        <span className="text-slate-400">Trademark Policy</span>
+        <span className="text-slate-400 px-5">|</span>
+        <span className="text-slate-400">Edit this page on GitHub</span>
       </div>
     </div>
   );

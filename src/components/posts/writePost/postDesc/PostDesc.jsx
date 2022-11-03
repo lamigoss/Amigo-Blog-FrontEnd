@@ -4,7 +4,7 @@ const PostDesc = (props) => {
       <div className="grid grid-cols-[20%_80%] gap-x-2 pt-4 pl-6 pb-2 pr-10">
         <div className="text-blue-500">Post Description:</div>
         <textarea
-          className="bg-transparent outline-none text-slate-800 placeholder:text-gray-300"
+          className="bg-indigo-100 h-80 p-5  text-slate-800 placeholder:text-gray-300 rounded-md"
           placeholder="Describe your post"
           type="text"
           id="postDesc"

@@ -1,11 +1,10 @@
 import React from "react";
 import Typed from "react-typed";
-import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
     <div className="text-black">
-      <div className="max-w-[800px] mt-[-96px] w-full h-screen mx-auto text-center flex flex-col justify-center">
+      <div className="max-w-[800px] mt-[-96px] h-screen mx-auto text-center flex flex-col justify-center">
         <p className=" text-indigo-700 font-bold p-2">
           Watch two amigos growing as Developers
         </p>
@@ -29,9 +28,7 @@ const Hero = () => {
           experiences.
         </p>
         <button className="bg-indigo-500 hover:bg-indigo-700 rounded-md font-medium text-white my-6 mx-auto p-3 text-bold">
-          <Link to={"/posts"}>
-            Read more about how this blog was made by these two amigos
-          </Link>
+          Click here to read more about these Amigos
         </button>
       </div>
     </div>
