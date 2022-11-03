@@ -71,13 +71,7 @@ const Topbar = () => {
         </div>
       </div>
 
-      {/* HABURGER NAV */}
-      {/* <button
-        id="hamburger-button"
-        className="text-3xl xs:hidden cursor-pointer"
-      >
-        HELLO
-      </button> */}
+   
       <button
         onClick={() => setOpen(true)}
         className="xs:hidden cursor-pointer p-4 absolute right-2 top-0 space-y-2"

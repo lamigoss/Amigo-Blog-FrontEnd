@@ -1,33 +1,39 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import {
+  GetPost,
+  DeletePost,
+  GetPostImage,
+} from "../../../utils/httpRequests/HttpRequest";
 import AuthContext from "../../../authContext/authContext";
-import axios from "axios";
-import Comments from "./comment/Comments";
-import { GetPostImage } from "../../../utils/httpRequests/HttpRequest";
-import ViewImg from "../writePost/viewImg/ViewImg";
 import updateButton from "../../../img/edit.png";
 import deleteButton from "../../../img/delete.png";
 
-export default function SinglePost() {
+import Comments from "./comment/Comments";
+import ViewImg from "../writePost/viewImg/ViewImg";
+
+const SinglePost = () => {
   const context = useContext(AuthContext);
   const navigate = useNavigate();
   const [post, setPost] = useState({});
-  const location = useLocation();
   const [imageKey, setImageKey] = useState();
-  const postId = location.pathname.split("/")[2];
+  const { postId } = useParams();
   const [view, setView] = useState(false);
   const date = new Date(post.updatedAt);
   const formattedDate = date.toLocaleString("en-GB", {
     month: "long",
     day: "numeric",
+    year: "numeric",
   });
 
   useEffect(() => {
     const getPost = async () => {
       try {
-        const res = await axios.get(`/posts/${postId}`);
-        setPost(res.data);
-        GetPostImage(res.data.imageId).then((res) =>
+        const res = await GetPost(postId).then((res) => {
+          setPost(res);
+          return res;
+        });
+        await GetPostImage(res.imageId).then((res) =>
           setImageKey(res.data.imageKey)
         );
       } catch (error) {
@@ -39,10 +45,9 @@ export default function SinglePost() {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`/posts/${post._id}`);
-      window.location.replace("/posts");
-    } catch (err) {
-      console.log(err);
+      await DeletePost(post._id).then(() => navigate("/posts"));
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -122,4 +127,6 @@ export default function SinglePost() {
       </div>
     </div>
   );
-}
+};
+
+export default SinglePost;

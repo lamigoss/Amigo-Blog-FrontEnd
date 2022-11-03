@@ -79,6 +79,14 @@ export const GetPost = async(postId) => {
   }
 }
 
+export const DeletePost = async(postId) => {
+  console.log(postId)
+  try {
+    await axios.delete(`/posts/${postId}`)
+  } catch (err) {
+    console.log(err)
+  }
+}
 // POST REQUEST FOR BLOGPOST
 export const PostBlog = async (body, id) => {
   try {
