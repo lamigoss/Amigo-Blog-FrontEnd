@@ -46,14 +46,17 @@ const UpdatePost = () => {
     window.localStorage.removeItem("imageId");
     window.localStorage.removeItem("imageKey");
     try {
-      const res = await axios.delete(
-        `/images/${postId}/${imageKey}/${post.imageId}`
-      );
+      await axios
+        .delete(`/images/${postId}/${imageKey}/${post.imageId}`)
+        .then(() => navigate(`/${postId}/updatePost`));
     } catch (error) {
       console.log(error);
     }
   };
-  const handleUpdate = async () => {
+
+  const handleUpdate = async (event) => {
+    event.preventDefault();
+
     try {
       if (!imageCtx.imageId) {
         await axios.put(`/posts/${postId}`, {
@@ -62,16 +65,20 @@ const UpdatePost = () => {
           postTitle: post.postTitle,
           postDesc: post.postDesc,
         });
-
-        navigate(`/posts`);
       } else {
-        await axios.put(`/posts/${postId}/${imageCtx.imageId}`, {
-          _id: postId,
-          username: username,
-          postTitle: post.postTitle,
-          postDesc: post.postDesc,
-        });
-        navigate(`/posts`);
+        console.log("IN PUT");
+        await axios
+          .put(`/posts/${postId}/${imageCtx.imageId}`, {
+            _id: postId,
+            username: username,
+            postTitle: post.postTitle,
+            postDesc: post.postDesc,
+          })
+          .then((res) => {
+            if (res.status === 201) {
+              navigate("/posts");
+            }
+          });
       }
     } catch (err) {
       console.log(err + post.postTitle);
@@ -79,17 +86,22 @@ const UpdatePost = () => {
   };
 
   return (
-    <form className="grid grid-row-4" onSubmit={handleUpdate}>
-      <div className="mobile:w-7/12 tablet:w-2/12 mobile:mb-10 place-content-center mt-5 relative ml-96">
-        {imageKey ? <ViewImg imageKey={imageKey} /> : null}
-        {imageKey ? (
-          <button onClick={handleDeleteImg}>Delete Image</button>
-        ) : null}
-      </div>
-      <PostTitle postTitle={post.postTitle} handleChange={handleChange} />
-      <PostDesc postDesc={post.postDesc} handleChange={handleChange} />
-      {!imageKey ? <PostImg /> : null}
-      <Link to="/posts">
+    <div>
+      <form className="grid grid-row-4">
+        <div className="mobile:w-7/12 tablet:w-2/12 mobile:mb-10 place-content-center mt-5 relative ml-96">
+          {imageKey ? <ViewImg imageKey={imageKey} /> : null}
+          {imageKey ? (
+            <button id="delete-button" onClick={handleDeleteImg}>
+              Delete Image
+            </button>
+          ) : null}
+        </div>
+      </form>
+      <form className="grid grid-row-4" onSubmit={handleUpdate}>
+        <div className="mobile:w-7/12 tablet:w-2/12 mobile:mb-10 place-content-center mt-5 relative ml-96"></div>
+        <PostTitle postTitle={post.postTitle} handleChange={handleChange} />
+        <PostDesc postDesc={post.postDesc} handleChange={handleChange} />
+        {!imageKey ? <PostImg /> : null}
         <button
           className="
             bg-indigo-500
@@ -104,8 +116,8 @@ const UpdatePost = () => {
         >
           Update
         </button>
-      </Link>
-    </form>
+      </form>
+    </div>
   );
 };
 
