@@ -49,7 +49,7 @@ const UpdatePost = () => {
     try {
       await axios
         .delete(`/images/${postId}/${imageKey}/${post.imageId}`)
-        .then((res) => res.status === 204 ? setImageKey("") : null);
+        .then((res) => (res.status === 204 ? setImageKey("") : null));
     } catch (error) {
       console.log(error);
     }
@@ -88,7 +88,7 @@ const UpdatePost = () => {
   return (
     <div>
       <form className="grid grid-row-4" onSubmit={handleDeleteImg}>
-        <div className="mobile:w-7/12 tablet:w-2/12 mobile:mb-10 place-content-center mt-5 relative ml-96">
+        <div className="mobile:w-7/12 tablet:w-2/12 mobile:mb-10 place-content-center tablet:mt-5 relative tablet:ml-96 mobile:ml-20 ">
           {imageKey && <ViewImg imageKey={imageKey} />}
           {imageKey && (
             <button id="delete-button" type="submit">
@@ -96,13 +96,13 @@ const UpdatePost = () => {
             </button>
           )}
           {!imageKey && null}
+          {!imageKey ? <PostImg /> : null}
         </div>
       </form>
       <form className="grid grid-row-4" onSubmit={handleUpdate}>
         <div className="mobile:w-7/12 tablet:w-2/12 mobile:mb-10 place-content-center mt-5 relative ml-96"></div>
         <PostTitle postTitle={post.postTitle} handleChange={handleChange} />
         <PostDesc postDesc={post.postDesc} handleChange={handleChange} />
-        {!imageKey ? <PostImg /> : null}
         <button
           className="
             bg-indigo-500
