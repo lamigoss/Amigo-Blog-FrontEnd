@@ -85,26 +85,31 @@ const UpdatePost = () => {
   };
 
   return (
-    <div className="grid">
-      <form className="grid" onSubmit={handleDeleteImg}>
-        <div className="mobile:w-7/12 tablet:w-2/12 mobile:mb-10 place-content-center tablet:mt-5 relative tablet:ml-96 mobile:ml-20 ">
-          {imageKey && <ViewImg imageKey={imageKey} />}
-
-          {imageKey && (
-            <button id="delete-button" type="submit">
-              Delete Image
-            </button>
-          )}
-        </div>
-      </form>
-      <form className="grid grid-row-4" onSubmit={handleUpdate}>
-        {!imageKey && null}
-        {!imageKey ? <PostImg /> : null}
-        <div className="mobile:w-7/12 tablet:w-2/12 mobile:mb-10 place-content-center mt-5 relative ml-96"></div>
-        <PostTitle postTitle={post.postTitle} handleChange={handleChange} />
-        <PostDesc postDesc={post.postDesc} handleChange={handleChange} />
-        <button
-          className="
+    <div className="grid mb-28 mt-28">
+      <div className="grid justify-self-center mobile:w-full desktop:w-10/12 desktopLG:w-7/12">
+        <form className="grid" onSubmit={handleDeleteImg}>
+          <div className="place-content-center tablet:mt-5 tablet:ml-96 mobile:ml-20 ">
+            {imageKey && <ViewImg imageKey={imageKey} />}
+            {imageKey && (
+              <button id="delete-button" type="submit">
+                Delete Image
+              </button>
+            )}
+          </div>
+        </form>
+        <form
+          className="grid grid-row-4 justify-self-center w-10/12 mobile:text-xs tablet:text-sm"
+          onSubmit={handleUpdate}
+        >
+          {!imageKey && null}
+          {!imageKey ? <PostImg /> : null}
+          <div className="mobile:mb-10 place-content-center mt-5 "></div>
+          <PostTitle postTitle={post.postTitle} handleChange={handleChange} />
+          <PostDesc postDesc={post.postDesc} handleChange={handleChange} />
+          <button
+            className="
+          items-center
+          justify-self-center
             bg-indigo-500
              hover:bg-indigo-700 
              w-full
@@ -112,12 +117,14 @@ const UpdatePost = () => {
             font-medium 
             p-5 text-bold
             text-white
+            mt-10
             "
-          type="submit"
-        >
-          Update
-        </button>
-      </form>
+            type="submit"
+          >
+            Update
+          </button>
+        </form>
+      </div>
     </div>
   );
 };
