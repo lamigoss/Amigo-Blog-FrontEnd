@@ -8,8 +8,7 @@ import deleteButton from "../../../img/delete.png";
 import Comments from "./comment/Comments";
 import ViewImg from "../writePost/viewImg/ViewImg";
 
-
-export default function SinglePost() {
+const SinglePost = () => {
   const context = useContext(AuthContext);
   const navigate = useNavigate();
   const [post, setPost] = useState({});
@@ -109,3 +108,5 @@ export default function SinglePost() {
     </div>
   );
 }
+
+export default SinglePost
