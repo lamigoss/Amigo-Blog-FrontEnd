@@ -36,7 +36,7 @@ export default function WritePost() {
 
   return (
     <>
-      <div className="flex items-center justify-center mt-40">
+      <div className="flex items-center justify-center mt-40 mb-28">
         <div className="bg-white bg-opacity-50 text-black shadow-lg rounded-md xs:w-11/12 sm:w-10/12 msm:w-9/12 laptop:w-7/12 lg:w-5/12">
           <form className="postDataFormBox" onSubmit={postSubmitHandler}>
             <div className="grid grid-rows gap-6">
