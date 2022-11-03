@@ -59,10 +59,10 @@ const SinglePost = () => {
             {post.postTitle}
           </h2>
           <div className="flex border-t-[3px]">
-            <span className="text-xl ml-5 text-neutral-500 laptop:text-sm mobile:text-xs ">
+            <span className="laptop:text-2xl mobile:text-xs ml-5 text-neutral-500">
               {post.username}
             </span>
-            <div className="flex opacity-70 ml-96 scale-75">
+            <div className="flex opacity-70 scale-75 sm:scale-50">
               {context.admin ? (
                 <img
                   className="cursor-pointer scale-75"
