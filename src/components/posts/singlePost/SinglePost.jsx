@@ -55,10 +55,10 @@ const SinglePost = () => {
     <div className="flex justify-center">
       <div className="w-10/12 desktopLG:w-6/12 tablet:w-8/12 mobile:mt-20 h-full laptop:mr-10 laptop:ml-10  mt-20">
         <div className="laptop:ml-40 laptop:mr-40 tablet:mt-20 mobile:mt-10 mt-32">
-          <h2 className="text-center laptop:text-6xl tablet:text-5xl mobile:text-4xl text-blue-800 break-words">
+          <h2 className="text-center laptop:text-6xl tablet:text-5xl mobile:text-4xl text-blue-800 break-words mb-10">
             {post.postTitle}
           </h2>
-          <div className="flex border-t-[3px]">
+          <div className="flex border-t-[1px]">
             <span className="laptop:text-2xl mobile:text-xs ml-5 text-neutral-500">
               {post.username}
             </span>
