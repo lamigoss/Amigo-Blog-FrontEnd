@@ -105,3 +105,17 @@ export const GetComment = async (postId) => {
     console.log("POST COMMENT " + error);
   }
 };
+
+// POST REQUEST FOR COMMENT
+export const PostComment = async(username, postId, desc) => {
+  try {
+    const res = axios.post('/comments', {
+      username: username,
+      postId: postId,
+      desc: desc
+    })
+    return res.data
+  } catch (error) {
+    console.log(error)
+  }
+}

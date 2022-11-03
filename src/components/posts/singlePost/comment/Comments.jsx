@@ -4,7 +4,10 @@ import { useParams } from "react-router-dom";
 import CommentView from "./CommentView";
 import CommentTextBox from "./commentTextbox/CommentTextBox";
 import AuthContext from "../../../../authContext/authContext";
-import { GetComment } from "../../../../utils/httpRequests/HttpRequest";
+import {
+  GetComment,
+  PostComment,
+} from "../../../../utils/httpRequests/HttpRequest";
 
 const Comments = () => {
   const context = useContext(AuthContext);
@@ -25,20 +28,11 @@ const Comments = () => {
     setCommentInput(e.target.value);
   };
 
-  //comment post api
-  const handleComment = (e) => {
-    e.preventDefault();
-    try {
-      axios
-        .post("/comments", {
-          username: user,
-          postId: postId,
-          desc: commentInput,
-        })
-        .then(() => setCommentInput(""));
-    } catch (err) {
-      console.log(err);
-    }
+  const handleComment = (event) => {
+    event.preventDefault();
+    PostComment(user, postId, commentInput)
+      .then(() => setCommentInput(""))
+      .catch((err) => console.log(err));
   };
   return (
     <div className="">
