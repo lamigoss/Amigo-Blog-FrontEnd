@@ -5,8 +5,8 @@ import axios from "axios";
 import Comments from "./comment/Comments";
 import { GetPostImage } from "../../../utils/httpRequests/HttpRequest";
 import ViewImg from "../writePost/viewImg/ViewImg";
-// import updateButton from "../../../img/edit.png";
-// import deleteButton from "../../../img/delete.png";
+import updateButton from "../../../img/edit.png";
+import deleteButton from "../../../img/delete.png";
 
 export default function SinglePost() {
   const context = useContext(AuthContext);
@@ -16,6 +16,11 @@ export default function SinglePost() {
   const [imageKey, setImageKey] = useState();
   const postId = location.pathname.split("/")[2];
   const [view, setView] = useState(false);
+  const date = new Date(post.updatedAt);
+  const formattedDate = date.toLocaleString("en-GB", {
+    month: "long",
+    day: "numeric",
+  });
 
   useEffect(() => {
     const getPost = async () => {
@@ -43,12 +48,37 @@ export default function SinglePost() {
 
   return (
     <div className="flex justify-center">
-      <div className="w-10/12 desktopLG:w-6/12 tablet:w-8/12 mobile:mt-20 h-full laptop:mr-10 laptop:ml-10 border-t-[1px] mt-20">
-        <span className="text-xl ml-5 text-neutral-400 laptop:text-sm mobile:text-xs">{post.username}</span>
+      <div className="w-10/12 desktopLG:w-6/12 tablet:w-8/12 mobile:mt-20 h-full laptop:mr-10 laptop:ml-10  mt-20">
         <div className="laptop:ml-40 laptop:mr-40 tablet:mt-20 mobile:mt-10 mt-32">
           <h2 className="text-center laptop:text-6xl tablet:text-5xl mobile:text-4xl text-blue-800 break-words">
             {post.postTitle}
           </h2>
+          <div className="flex border-t-[3px]">
+            <span className="text-xl ml-5 text-neutral-500 laptop:text-sm mobile:text-xs ">
+              {post.username}
+            </span>
+            <div className="flex opacity-70 ml-96 scale-75">
+              {context.admin ? (
+                <img
+                  className="cursor-pointer scale-75"
+                  src={updateButton}
+                  alt=""
+                  onClick={() => {
+                    navigate(`/posts/${postId}/updatePost`);
+                  }}
+                />
+              ) : null}
+
+              {context.admin ? (
+                <img
+                  className="cursor-pointer scale-75"
+                  src={deleteButton}
+                  alt=""
+                  onClick={handleDelete}
+                />
+              ) : null}
+            </div>
+          </div>
         </div>
         <div className="laptop:grid laptop:grid-cols-2 tablet:mt-20 laptop:mt-32 mobile:mt-10 border-b-[1px]">
           <div className="laptop:w-5/6 tablet:w-7/12 mobile:w-6/12 mobile:mb-10 place-content-center">
@@ -59,37 +89,34 @@ export default function SinglePost() {
             )}
           </div>
           <div className="">
-            <h3 className="tablet:mt-20 laptop:mt-0 tablet:text-sm mobile:text-xs text-left break-word mb-20">{post.postDesc}</h3>
+            <span className="text-neutral-400"> {formattedDate}</span>
+
+            <h3 className="tablet:mt-20 laptop:mt-0 tablet:text-sm mobile:text-xs text-left break-word mb-20">
+              {post.postDesc}
+            </h3>
           </div>
         </div>
-
-        {/* {context.admin ? (
-        <img
-          className=""
-          src={updateButton}
-          alt=""
-          onClick={() => {
-            navigate(`/posts/${postId}/updatePost`);
-          }}
-        />
-      ) : null}
-
-      {context.admin ? (
-        <img className="" src={deleteButton} alt="" onClick={handleDelete} />
-      ) : null} */}
         <div className="flex justify-center mt-20 mb-32 items-center">
           <div className="grow">
-          {!view && (
-              <button className="tablet:text-xs laptop:text-sm mobile:text-xs" onClick={() => setView(true)}>
+            {!view && (
+              <button
+                className="tablet:text-xs laptop:text-sm mobile:text-xs"
+                onClick={() => setView(true)}
+              >
                 view comments
               </button>
-          )}
-          {view && (
-            <>
-              <button onClick={() => setView(false)} className='laptop:text-sm mobile:text-xs'>hide comments</button>
-              <Comments />
-            </>
-          )}
+            )}
+            {view && (
+              <>
+                <button
+                  onClick={() => setView(false)}
+                  className="laptop:text-sm mobile:text-xs"
+                >
+                  hide comments
+                </button>
+                <Comments />
+              </>
+            )}
           </div>
         </div>
       </div>
