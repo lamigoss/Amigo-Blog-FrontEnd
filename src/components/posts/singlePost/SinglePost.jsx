@@ -59,7 +59,7 @@ const SinglePost = () => {
             {post.postTitle}
           </h2>
           <div className="flex border-t-[1px]">
-            <span className="laptop:text-2xl mobile:text-xs ml-5 text-neutral-500">
+            <span className="laptop:text-2xl mobile:text-xs ml-5 text-neutral-500 mt-2">
               {post.username}
             </span>
             <div className="flex opacity-70 scale-75 sm:scale-50">
