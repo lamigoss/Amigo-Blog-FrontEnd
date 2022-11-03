@@ -119,3 +119,13 @@ export const PostComment = async(username, postId, desc) => {
     console.log(error)
   }
 }
+
+// DELETE REQEUST FOR COMMENT
+export const DeleteComment = async(postId, commentId) => {
+  try {
+    const res = axios.delete(`/comments/${postId}/${commentId}`)
+    return res.data
+  } catch (error) {
+    console.log(error)
+  }
+}

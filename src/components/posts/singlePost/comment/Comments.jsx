@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
+import axios from "axios";
 import { useParams } from "react-router-dom";
 import CommentView from "./CommentView";
 import CommentTextBox from "./commentTextbox/CommentTextBox";
@@ -6,6 +7,7 @@ import AuthContext from "../../../../authContext/authContext";
 import {
   GetComment,
   PostComment,
+  DeleteComment,
 } from "../../../../utils/httpRequests/HttpRequest";
 
 const Comments = () => {
@@ -13,13 +15,14 @@ const Comments = () => {
   const { postId } = useParams();
   const [comments, setComments] = useState([]);
   const [commentInput, setCommentInput] = useState("");
+  const [deleteComment, setDeleteComment] = useState("");
   const user = window.localStorage.getItem("user");
 
   useEffect(() => {
     GetComment(postId)
       .then((res) => setComments(res))
       .catch((err) => console.log(err));
-  }, [commentInput]);
+  }, [commentInput, deleteComment]);
 
   // comment state being changed
   const handleChange = (e) => {
@@ -31,6 +34,17 @@ const Comments = () => {
     event.preventDefault();
     PostComment(user, postId, commentInput)
       .then(() => setCommentInput(""))
+      .catch((err) => console.log(err));
+  };
+
+  const handleDelete = async (event) => {
+    DeleteComment(postId, event.target.id)
+      .then(() => {
+        const newComments = comments.filter(
+          (comment) => comment._id !== event.target.id
+        );
+        setComments(newComments);
+      })
       .catch((err) => console.log(err));
   };
   return (
@@ -53,7 +67,13 @@ const Comments = () => {
           comments
             .slice(0)
             .reverse()
-            .map((ele) => <CommentView key={ele._id} comment={ele} />)
+            .map((ele) => (
+              <CommentView
+                key={ele._id}
+                comment={ele}
+                handleDelete={handleDelete}
+              />
+            ))
         ) : (
           <p className="tablet:text-xs laptop:text-sm">no comments</p>
         )}

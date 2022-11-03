@@ -1,24 +1,14 @@
-import axios from "axios";
 import React from "react";
 import deleting from "../../../../img/delete.png";
 
-const CommentView = ({ comment }) => {
+const CommentView = ({ comment, handleDelete }) => {
+
   const date = new Date(comment.updatedAt);
   const formattedDate = date.toLocaleString("en-GB", {
     day: "numeric",
     month: "long",
     year: "numeric",
   });
-
-  const handleDelete = async (e) => {
-    e.preventDefault();
-    try {
-      await axios.delete(`/comments/${comment.postId}/${comment._id}`);
-      window.location.replace(`/posts/${comment.postId}`);
-    } catch (err) {
-      console.log(err);
-    }
-  };
 
   return (
     <div className="">
@@ -40,7 +30,6 @@ const CommentView = ({ comment }) => {
             )}
             {comment.desc && (
               <span className="pb-3 tablet:text-xs laptop:text-sm mobile:text-xs">
-                {" "}
                 {comment.desc}
               </span>
             )}
@@ -48,6 +37,7 @@ const CommentView = ({ comment }) => {
               src={deleting}
               onClick={handleDelete}
               className="justify-self-end w-6 cursor-pointer"
+              id={comment._id}
               alt=""
             />
           </div>
