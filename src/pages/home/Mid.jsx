@@ -3,11 +3,11 @@ import Steve from "../../img/steve.jpg";
 import { Link } from "react-router-dom";
 import Typed from "react-typed";
 
-export const Mid = () => {
+const Mid = () => {
   return (
-    <div className="bg-white w-full ">
+    <div className=" w-full">
       <img className="w-[500px] mx-auto my-4 rounded-md" src={Steve} alt="/" />
-      <div className="flex flex-col justify-center">
+      <div className="flex flex-col justify-center ml-10">
         <p className="text-indigo-500">CEO</p>
         <h1 className="md:text-4xl sm:text-3xl text-2xl font-bold py-2">
           <Typed
@@ -31,3 +31,5 @@ export const Mid = () => {
     </div>
   );
 };
+
+export default Mid;

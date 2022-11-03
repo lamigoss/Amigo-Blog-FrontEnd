@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 import axios from "axios";
 import ViewImg from "../../writePost/viewImg/ViewImg";
 import PostTitle from "../../writePost/postTitle/PostTitle";
@@ -79,22 +79,33 @@ const UpdatePost = () => {
   };
 
   return (
-    <div className="update-post-container">
-      <div className="update-post-form-wrapper">
-        <form className="update-post-form" onSubmit={handleUpdate}>
-          <PostTitle postTitle={post.postTitle} handleChange={handleChange} />
-          <PostDesc postDesc={post.postDesc} handleChange={handleChange} />
-          {!imageKey ? <PostImg /> : null}
-          <div className="update-image-wrapper">
-            {imageKey ? <ViewImg imageKey={imageKey} /> : null}
-            {imageKey ? (
-              <button onClick={handleDeleteImg}>Delete Image</button>
-            ) : null}
-          </div>
-          <button type="submit">Update</button>
-        </form>
+    <form className="grid grid-row-4" onSubmit={handleUpdate}>
+      <div className="mobile:w-7/12 tablet:w-2/12 mobile:mb-10 place-content-center mt-5 relative ml-96">
+        {imageKey ? <ViewImg imageKey={imageKey} /> : null}
+        {imageKey ? (
+          <button onClick={handleDeleteImg}>Delete Image</button>
+        ) : null}
       </div>
-    </div>
+      <PostTitle postTitle={post.postTitle} handleChange={handleChange} />
+      <PostDesc postDesc={post.postDesc} handleChange={handleChange} />
+      {!imageKey ? <PostImg /> : null}
+      <Link to="/posts">
+        <button
+          className="
+            bg-indigo-500
+             hover:bg-indigo-700 
+             w-full
+            rounded-md 
+            font-medium 
+            p-5 text-bold
+            text-white
+            "
+          type="submit"
+        >
+          Update
+        </button>
+      </Link>
+    </form>
   );
 };
 

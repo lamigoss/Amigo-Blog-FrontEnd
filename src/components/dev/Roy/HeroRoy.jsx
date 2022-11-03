@@ -1,6 +1,5 @@
 import React from "react";
 import Roy from "../../../img/roy.jpg";
-// import Typed from "react-typed";
 
 const HeroRoy = () => {
   return (
