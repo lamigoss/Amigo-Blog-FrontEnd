@@ -87,15 +87,33 @@ const UpdatePost = () => {
   return (
     <div className="grid mb-28 mt-28">
       <div className="grid justify-self-center mobile:w-full desktop:w-10/12 desktopLG:w-7/12">
-        <form className="grid" onSubmit={handleDeleteImg}>
-          <div className="place-content-center tablet:mt-5 tablet:ml-96 mobile:ml-20 ">
-            {imageKey && <ViewImg imageKey={imageKey} />}
-            {imageKey && (
-              <button id="delete-button" type="submit">
-                Delete Image
-              </button>
-            )}
+        <form
+          className="grid justify-self-center w-10/12 mobile:text-xs tablet:text-sm "
+          onSubmit={handleDeleteImg}
+        >
+          <div className="grid tablet:mt-5 ">
+            <div className="justify-self-center w-4/12">
+              {imageKey && <ViewImg imageKey={imageKey} />}
+            </div>
           </div>
+          {imageKey && (
+            <button
+              className="
+                bg-indigo-500
+                 hover:bg-indigo-700 
+                 w-full
+                rounded-md 
+                font-medium 
+                p-4 text-bold
+                text-white
+                mt-10
+                "
+              id="delete-button"
+              type="submit"
+            >
+              Delete Image
+            </button>
+          )}
         </form>
         <form
           className="grid grid-row-4 justify-self-center w-10/12 mobile:text-xs tablet:text-sm"
