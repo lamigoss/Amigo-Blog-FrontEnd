@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useNavigate, useLocation, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import ViewImg from "../../writePost/viewImg/ViewImg";
 import PostTitle from "../../writePost/postTitle/PostTitle";
@@ -57,7 +57,6 @@ const UpdatePost = () => {
 
   const handleUpdate = async (event) => {
     event.preventDefault();
-
     try {
       if (!imageCtx.imageId) {
         await axios.put(`/posts/${postId}`, {
@@ -86,26 +85,23 @@ const UpdatePost = () => {
   };
 
   return (
-    <div>
-      <form className="grid grid-row-4" onSubmit={handleDeleteImg}>
+    <div className="grid">
+      <form className="grid" onSubmit={handleDeleteImg}>
         <div className="mobile:w-7/12 tablet:w-2/12 mobile:mb-10 place-content-center tablet:mt-5 relative tablet:ml-96 mobile:ml-20 ">
           {/* <div className="mobile:w-7/12 tablet:w-2/12 mobile:mb-10 place-content-center mt-5 relative ml-96"> */}
           {imageKey && <ViewImg imageKey={imageKey} />}
+
           {imageKey && (
             <button id="delete-button" type="submit">
               Delete Image
             </button>
           )}
-          {!imageKey && null}
         </div>
       </form>
       <form className="grid grid-row-4" onSubmit={handleUpdate}>
-        {!imageKey ? (
-          <div className="mobile:w-7/12 tablet:w-2/12 place-content-center relative">
-            <PostImg />
-          </div>
-        ) : null}
-
+        {!imageKey && null}
+        {!imageKey ? <PostImg /> : null}
+        <div className="mobile:w-7/12 tablet:w-2/12 mobile:mb-10 place-content-center mt-5 relative ml-96"></div>
         <PostTitle postTitle={post.postTitle} handleChange={handleChange} />
         <PostDesc postDesc={post.postDesc} handleChange={handleChange} />
         <button
