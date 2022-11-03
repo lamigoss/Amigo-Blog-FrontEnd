@@ -85,20 +85,21 @@ const UpdatePost = () => {
   };
 
   return (
-    <div>
-      <form className="grid grid-row-4" onSubmit={handleDeleteImg}>
+    <div className="grid">
+      <form className="grid" onSubmit={handleDeleteImg}>
         <div className="mobile:w-7/12 tablet:w-2/12 mobile:mb-10 place-content-center tablet:mt-5 relative tablet:ml-96 mobile:ml-20 ">
           {imageKey && <ViewImg imageKey={imageKey} />}
+
           {imageKey && (
             <button id="delete-button" type="submit">
               Delete Image
             </button>
           )}
-          {!imageKey && null}
-          {!imageKey ? <PostImg /> : null}
         </div>
       </form>
       <form className="grid grid-row-4" onSubmit={handleUpdate}>
+        {!imageKey && null}
+        {!imageKey ? <PostImg /> : null}
         <div className="mobile:w-7/12 tablet:w-2/12 mobile:mb-10 place-content-center mt-5 relative ml-96"></div>
         <PostTitle postTitle={post.postTitle} handleChange={handleChange} />
         <PostDesc postDesc={post.postDesc} handleChange={handleChange} />
