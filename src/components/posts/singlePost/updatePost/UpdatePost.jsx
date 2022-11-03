@@ -57,7 +57,6 @@ const UpdatePost = () => {
 
   const handleUpdate = async (event) => {
     event.preventDefault();
-
     try {
       if (!imageCtx.imageId) {
         await axios.put(`/posts/${postId}`, {
