@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useNavigate, useLocation, Link } from "react-router-dom";
+import { useNavigate, useLocation, useParams } from "react-router-dom";
 import axios from "axios";
 import ViewImg from "../../writePost/viewImg/ViewImg";
 import PostTitle from "../../writePost/postTitle/PostTitle";
@@ -10,16 +10,16 @@ import PostContext from "../../../../authContext/postContext";
 
 const UpdatePost = () => {
   const navigate = useNavigate();
+  const { postId } = useParams();
+
   const imageCtx = useContext(PostContext);
   const [post, setPost] = useState({
     username: "",
     postTitle: "",
     postDesc: "",
   });
-  const location = useLocation();
   const [imageKey, setImageKey] = useState("");
   const username = window.localStorage.getItem("user");
-  const postId = location.pathname.split("/")[2];
 
   useEffect(() => {
     window.localStorage.removeItem("imageId");
@@ -42,17 +42,21 @@ const UpdatePost = () => {
     setPost({ ...post, [event.target.id]: event.target.value });
   };
 
-  const handleDeleteImg = async () => {
+  const handleDeleteImg = async (event) => {
+    event.preventDefault();
     window.localStorage.removeItem("imageId");
     window.localStorage.removeItem("imageKey");
+    console.log("IN DELETE");
     try {
-      await axios
-        .delete(`/images/${postId}/${imageKey}/${post.imageId}`)
-        .then(() => navigate(`/${postId}/updatePost`));
+      console.log("BEFORE AXIOS");
+      const res = await axios.delete(
+        `/images/${postId}/${imageKey}/${post.imageId}`
+      ).then(() => setImageKey(""))
     } catch (error) {
       console.log(error);
     }
   };
+
 
   const handleUpdate = async (event) => {
     event.preventDefault();
@@ -87,14 +91,15 @@ const UpdatePost = () => {
 
   return (
     <div>
-      <form className="grid grid-row-4">
+      <form className="grid grid-row-4" onSubmit={handleDeleteImg}>
         <div className="mobile:w-7/12 tablet:w-2/12 mobile:mb-10 place-content-center mt-5 relative ml-96">
-          {imageKey ? <ViewImg imageKey={imageKey} /> : null}
-          {imageKey ? (
-            <button id="delete-button" onClick={handleDeleteImg}>
+          {imageKey && <ViewImg imageKey={imageKey} />}
+          {imageKey && (
+            <button id="delete-button" type="submit">
               Delete Image
             </button>
-          ) : null}
+          )}
+          {!imageKey && null}
         </div>
       </form>
       <form className="grid grid-row-4" onSubmit={handleUpdate}>
