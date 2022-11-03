@@ -46,17 +46,14 @@ const UpdatePost = () => {
     event.preventDefault();
     window.localStorage.removeItem("imageId");
     window.localStorage.removeItem("imageKey");
-    console.log("IN DELETE");
     try {
-      console.log("BEFORE AXIOS");
-      const res = await axios.delete(
-        `/images/${postId}/${imageKey}/${post.imageId}`
-      ).then(() => setImageKey(""))
+      await axios
+        .delete(`/images/${postId}/${imageKey}/${post.imageId}`)
+        .then((res) => res.status === 204 ? setImageKey("") : null);
     } catch (error) {
       console.log(error);
     }
   };
-
 
   const handleUpdate = async (event) => {
     event.preventDefault();
@@ -70,7 +67,6 @@ const UpdatePost = () => {
           postDesc: post.postDesc,
         });
       } else {
-        console.log("IN PUT");
         await axios
           .put(`/posts/${postId}/${imageCtx.imageId}`, {
             _id: postId,
