@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import CommentView from "./CommentView";
 import CommentTextBox from "./commentTextbox/CommentTextBox";
 import AuthContext from "../../../../authContext/authContext";
+import { GetComment } from "../../../../utils/httpRequests/HttpRequest";
 
 const Comments = () => {
   const context = useContext(AuthContext);
@@ -13,15 +14,9 @@ const Comments = () => {
   const user = window.localStorage.getItem("user");
 
   useEffect(() => {
-    const fetchComments = async () => {
-      try {
-        const res = await axios.get(`/comments/${postId}`);
-        setComments(res.data);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    fetchComments();
+    GetComment(postId)
+      .then((res) => setComments(res))
+      .catch((err) => console.log(err));
   }, [commentInput]);
 
   // comment state being changed
@@ -46,26 +41,31 @@ const Comments = () => {
     }
   };
   return (
-  
-      <div className="">
-        <div className="w-full mb-4">
-          <CommentTextBox
-            handleComment={handleComment}
-            handleChange={handleChange}
-            comment={commentInput}
-          />
-        </div>
-
-        <div className="bg-slate-200 border-solid-2 rounded-lg p-10 shadow-lg">
-          {!context.isLoggedIn && <p className="tablet:text-xs laptop:text-sm">Please log in to write a comment</p>}
-          {comments ? (
-            comments.slice(0).reverse().map((ele) => <CommentView key={ele._id} comment={ele} />)
-          ) : (
-            <p className="tablet:text-xs laptop:text-sm">no comments</p>
-          )}
-        </div>
+    <div className="">
+      <div className="w-full mb-4">
+        <CommentTextBox
+          handleComment={handleComment}
+          handleChange={handleChange}
+          comment={commentInput}
+        />
       </div>
-  
+
+      <div className="bg-slate-200 border-solid-2 rounded-lg p-10 shadow-lg">
+        {!context.isLoggedIn && (
+          <p className="tablet:text-xs laptop:text-sm">
+            Please log in to write a comment
+          </p>
+        )}
+        {comments ? (
+          comments
+            .slice(0)
+            .reverse()
+            .map((ele) => <CommentView key={ele._id} comment={ele} />)
+        ) : (
+          <p className="tablet:text-xs laptop:text-sm">no comments</p>
+        )}
+      </div>
+    </div>
   );
 };
 
