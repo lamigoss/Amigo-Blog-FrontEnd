@@ -31,7 +31,6 @@ const Dropdown = () => {
    }
   }
 
-
   return (
     <>
       <div className="flex">
@@ -50,7 +49,7 @@ const Dropdown = () => {
       </div>
 
       {drop ? (
-        <div className="grid h-32 w-32 bg-white text-purple rounded-md shadow-md absolute">
+        <div id='dropdown' className="grid h-32 w-32 bg-white text-purple rounded-md shadow-md absolute">
           <Link to={"/developers/stevelee"}>
             <div onClick={handleNavigate} id='stevelee' className=" text-center hover:bg-indigo-300 p-5">Steve Lee</div>
           </Link>

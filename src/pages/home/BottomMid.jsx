@@ -5,7 +5,7 @@ import Typed from "react-typed";
 
 const BottomMid = () => {
   return (
-    <div className="bg-gray-100 m-5">
+    <div className="bg-gray-100 m-5 mb-32">
       <img className="w-[500px] mx-auto my-4 rounded-md" src={Roy} alt="" />
       <div className="flex flex-col justify-center">
         <p className="text-indigo-500">This is Roy</p>
