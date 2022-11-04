@@ -24,7 +24,6 @@ export default function WritePost() {
     e.preventDefault();
     try {
       const blog = await PostBlog(form, context.imageId);
-      console.log(blog);
       window.localStorage.removeItem("imageId");
       window.location.replace("/posts/" + blog._id);
       console.log("blog ID: " + blog._id);

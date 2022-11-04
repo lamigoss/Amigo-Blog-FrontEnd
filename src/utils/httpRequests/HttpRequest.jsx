@@ -83,6 +83,17 @@ export const DeleteImagePost = async(postId, imageKey, imageId) => {
 }
 
 //==================== BLOGPOST ======================
+// GET REQUEST FOR ALL BLOGPOSTS
+export const GetAllPosts = async () => {
+  try {
+    const res = await axios.get('/posts') 
+    return res.data
+
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 // GET REQUEST FOR BLOGPOST
 export const GetPost = async (postId) => {
   try {
