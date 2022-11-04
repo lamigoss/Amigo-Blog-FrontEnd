@@ -37,7 +37,7 @@ const PostImg = () => {
             <input
               onChange={handleChange}
               type="file"
-              className="text-sm text-grey-500
+              className="mobile:text-xs tablet:text-sm text-grey-500
             file:mr-5 file:py-2 file:px-6
             file:rounded-full file:border-0
             file:text-sm file:font-medium
