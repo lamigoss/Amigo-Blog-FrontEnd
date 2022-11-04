@@ -5,7 +5,7 @@ import ViewImg from "../../writePost/viewImg/ViewImg";
 import PostTitle from "../../writePost/postTitle/PostTitle";
 import PostImg from "../../writePost/postImg/PostImg";
 import PostDesc from "../../writePost/postDesc/PostDesc";
-import { GetPostImage, GetPost, DeleteImagePost } from "../../../../utils/httpRequests/HttpRequest";
+import { GetPostImage, GetPost, DeleteImagePost, EditBlog, EditBlogWithImage } from "../../../../utils/httpRequests/HttpRequest";
 import PostContext from "../../../../authContext/postContext";
 
 const UpdatePost = () => {
@@ -59,15 +59,14 @@ const UpdatePost = () => {
     event.preventDefault();
     try {
       if (!imageCtx.imageId) {
-        await axios.put(`/posts/${postId}`, {
+        await EditBlog(postId, {
           _id: postId,
           username: username,
           postTitle: post.postTitle,
           postDesc: post.postDesc,
         });
       } else {
-        await axios
-          .put(`/posts/${postId}/${imageCtx.imageId}`, {
+        await EditBlogWithImage(postId,imageCtx.imageId, {
             _id: postId,
             username: username,
             postTitle: post.postTitle,

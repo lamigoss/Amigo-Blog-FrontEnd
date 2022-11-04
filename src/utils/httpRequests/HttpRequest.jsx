@@ -71,7 +71,7 @@ export const PostImage = async (formData) => {
   }
 };
 
-// DELETE IMAGEPOSt
+// DELETE IMAGEPOST
 export const DeleteImagePost = async(postId, imageKey, imageId) => {
   try {
     const res = await axios.delete(`/images/${postId}/${imageKey}/${imageId}`)
@@ -93,6 +93,7 @@ export const GetPost = async (postId) => {
   }
 };
 
+// DELETE BLOGPOST 
 export const DeletePost = async (postId) => {
   console.log(postId);
   try {
@@ -110,6 +111,27 @@ export const PostBlog = async (body, id) => {
     console.log("POST BLOG " + error);
   }
 };
+
+// PUT REQUEST FOR BLOG POST WITHOUT IMAGE
+export const EditBlog = async (postId, body) => {
+  try {
+    console.log(body)
+    const res = await axios.put(`/posts/${postId}`, body)
+    return res
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+// PUT REQUEST FOR BLOG POST WITH IMAGE
+export const EditBlogWithImage = async (postId, imageId, body) => {
+  try {
+    const res = await axios.put(`/posts/${postId}/${imageId}`)
+    return res
+  } catch (error) {
+    console.log(error)
+  }
+}
 
 
 //==================== COMMENT ======================
