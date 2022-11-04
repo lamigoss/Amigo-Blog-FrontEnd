@@ -15,7 +15,6 @@ export default function WritePost() {
     postDesc: "",
   };
   const [form, setForm] = useState(initialFormState);
-  console.log("IN WRITE POST COMPONENT " + context.imageId);
 
   const handleChange = (event) => {
     setForm({ ...form, [event.target.id]: event.target.value });
@@ -37,7 +36,7 @@ export default function WritePost() {
   return (
     <>
       <div className="flex items-center justify-center mt-40 mb-28">
-        <div className="bg-white bg-opacity-50 text-black shadow-lg rounded-md xs:w-11/12 sm:w-10/12 msm:w-9/12 laptop:w-7/12 lg:w-5/12">
+        <div className="bg-white bg-opacity-50 text-black shadow-lg rounded-md xs:w-11/12 sm:w-10/12 msm:w-9/12 laptop:w-7/12 lg:w-5/12 mobile:text-xs tablet:text-sm">
           <form className="postDataFormBox" onSubmit={postSubmitHandler}>
             <div className="grid grid-rows gap-6">
               <div className="text-slate-800 border-b-[.5px] border-blue-200 ">

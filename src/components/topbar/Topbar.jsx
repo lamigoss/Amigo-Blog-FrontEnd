@@ -82,7 +82,7 @@ const Topbar = () => {
       </button>
       <div
         id="mobile-menu"
-        className={`xs:hidden absolute top-1 space-y-2 bg-white pt-2 w-full text-5xl flex flex-col justify-content-center ${
+        className={`xs:hidden relative top-1 space-y-2 bg-white pt-2 w-full text-5xl flex flex-col justify-content-center ${
           open ? "flex" : "hidden"
         }`}
       >
