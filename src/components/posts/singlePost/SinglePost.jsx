@@ -34,7 +34,7 @@ const SinglePost = () => {
           return res;
         });
         await GetPostImage(res.imageId).then((res) =>
-          setImageKey(res.data.imageKey)
+          setImageKey(res.imageKey)
         );
       } catch (error) {
         console.log(error);

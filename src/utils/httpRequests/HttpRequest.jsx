@@ -2,6 +2,7 @@ import axios from "axios";
 
 const baseUrl = "http://localhost:8800/api";
 
+//==================== USER LOGIN/ SIGN UP ======================
 // USER SIGNUP POST REQUEST
 export const PostSignUp = async (body) => {
   try {
@@ -37,6 +38,7 @@ export const PostLogin = async (body, setIsLoggedIn, setAdmin) => {
   }
 };
 
+//==================== IMAGES ======================
 // GET IMAGES
 export const GetImage = async (key) => {
   try {
@@ -47,10 +49,11 @@ export const GetImage = async (key) => {
   }
 };
 
+// GET POST IMAGE 
 export const GetPostImage = async (id) => {
   try {
     const res = await axios.get(`${baseUrl}/images/post/${id}`);
-    return res;
+    return res.data;
   } catch (error) {
     console.log(error);
   }
@@ -68,6 +71,18 @@ export const PostImage = async (formData) => {
   }
 };
 
+// DELETE IMAGEPOSt
+export const DeleteImagePost = async(postId, imageKey, imageId) => {
+  try {
+    const res = await axios.delete(`/images/${postId}/${imageKey}/${imageId}`)
+    console.log(res)
+    return res
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+//==================== BLOGPOST ======================
 // GET REQUEST FOR BLOGPOST
 export const GetPost = async (postId) => {
   try {
@@ -96,6 +111,8 @@ export const PostBlog = async (body, id) => {
   }
 };
 
+
+//==================== COMMENT ======================
 // GET REQUEST FOR COMMENT
 export const GetComment = async (postId) => {
   try {

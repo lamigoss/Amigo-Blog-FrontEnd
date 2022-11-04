@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { GetPostImage } from "../../../utils/httpRequests/HttpRequest";
 
 const Posts = ({ post }) => {
-  const [imageKey, setImageKey] = useState();
+  const [imageKey, setImageKey] = useState("");
   const date = new Date(post.updatedAt);
   const formattedDate = date.toLocaleString("en-GB", {
     month: "long",
@@ -13,7 +13,7 @@ const Posts = ({ post }) => {
   });
 
   useEffect(() => {
-    GetPostImage(post.imageId).then((res) => setImageKey(res.data.imageKey));
+    GetPostImage(post.imageId).then((res) => setImageKey(res.imageKey));
   }, []);
 
   return (
