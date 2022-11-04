@@ -31,7 +31,7 @@ const PostImg = () => {
   return (
     <>
       <div className="grid grid-cols-[20%_80%] gap-x-2 pt-4 pl-6 pb-2 pr-10">
-        <div className="text-blue-500">Post Image:</div>
+        <div className="text-blue-500">Post Image: </div>
         <div className="grid">
           <div className="justify-self-center">
             <input
