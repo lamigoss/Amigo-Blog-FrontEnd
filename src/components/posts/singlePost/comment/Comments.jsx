@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext } from "react";
-import axios from "axios";
 import { useParams } from "react-router-dom";
 import CommentView from "./CommentView";
 import CommentTextBox from "./commentTextbox/CommentTextBox";
@@ -81,7 +80,5 @@ const Comments = () => {
     </div>
   );
 };
-
-// #endregion
 
 export default Comments;

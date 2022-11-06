@@ -74,7 +74,7 @@ const Topbar = () => {
    
       <button
         onClick={() => setOpen(true)}
-        className="xs:hidden cursor-pointer p-4 absolute right-2 top-0 space-y-2"
+        className="xs:hidden cursor-pointer p-4 absolute right-2 top-0 space-y-1.5"
       >
         <div className="w-8 h-0.5 bg-gray-600"></div>
         <div className="w-8 h-0.5 bg-gray-600"></div>
@@ -82,13 +82,13 @@ const Topbar = () => {
       </button>
       <div
         id="mobile-menu"
-        className={`xs:hidden absolute top-1 space-y-2 bg-white pt-2 w-full text-5xl flex flex-col justify-content-center ${
+        className={`xs:hidden text-xs relative top-1 space-y-2 bg-white pt-2 w-full text-5xl flex flex-col justify-content-center ${
           open ? "flex" : "hidden"
         }`}
       >
         <button
           onClick={() => setOpen(false)}
-          className="text-5xl self-end px-6"
+          className="text-5xl mobile:text-3xl self-end px-6"
         >
           &times;
         </button>
@@ -98,27 +98,27 @@ const Topbar = () => {
         >
           <div className="w-full text-center py-6 hover:text-blue-400">
             <Link onClick={() => setOpen(false)} to="/">
-              <span className="duration-100 hover:text-blue-400 text-xl">
+              <span className="duration-100 hover:text-blue-400 text-lg">
                 Home
               </span>
             </Link>
           </div>
           <div className="w-full text-center py-6 hover:text-blue-400">
             <Link onClick={() => setOpen(false)} to="/posts">
-              <span className="duration-100 hover:text-blue-400 text-xl">
+              <span className="duration-100 hover:text-blue-400 text-lg">
                 Posts
               </span>
             </Link>
           </div>
           <div className="w-full text-center py-6 hover:text-blue-400">
             <Link onClick={() => setOpen(false)} to="/developers">
-              <span className="duration-100 hover:text-blue-400 text-xl">
+              <span className="duration-100 hover:text-blue-400 text-lg">
                 Developers
               </span>
             </Link>
           </div>
           {context.isLoggedIn ? (
-            <div className="w-full text-center py-6 hover:text-blue-400">
+            <div className="w-full text-center py-6 hover:text-blue-400 text-lg">
               <Link
                 onClick={() => {
                   setOpen(false);
@@ -126,7 +126,7 @@ const Topbar = () => {
                 }}
                 to="/logout"
               >
-                <span className="duration-100 hover:text-blue-400 text-xl">
+                <span className="duration-100 hover:text-blue-400 text-lg">
                   Logout
                 </span>
               </Link>
@@ -135,14 +135,14 @@ const Topbar = () => {
             <>
               <div className="w-full text-center py-6 hover:text-blue-400">
                 <Link onClick={() => setOpen(false)} to="/login">
-                  <span className="duration-100 hover:text-blue-400 text-xl">
+                  <span className="duration-100 hover:text-blue-400 text-lg">
                     Login
                   </span>
                 </Link>
               </div>
               <div className="w-full text-center py-6 hover:text-blue-400">
                 <Link onClick={() => setOpen(false)} to="/signup">
-                  <span className="duration-100 hover:text-blue-400 text-xl">
+                  <span className="duration-100 hover:text-blue-400 text-lg">
                     Sign Up
                   </span>
                 </Link>
@@ -152,7 +152,7 @@ const Topbar = () => {
           {context.admin ? (
             <div className="w-full text-center py-6 hover:text-blue-400">
               <Link onClick={() => setOpen(false)} to="/posts/create">
-                <span className="duration-100 hover:text-blue-400 text-xl">
+                <span className="duration-100 hover:text-blue-400 text-lg">
                   Blog
                 </span>
               </Link>

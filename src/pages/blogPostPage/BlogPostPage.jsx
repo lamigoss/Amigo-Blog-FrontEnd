@@ -2,16 +2,13 @@ import React from "react";
 import Posts from "../../components/posts/blogPost/Posts";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { GetAllPosts } from "../../utils/httpRequests/HttpRequest";
 
 export default function BlogPostPage() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      const res = await axios.get("http://localhost:8800/api/posts/");
-      setPosts(res.data);
-    };
-    fetchData();
+    GetAllPosts().then((res) => setPosts(res))
   }, []);
 
   return (

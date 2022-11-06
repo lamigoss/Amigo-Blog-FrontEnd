@@ -5,7 +5,7 @@ import Typed from "react-typed";
 
 const Mid = () => {
   return (
-    <div className=" w-full">
+    <div className="grid w-full mb-32">
       <img className="w-[500px] mx-auto my-4 rounded-md" src={Steve} alt="/" />
       <div className="flex flex-col justify-center ml-10">
         <p className="text-indigo-500">CEO</p>

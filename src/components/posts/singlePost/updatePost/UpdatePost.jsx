@@ -1,11 +1,10 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import axios from "axios";
 import ViewImg from "../../writePost/viewImg/ViewImg";
 import PostTitle from "../../writePost/postTitle/PostTitle";
 import PostImg from "../../writePost/postImg/PostImg";
 import PostDesc from "../../writePost/postDesc/PostDesc";
-import { GetPostImage } from "../../../../utils/httpRequests/HttpRequest";
+import { GetPostImage, GetPost, DeleteImagePost, EditBlog, EditBlogWithImage } from "../../../../utils/httpRequests/HttpRequest";
 import PostContext from "../../../../authContext/postContext";
 
 const UpdatePost = () => {
@@ -25,10 +24,11 @@ const UpdatePost = () => {
     window.localStorage.removeItem("imageId");
     const getPost = async () => {
       try {
-        const res = await axios.get(`/posts/${postId}`);
-        setPost(res.data);
-        const imgRes = await GetPostImage(res.data.imageId);
-        setImageKey(imgRes.data.imageKey);
+        const res = await GetPost(postId).then((res) => {
+          setPost(res)
+          return res
+        });
+        await GetPostImage(res.imageId).then((res) => setImageKey(res.imageKey));
       } catch (error) {
         console.log(error);
       }
@@ -47,8 +47,7 @@ const UpdatePost = () => {
     window.localStorage.removeItem("imageId");
     window.localStorage.removeItem("imageKey");
     try {
-      await axios
-        .delete(`/images/${postId}/${imageKey}/${post.imageId}`)
+      await DeleteImagePost(postId, imageKey, post.imageId)
         .then((res) => (res.status === 204 ? setImageKey("") : null));
     } catch (error) {
       console.log(error);
@@ -59,15 +58,14 @@ const UpdatePost = () => {
     event.preventDefault();
     try {
       if (!imageCtx.imageId) {
-        await axios.put(`/posts/${postId}`, {
+        await EditBlog(postId, {
           _id: postId,
           username: username,
           postTitle: post.postTitle,
           postDesc: post.postDesc,
         });
       } else {
-        await axios
-          .put(`/posts/${postId}/${imageCtx.imageId}`, {
+        await EditBlogWithImage(postId,imageCtx.imageId, {
             _id: postId,
             username: username,
             postTitle: post.postTitle,

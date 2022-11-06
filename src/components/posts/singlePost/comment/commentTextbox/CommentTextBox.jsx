@@ -1,10 +1,8 @@
 import React, { useContext } from "react";
-import { useNavigate } from "react-router-dom";
 import AuthContext from "../../../../../authContext/authContext";
 
 const CommentTextBox = ({ handleComment, handleChange, comment }) => {
   const context = useContext(AuthContext);
-  const navigate = useNavigate();
 
   return (
     <div className="grid grid-rows-1">

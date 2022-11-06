@@ -6,10 +6,12 @@ import Mid from "./Mid";
 const Home = () => {
   return (
     <>
-      <div className="">
-        <Hero />
-        <Mid />
-        <BottomMid />
+      <div className="grid">
+        <div className="w-8/12 justify-self-center desktop:w-5/12 mobile:text-xs tablet:text-sm laptop:text-lg">
+          <Hero />
+          <Mid />
+          <BottomMid />
+        </div>
       </div>
     </>
   );
