@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import AuthContext from "../../authContext/authContext";
 import Dropdown from "../dropdownMenu/Dropdown";
+import hamburger from "../../img/hamburger.png";
 
 const Topbar = () => {
   const [open, setOpen] = useState(false);
@@ -10,7 +11,7 @@ const Topbar = () => {
   const handleLogout = () => {
     context.setIsLoggedIn(false);
   };
-
+  // mwxs:hidden
   return (
     <>
       <div className="mwxs:hidden grid laptop:grid-cols-2 p-6 text-sm	text-blue-800">
@@ -71,18 +72,16 @@ const Topbar = () => {
         </div>
       </div>
 
-   
-      <button
+      <img
+        src={hamburger}
         onClick={() => setOpen(true)}
-        className="xs:hidden cursor-pointer p-4 absolute right-2 top-0 space-y-1.5"
-      >
-        <div className="w-8 h-0.5 bg-gray-600"></div>
-        <div className="w-8 h-0.5 bg-gray-600"></div>
-        <div className="w-8 h-0.5 bg-gray-600"></div>
-      </button>
+        className="lg:hidden md:hidden xs:hidden cursor-pointer p-4 absolute right-1 top-0 space-y-2 w-2/12 bg-slate-100 rounded-xl scale-50"
+        alt=""
+      />
+
       <div
         id="mobile-menu"
-        className={`xs:hidden text-xs relative top-1 space-y-2 bg-white pt-2 w-full text-5xl flex flex-col justify-content-center ${
+        className={`xs:hidden xs:text-xs relative top-1 space-y-2 bg-white pt-2 w-full text-5xl flex flex-col justify-content-center ${
           open ? "flex" : "hidden"
         }`}
       >

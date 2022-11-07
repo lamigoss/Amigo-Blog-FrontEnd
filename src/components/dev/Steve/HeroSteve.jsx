@@ -19,7 +19,7 @@ const HeroSteve = () => {
                 Hi! I'm Steve Lee and I am a strong LGBT supporter!
               </h2>
             </div>
-            <p className="text-gray-600 text-center md:my-10 md:mx-20 my-5 mx-10">
+            <p className="text-gray-600 text-center md:my-10 md:mx-20 my-5 mx-0.5 md:text-lg text-sm ">
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid
               et praesentium, cum omnis sit odit soluta obcaecati, placeat quas
               illum nesciunt facilis repudiandae velit molestias non adipisci
