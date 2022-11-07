@@ -4,7 +4,7 @@ import Steve from "../../../img/steve.jpg";
 const HeroSteve = () => {
   return (
     <>
-      <div className="w-full h-screen bg-white">
+      <div className="w-full bg-white h-[2000px] ">
         <div className="flex flex-col">
           <div className="flex scale-75 justify-center">
             <img
@@ -19,7 +19,7 @@ const HeroSteve = () => {
                 Hi! I'm Steve Lee and I am a strong LGBT supporter!
               </h2>
             </div>
-            <p className="text-gray-600 py-4 text-center my-10 mx-20 absolute">
+            <p className="text-gray-600 text-center md:my-10 md:mx-20 my-5 mx-10">
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquid
               et praesentium, cum omnis sit odit soluta obcaecati, placeat quas
               illum nesciunt facilis repudiandae velit molestias non adipisci
