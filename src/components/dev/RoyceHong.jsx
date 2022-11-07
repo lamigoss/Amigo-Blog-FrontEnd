@@ -1,16 +1,19 @@
 import React from "react";
 import DevRoy from "./Roy/DevRoy";
 import HeroRoy from "./Roy/HeroRoy";
-import MidRoy from "./Roy/MidRoy";
+import LinkTab from "./devComponents/LinkTab";
 
-export default function RoyceHong() {
+const RoyceHong = () => {
+  const devName = "roycehong";
   return (
     <>
       <div className="grid grid-row-3 mt-1 text-center">
         <DevRoy />
+        <LinkTab developer={devName} />
         <HeroRoy />
-        <MidRoy />
       </div>
     </>
   );
-}
+};
+
+export default RoyceHong;
