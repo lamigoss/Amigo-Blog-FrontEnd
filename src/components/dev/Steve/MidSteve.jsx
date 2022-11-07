@@ -6,22 +6,22 @@ import WebIcon from "@mui/icons-material/Web";
 
 const MidSteve = () => {
   return (
-    <div className="items-center justify-center">
-      <div className="p-20 hover:scale-110 bg-indigo-700 opacity-80 text-white">
+    <div className="flex items-center justify-center bg-indigo-600 mb-2">
+      <div className="p-10 hover:scale-110 opacity-80 text-white">
         <LinkedInIcon className="" />
         LinkedIn
       </div>
-      <div className="p-20 hover:scale-110 bg-indigo-700 opacity-90 text-white">
+      <div className="p-10 hover:scale-110opacity-90 text-white">
         <GitHubIcon />
         GitHub
       </div>
 
-      <div className="p-20 hover:scale-110 bg-indigo-600 text-white">
+      <div className="p-10 hover:scale-110 text-white">
         <MailOutlineIcon />
         Email
       </div>
 
-      <div className="p-20 hover:scale-110 bg-indigo-500 text-white">
+      <div className="p-10 hover:scale-110 text-white">
         <WebIcon />
         Portfolio
       </div>
