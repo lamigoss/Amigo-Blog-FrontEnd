@@ -12,7 +12,6 @@ const Logout = ({ logout }) => {
     window.localStorage.removeItem("isLoggedIn");
     context.setAdmin(false)
     navigate("/");
-    console.log("LOCAL STORAGE CLEARED");
   }, []);
 
   return (
