@@ -57,11 +57,6 @@ const Comments = () => {
       </div>
 
       <div className="bg-slate-200 border-solid-2 rounded-lg p-10 shadow-lg">
-        {!context.isLoggedIn && (
-          <p className="tablet:text-xs laptop:text-sm">
-            Please log in to write a comment
-          </p>
-        )}
         {comments ? (
           comments
             .slice(0)

@@ -14,8 +14,8 @@ const CommentTextBox = ({ handleComment, handleChange, comment }) => {
           type="text"
           placeholder={
             context.isLoggedIn
-              ? `write your thoughts about this blog post and share with other readers!`
-              : `please login in to submit comment`
+              ? `Write your thoughts about this blog post and share with other readers!`
+              : `Please login in to submit a comment.`
           }
           onChange={handleChange}
         />

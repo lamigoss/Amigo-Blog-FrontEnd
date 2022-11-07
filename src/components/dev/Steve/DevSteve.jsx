@@ -13,15 +13,15 @@ const DevSteve = () => {
       <div className="bg-white text-blue-500 hover:bg-blue-500 hover:text-white w-auto">
         <div className="md:p-40 p-10">
           <p className="font-bold md:text-8xl text-4xl text-center">
-            Hello World My name is Steve Lee
+            SEUNG KI LEE
           </p>
 
           <div className="text-center md:text-3xl sm:text-xl my-3">
             <span className="md:mx-10 xs:mx-1">CODE</span>
             <span className="md:mx-10 xs:mx-1"> |</span>
-            <span className="md:mx-10 xs:mx-1"> UCLA </span>
+            <span className="md:mx-10 xs:mx-1">PING PONG</span>
             <span className="md:mx-10 xs:mx-1">|</span>
-            <span className="md:mx-10 xs:mx-1"> TACO </span>
+            <span className="md:mx-10 xs:mx-1">TACOS</span>
             <span className="md:mx-10 xs:mx-1">| </span>
             <span className="md:mx-10 xs:mx-1">FASHION</span>
           </div>

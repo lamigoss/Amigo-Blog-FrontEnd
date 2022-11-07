@@ -2,7 +2,6 @@ import React from "react";
 import DevSteve from "./Steve/DevSteve";
 import HeroSteve from "./Steve/HeroSteve";
 import LinkTab from "./devComponents/LinkTab";
-import { Link } from "react-router-dom";
 
 const SteveLee = () => {
   const devName = "stevelee";

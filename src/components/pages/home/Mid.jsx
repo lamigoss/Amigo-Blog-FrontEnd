@@ -12,20 +12,18 @@ const Mid = () => {
         <h1 className="md:text-4xl sm:text-3xl text-2xl font-bold py-2">
           <Typed
             className="md:text-5xl sm:text-4xl text-xl font-bold pl-2 md:pl-4"
-            strings={["Manager Boy: Steve Lee"]}
+            strings={["Seung Ki Lee"]}
             typeSpeed={120}
             backSpeed={140}
             loop
           />
         </h1>
         <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque
-          sit accusantium odio voluptate quia in. Iusto sapiente nobis, veniam
-          voluptatem corrupti nemo excepturi numquam, fugit quisquam soluta
-          consectetur laudantium facere.
+          I'm an eager software developer passionate in solving complex problems through creative solutions. 
+          Driven by user experiences to utilize in designing efficient web applications.
         </p>
         <button className="bg-indigo-500 hover:bg-indigo-700 rounded-md  font-medium my-6 mx-auto p-3 text-bold text-white">
-          <Link to={"/developers/stevelee"}>Read more about Esteban</Link>
+          <Link to={"/developers/stevelee"}>Read more about Seung Ki Lee</Link>
         </button>
       </div>
     </div>
