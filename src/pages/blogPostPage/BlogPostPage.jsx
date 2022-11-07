@@ -1,7 +1,6 @@
 import React from "react";
 import Posts from "../../components/posts/blogPost/Posts";
 import { useState, useEffect } from "react";
-import axios from "axios";
 import { GetAllPosts } from "../../utils/httpRequests/HttpRequest";
 
 export default function BlogPostPage() {
