@@ -1,11 +1,11 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Home from "./pages/home/Home";
+import Home from './components/pages/home/Home.jsx'
 import Login from "./components/userAuth/login/Login";
 import Developers from "./components/dev/Developers";
 import Topbar from "./components/topbar/Topbar";
 import Signup from "./components/userAuth/signup/Singup";
 import Logout from "./components/userAuth/logout/Logout";
-import BlogPostPage from "./pages/blogPostPage/BlogPostPage";
+import BlogPostPage from "./components/pages/blogPostPage/BlogPostPage.jsx";
 import WritePost from "./components/posts/writePost/post/WritePost";
 import SinglePost from "./components/posts/singlePost/SinglePost";
 import UpdatePost from "./components/posts/singlePost/updatePost/UpdatePost";

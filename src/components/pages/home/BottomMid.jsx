@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Roy from "../../img/roy.jpg";
+import Roy from "../../../img/roy.jpg";
 import Typed from "react-typed";
 
 const BottomMid = () => {

@@ -6,8 +6,7 @@ const baseUrl = "http://localhost:8800/api";
 // USER SIGNUP POST REQUEST
 export const PostSignUp = async (body) => {
   try {
-    const res = await axios.post(`${baseUrl}/users/signup`, body);
-
+    const res = await axios.post(`${baseUrl}/users/signup`, body)
     return res.data;
   } catch (error) {
     console.log("POST SIGNUP " + error);
@@ -18,7 +17,6 @@ export const PostSignUp = async (body) => {
 export const PostLogin = async (body, setIsLoggedIn, setAdmin) => {
   try {
     const res = await axios.post(`${baseUrl}/users/login`, body);
-    console.log(res.data);
     const user = res.data.user;
     if (user.isAdmin === true) {
       window.localStorage.setItem("token", res.token);
@@ -75,7 +73,6 @@ export const PostImage = async (formData) => {
 export const DeleteImagePost = async(postId, imageKey, imageId) => {
   try {
     const res = await axios.delete(`/images/${postId}/${imageKey}/${imageId}`)
-    console.log(res)
     return res
   } catch (error) {
     console.log(error)
@@ -106,7 +103,6 @@ export const GetPost = async (postId) => {
 
 // DELETE BLOGPOST 
 export const DeletePost = async (postId) => {
-  console.log(postId);
   try {
     await axios.delete(`/posts/${postId}`);
   } catch (err) {
@@ -126,7 +122,6 @@ export const PostBlog = async (body, id) => {
 // PUT REQUEST FOR BLOG POST WITHOUT IMAGE
 export const EditBlog = async (postId, body) => {
   try {
-    console.log(body)
     const res = await axios.put(`/posts/${postId}`, body)
     return res
   } catch (error) {
