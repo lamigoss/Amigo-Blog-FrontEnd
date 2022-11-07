@@ -4,7 +4,7 @@ import Steve from "../../../img/steve.jpg";
 const HeroSteve = () => {
   return (
     <>
-      <div className="w-full bg-white h-[full] mb-40">
+      <div className="w-full bg-white h-full mb-40">
         <div className="flex flex-col">
           <div className="flex scale-75 justify-center">
             <img
@@ -19,8 +19,10 @@ const HeroSteve = () => {
                 Hi I'm Seung Ki Lee!
               </h2>
             </div>
-            <p className="text-gray-600 text-center md:my-10 md:mx-20 my-5 mx-10">
-              When I'm offline and away from the screen, I enjoy getting myself into fierce ping pong rallies with my friends or other players. I find
+            <p className="text-gray-600 text-center md:my-10 md:mx-20 my-5 mx-10 md:text-lg text-sm">
+              When I'm offline and away from the screen, I enjoy getting myself
+              into fierce ping pong rallies with my friends or other players. I
+              find.
             </p>
           </div>
         </div>
