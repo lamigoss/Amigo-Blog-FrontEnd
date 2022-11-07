@@ -11,65 +11,65 @@ const LinkTab = ({ developer }) => {
   return (
     <div className="w-auto flex items-center justify-center bg-indigo-600">
       {developer === "stevelee" ? (
-        <Link to="">
+        <a href="https://www.linkedin.com/in/seung-ki-lee/">
           <div className="md:p-10 p-2 hover:scale-110 text-white md:scale-100 scale-75">
             <LinkedInIcon className="" />
             LinkedIn
           </div>
-        </Link>
+        </a>
       ) : (
-        <Link to="">
+        <a href="">
           <div className="md:p-10 p-2 hover:scale-110 text-white md:scale-100 scale-75">
             <LinkedInIcon className="" />
             LinkedIn
           </div>
-        </Link>
+        </a>
       )}
 
       {developer === "stevelee" ? (
-        <Link to="">
+        <a href="https://github.com/stvnlee890">
           <div className="md:p-10 p-2 hover:scale-110 text-white md:scale-100 scale-75">
             <GitHubIcon />
             GitHub
           </div>
-        </Link>
+        </a>
       ) : (
-        <Link to="">
+        <a href="">
           <div className="md:p-10 p-2 hover:scale-110 text-white md:scale-100 scale-75">
             <GitHubIcon />
             GitHub
           </div>
-        </Link>
+        </a>
       )}
       {developer === "stevelee" ? (
-        <Link to="">
+        <a href="mailto: seungkilee700@gmail.com">
           <div className="md:p-10 p-2 hover:scale-110 text-white md:scale-100 scale-75">
             <MailOutlineIcon />
             Email
           </div>
-        </Link>
+        </a>
       ) : (
-        <Link to="">
+        <a href="mailto: ">
           <div className="md:p-10 p-2 hover:scale-110 text-white md:scale-100 scale-75">
             <MailOutlineIcon />
             Email
           </div>
-        </Link>
+        </a>
       )}
       {developer === "stevelee" ? (
-        <Link to="">
+        <a href="https://seungkilee.netlify.app/">
           <div className="md:p-10 p-2 hover:scale-110 text-white md:scale-100 scale-75">
             <WebIcon />
             Portfolio
           </div>
-        </Link>
+        </a>
       ) : (
-        <Link to="">
+        <a href="">
           <div className="md:p-10 p-2 hover:scale-110 text-white md:scale-100 scale-75">
             <WebIcon />
             Portfolio
           </div>
-        </Link>
+        </a>
       )}
     </div>
   );
