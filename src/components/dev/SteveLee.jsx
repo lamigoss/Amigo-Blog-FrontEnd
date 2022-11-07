@@ -5,10 +5,7 @@ import HeroSteve from "./Steve/HeroSteve";
 import LinkTab from "./devComponents/LinkTab";
 
 const SteveLee = () => {
-  // const devName = "stevelee";
-  const { stevelee } = useParams()
-  console.log(stevelee)
-
+  const { stevelee } = useParams();
 
   return (
     <>

@@ -25,7 +25,7 @@ const DevSteve = () => {
             <span className="md:mx-10 xs:mx-1"> | </span>
             <span className="md:mx-10 xs:mx-1">FASHION</span>
           </div>
-          <div className="flex justify-center w-auto rounded-lg">
+          <div className="flex bg-gray-100 justify-center w-auto rounded-lg">
             <img
               className="hover:scale-110 md:mx-10 sm:mx-1 md:scale-100 scale-50"
               alt=""
