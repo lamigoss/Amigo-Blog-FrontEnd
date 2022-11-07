@@ -18,11 +18,11 @@ const DevSteve = () => {
 
           <div className="text-center md:text-3xl sm:text-xl my-3">
             <span className="md:mx-10 xs:mx-1">CODE</span>
-            <span className="md:mx-10 xs:mx-1"> |</span>
+            <span className="md:mx-10 xs:mx-1"> | </span>
             <span className="md:mx-10 xs:mx-1">PING PONG</span>
-            <span className="md:mx-10 xs:mx-1">|</span>
+            <span className="md:mx-10 xs:mx-1"> | </span>
             <span className="md:mx-10 xs:mx-1">TACOS</span>
-            <span className="md:mx-10 xs:mx-1">| </span>
+            <span className="md:mx-10 xs:mx-1"> | </span>
             <span className="md:mx-10 xs:mx-1">FASHION</span>
           </div>
           <div className="flex justify-center bg-white w-auto rounded-lg">

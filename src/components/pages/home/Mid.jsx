@@ -7,7 +7,7 @@ const Mid = () => {
   return (
     <div className="grid w-full mb-32">
       <img className="w-[500px] mx-auto my-4 rounded-md" src={Steve} alt="/" />
-      <div className="flex flex-col justify-center ml-10">
+      <div className="flex flex-col justify-center">
         <p className="text-indigo-500">CEO</p>
         <h1 className="md:text-4xl sm:text-3xl text-2xl font-bold py-2">
           <Typed
