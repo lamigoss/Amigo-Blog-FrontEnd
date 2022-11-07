@@ -1,16 +1,20 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 import DevSteve from "./Steve/DevSteve";
 import HeroSteve from "./Steve/HeroSteve";
 import LinkTab from "./devComponents/LinkTab";
 
 const SteveLee = () => {
-  const devName = "stevelee";
+  // const devName = "stevelee";
+  const { stevelee } = useParams()
+  console.log(stevelee)
+
 
   return (
     <>
       <div className="grid grid-row-3 mt-1 text-center">
         <DevSteve />
-        <LinkTab developer={devName} />
+        <LinkTab developer={stevelee} />
         <HeroSteve />
       </div>
     </>

@@ -8,7 +8,7 @@ const Mid = () => {
     <div className="grid w-full mb-32">
       <img className="w-[500px] mx-auto my-4 rounded-md" src={Steve} alt="/" />
       <div className="flex flex-col justify-center">
-        <p className="text-indigo-500">CEO</p>
+        <p className="text-indigo-500">Full Stack Software Engineer</p>
         <h1 className="md:text-4xl sm:text-3xl text-2xl font-bold py-2">
           <Typed
             className="md:text-5xl sm:text-4xl text-xl font-bold pl-2 md:pl-4"
