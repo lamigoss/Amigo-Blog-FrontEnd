@@ -1,7 +1,7 @@
 import React from "react";
-import Posts from "../../components/posts/blogPost/Posts";
+import Posts from "../../posts/blogPost/Posts";
 import { useState, useEffect } from "react";
-import { GetAllPosts } from "../../utils/httpRequests/HttpRequest";
+import { GetAllPosts } from "../../../utils/httpRequests/HttpRequest";
 
 export default function BlogPostPage() {
   const [posts, setPosts] = useState([]);

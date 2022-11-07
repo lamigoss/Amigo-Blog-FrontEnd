@@ -1,5 +1,5 @@
 import React from "react";
-import Steve from "../../img/steve.jpg";
+import Steve from "../../../img/steve.jpg";
 import { Link } from "react-router-dom";
 import Typed from "react-typed";
 
