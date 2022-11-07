@@ -1,50 +1,39 @@
 import React from "react";
-import Roy from "../../../img/roy.jpg";
-import { Link } from "react-router-dom";
+import python from "../../../img/python.png";
+import js from "../../../img/javascript.png";
+import react from "../../../img/react.png";
+import mongo from "../../../img/mongodb.png";
+import express from "../../../img/express.png";
+import nodejs from "../../../img/nodejs.png";
+import tailwind from "../../../img/tailwindcss.png";
 
 const DevRoy = () => {
   return (
     <>
-      <div className="bg-blue-600 ">
-        <div className="text-white h-100 w-100 text-8xl text-bold absolute ">
-          <div className="flex mx-80">
-            <p className="text-yellow-500">R</p>
-            <p>oyal</p>
+      <div className="bg-blue-500 hover:bg-white hover:text-blue-500 text-white">
+        <div className="p-40">
+          <p className="font-bold text-7xl text-center">
+            Hello World My name is Royce Hong
+          </p>
+          <div className="text-center text-2xl my-3">
+            <span className="mx-10">CODE</span>
+            <span className="mx-10"> |</span>
+            <span className="mx-10"> KOREAN </span>
+            <span className="mx-10">|</span>
+            <span className="mx-10"> CAT </span>
+            <span className="mx-10">| </span>
+            <span className="mx-10">FOOD</span>
           </div>
-          <div className="flex mx-60">
-            <p>h</p> <p className="text-yellow-500">O</p> <p>nest</p>
+          <div className="flex justify-center bg-blue-500">
+            <img className="hover:scale-110 mx-10" alt="" src={python} />
+            <img className="hover:scale-110 mx-10" alt="" src={js} />
+            <img className="hover:scale-110 mx-10" alt="" src={react} />
+            <img className="hover:scale-110 mx-10" alt="" src={mongo} />
+            <img className="hover:scale-110 mx-10" alt="" src={express} />
+            <img className="hover:scale-110 mx-10" alt="" src={nodejs} />
+            <img className="hover:scale-110 mx-10" alt="" src={tailwind} />
           </div>
-
-          <div className="flex mx-8">
-            <p>prett</p>
-            <p className="text-yellow-500">Y</p>
-          </div>
-          <div className="flex mx-96">
-            <p>s</p>
-            <p className="text-yellow-500">H</p>
-            <p>y</p>
-          </div>
-          <div className="flex mx-20">
-            <p>hardw</p>
-            <p className="text-yellow-500">O</p>
-            <p>rking</p>
-          </div>
-          <div className="flex mx-24">
-            <p>i</p>
-            <p className="text-yellow-500">N</p>
-            <p>dividual</p>
-          </div>
-          <div className="flex">
-            <p className="text-yellow-500">G</p>
-            <p>amer</p>
-          </div>
-        </div>
-
-        <div className="rounded-full scale-50">
-          <Link to={"/developers/roycehong"}>
-            <img className="rounded-full scale-50" src={Roy} alt="/" />
-            <p className=" text-center">Roy Hong</p>
-          </Link>
+          <span className="text-blue-500 text-4xl">Let's Go</span>
         </div>
       </div>
     </>
