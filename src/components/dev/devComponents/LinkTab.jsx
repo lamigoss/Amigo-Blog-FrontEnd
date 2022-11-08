@@ -6,7 +6,6 @@ import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import WebIcon from "@mui/icons-material/Web";
 
 const LinkTab = ({ developer }) => {
-  // console.log(developer);
 
   return (
     <div className="w-auto flex items-center justify-center bg-indigo-600">

@@ -10,8 +10,7 @@ module.exports = {
         '2/3': '66.66667%'
       },
       colors: {
-        primary: "#0d9488",
-        secondary: "#0284c7",
+        'whitesmoke': "#F5F5F5",
       },
       borderWidth: {
         DEFAULT: "1px",
