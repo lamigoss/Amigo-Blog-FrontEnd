@@ -20,11 +20,12 @@ const HeroSteve = () => {
               </h2>
             </div>
             <p className="text-gray-600 text-center md:my-10 md:mx-20 my-5 mx-10">
-            When I'm offline and away from the screen, I enjoy getting myself into fierce ping pong rallies with my friends or other players.
-            I like to stay up to-date with the latest tech stacks and improve myself as a developer. 
-            You can see what I'm up to with the latest blog posts I post, or
-            feel free to check out my LinkedIn and Github!
-            
+              When I'm offline and away from the screen, I enjoy getting myself
+              into fierce ping pong rallies with my friends or other players. I
+              like to stay up to-date with the latest tech stacks and improve
+              myself as a developer. You can see what I'm up to with the latest
+              blog posts I post, or feel free to check out my LinkedIn and
+              Github!
             </p>
           </div>
         </div>
