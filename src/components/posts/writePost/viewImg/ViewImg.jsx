@@ -11,6 +11,7 @@ const ViewImg = ({ imageKey }) => {
       if (!res.data[0].imageUrl) return null;
       setImage(res.data[0].imageUrl);
       context.setImageId(res.data[0]._id);
+      console.log(res.data[0].imageUrl)
     });
   }, []);
 

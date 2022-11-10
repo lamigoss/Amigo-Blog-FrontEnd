@@ -1,12 +1,12 @@
 import axios from "axios";
 
-const baseUrl = "amigo-blog-backend-production.up.railway.app";
+const baseUrl = "https://amigo-blog-backend-production.up.railway.app/api";
 
 //==================== USER LOGIN/ SIGN UP ======================
 // USER SIGNUP POST REQUEST
 export const PostSignUp = async (body) => {
   try {
-    const res = await axios.post(`${baseUrl}/users/signup`, body)
+    const res = await axios.post(`/${baseUrl}/users/signup`, body)
     return res.data;
   } catch (error) {
     console.log("POST SIGNUP " + error);
@@ -15,6 +15,7 @@ export const PostSignUp = async (body) => {
 
 // USER LOGIN POST REQUEST
 export const PostLogin = async (body, setIsLoggedIn, setAdmin) => {
+
   try {
     const res = await axios.post(`${baseUrl}/users/login`, body);
     const user = res.data.user;
@@ -32,7 +33,7 @@ export const PostLogin = async (body, setIsLoggedIn, setAdmin) => {
     }
     return res.data;
   } catch (error) {
-    console.log("POST LOGIN " + error);
+    console.log("POST LOGIN " + error + " " + baseUrl);
   }
 };
 
@@ -40,6 +41,7 @@ export const PostLogin = async (body, setIsLoggedIn, setAdmin) => {
 // GET IMAGES
 export const GetImage = async (key) => {
   try {
+    console.log(key)
     const res = await axios.get(`${baseUrl}/images/${key}`);
     return res;
   } catch (error) {
