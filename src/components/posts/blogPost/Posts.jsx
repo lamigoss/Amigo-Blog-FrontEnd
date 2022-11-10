@@ -14,7 +14,7 @@ const Posts = ({ post }) => {
 
   useEffect(() => {
     GetPostImage(post.imageId).then((res) => setImageKey(res.imageKey));
-  }, []);
+  },);
 
   return (
     <>

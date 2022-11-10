@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
@@ -17,12 +16,12 @@ const LinkTab = ({ developer }) => {
           </div>
         </a>
       ) : (
-        <a href="">
+        // <a href="">
           <div className="md:p-10 p-2 hover:scale-110 text-white md:scale-100 scale-75">
             <LinkedInIcon className="" />
             LinkedIn
           </div>
-        </a>
+        // </a>
       )}
 
       {developer === "stevelee" ? (
@@ -33,12 +32,12 @@ const LinkTab = ({ developer }) => {
           </div>
         </a>
       ) : (
-        <a href="">
+        // <a href="">
           <div className="md:p-10 p-2 hover:scale-110 text-white md:scale-100 scale-75">
             <GitHubIcon />
             GitHub
           </div>
-        </a>
+        // </a>
       )}
       {developer === "stevelee" ? (
         <a href="mailto: seungkilee700@gmail.com">
@@ -63,12 +62,12 @@ const LinkTab = ({ developer }) => {
           </div>
         </a>
       ) : (
-        <a href="">
+        // <a href="">
           <div className="md:p-10 p-2 hover:scale-110 text-white md:scale-100 scale-75">
             <WebIcon />
             Portfolio
           </div>
-        </a>
+        // </a>
       )}
     </div>
   );
