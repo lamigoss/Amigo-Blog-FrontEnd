@@ -12,16 +12,15 @@ import {
 const Comments = () => {
   const context = useContext(AuthContext);
   const { postId } = useParams();
-  const [comments, setComments] = useState([]);
+  const [comments, setComments] = useState("");
   const [commentInput, setCommentInput] = useState("");
-  const [deleteComment, setDeleteComment] = useState("");
   const user = window.localStorage.getItem("user");
 
   useEffect(() => {
     GetComment(postId)
       .then((res) => setComments(res))
       .catch((err) => console.log(err));
-  }, [commentInput, deleteComment]);
+  }, [commentInput]);
 
   // comment state being changed
   const handleChange = (e) => {
@@ -32,7 +31,10 @@ const Comments = () => {
   const handleComment = (event) => {
     event.preventDefault();
     PostComment(user, postId, commentInput)
-      .then(() => setCommentInput(""))
+      .then((res) => {
+        console.log(res)
+        setCommentInput("")
+    })
       .catch((err) => console.log(err));
   };
 

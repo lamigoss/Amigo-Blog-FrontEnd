@@ -113,7 +113,6 @@ export const DeletePost = async (postId) => {
 export const PostBlog = async (body, id) => {
   try {
     const res = await axios.post(`${baseUrl}/posts/create/${id}`, body);
-    console.log(res.data)
     return res.data;
   } catch (error) {
     console.log("POST BLOG " + error);
@@ -155,13 +154,14 @@ export const GetComment = async (postId) => {
 };
 
 // POST REQUEST FOR COMMENT
-export const PostComment = async(username, postId, desc) => {
+export const PostComment = async (username, postId, desc) => {
   try {
     const res = axios.post(`${baseUrl}/comments`, {
       username: username,
       postId: postId,
       desc: desc
     })
+    console.log(res)
     return res.data
   } catch (error) {
     console.log(error)

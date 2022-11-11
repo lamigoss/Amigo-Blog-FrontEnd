@@ -8,7 +8,6 @@ const Signup = () => {
     email: "",
     username: "",
     password: "",
-    isAdmin: false,
   };
   const [userSignup, setUserSignup] = useState(initialFormState);
   const [formIsValid, setIsFormValid] = useState(false);
@@ -65,13 +64,6 @@ const Signup = () => {
               type="password"
               onChange={handleChange}
               value={userSignup.password}
-            ></input>
-            <span className="text-slate-600 mt-5">isAdmin:</span>
-            <input
-              className="bg-transparent outline-none text-slate-800 border-b-[1px] border-blue-500 p-1"
-              id="isAdmin"
-              onChange={handleChange}
-              value={userSignup.isAdmin}
             ></input>
             {formIsValid &&  <button
               className="w-1/2 px-10 p-2 text-white transition duration-300 rounded-md hover:from-indigo-500 hover:to-blue-500 ease bg-gradient-to-br from-blue-400 to-indigo-400 justify-self-center mt-6 shadow-lg"

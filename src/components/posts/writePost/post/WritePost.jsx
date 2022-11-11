@@ -21,16 +21,12 @@ export default function WritePost() {
     setForm({ ...form, [event.target.id]: event.target.value });
   };
 
-  console.log(context.imageId)
   const postSubmitHandler = async (e) => {
     e.preventDefault();
     try {
       const blog = await PostBlog(form, context.imageId);
-      console.log(blog)
       window.localStorage.removeItem("imageId");
       navigate(`/posts/${blog._id}`)
-      console.log(blog)
-      console.log("blog ID: " + blog._id);
     } catch (error) {
       console.log(error);
     }
