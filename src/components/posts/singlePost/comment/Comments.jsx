@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import CommentView from "./CommentView";
 import CommentTextBox from "./commentTextbox/CommentTextBox";
@@ -10,7 +10,7 @@ import {
 
 const Comments = () => {
   const { postId } = useParams();
-  const [comments, setComments] = useState("");
+  const [comments, setComments] = useState([]);
   const [commentInput, setCommentInput] = useState("");
   const user = window.localStorage.getItem("user");
 
@@ -26,15 +26,18 @@ const Comments = () => {
     setCommentInput(e.target.value);
   };
 
-  const handleComment = (event) => {
+  const handleComment = async (event) => {
     event.preventDefault();
-    PostComment(user, postId, commentInput)
-      .then((res) => {
-        console.log(res)
-        setCommentInput("")
-    })
-      .catch((err) => console.log(err));
-  };
+    try {
+      const data = PostComment(user, postId, commentInput)
+        .then(() => {
+          setCommentInput(() => '')
+        })
+      } catch (error) {
+        console.log(error)
+      }
+  
+  }
 
   const handleDelete = async (event) => {
     DeleteComment(postId, event.target.id)

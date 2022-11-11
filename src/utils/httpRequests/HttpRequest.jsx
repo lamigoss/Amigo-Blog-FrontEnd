@@ -161,8 +161,7 @@ export const PostComment = async (username, postId, desc) => {
       postId: postId,
       desc: desc
     })
-    console.log(res)
-    return res.data
+    return res
   } catch (error) {
     console.log(error)
   }
