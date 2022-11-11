@@ -1,11 +1,11 @@
 import React from "react";
-import { useParams } from "react-router-dom";
 import DevSteve from "./Steve/DevSteve";
 import HeroSteve from "./Steve/HeroSteve";
 import LinkTab from "./devComponents/LinkTab";
 
 const SteveLee = () => {
-  const { stevelee } = useParams();
+  const stevelee = 'stevelee'
+  console.log(stevelee)
 
   return (
     <>
