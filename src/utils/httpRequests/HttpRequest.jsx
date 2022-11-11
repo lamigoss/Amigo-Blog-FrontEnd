@@ -6,7 +6,7 @@ const baseUrl = "https://amigo-blog-backend-production.up.railway.app/api";
 // USER SIGNUP POST REQUEST
 export const PostSignUp = async (body) => {
   try {
-    const res = await axios.post(`/${baseUrl}/users/signup`, body)
+    const res = await axios.post(`${baseUrl}/users/signup`, body)
     return res.data;
   } catch (error) {
     console.log("POST SIGNUP " + error);

@@ -1,8 +1,7 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect} from "react";
 import { useParams } from "react-router-dom";
 import CommentView from "./CommentView";
 import CommentTextBox from "./commentTextbox/CommentTextBox";
-import AuthContext from "../../../../authContext/authContext";
 import {
   GetComment,
   PostComment,
@@ -10,7 +9,6 @@ import {
 } from "../../../../utils/httpRequests/HttpRequest";
 
 const Comments = () => {
-  const context = useContext(AuthContext);
   const { postId } = useParams();
   const [comments, setComments] = useState("");
   const [commentInput, setCommentInput] = useState("");
