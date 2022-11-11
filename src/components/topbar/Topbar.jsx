@@ -11,7 +11,6 @@ const Topbar = () => {
   const handleLogout = () => {
     context.setIsLoggedIn(false);
   };
-  // mwxs:hidden
   return (
     <>
       <div className="mwxs:hidden grid laptop:grid-cols-2 p-6 text-sm	text-blue-800">
