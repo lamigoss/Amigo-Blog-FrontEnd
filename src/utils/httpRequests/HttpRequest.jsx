@@ -6,7 +6,7 @@ const baseUrl = "https://amigo-blog-backend-production.up.railway.app/api";
 // USER SIGNUP POST REQUEST
 export const PostSignUp = async (body) => {
   try {
-    const res = await axios.post(`${baseUrl}/users/signup`, body)
+    const res = await axios.post(`${baseUrl}/users/signup`, body);
     return res.data;
   } catch (error) {
     console.log("POST SIGNUP " + error);
@@ -15,7 +15,6 @@ export const PostSignUp = async (body) => {
 
 // USER LOGIN POST REQUEST
 export const PostLogin = async (body, setIsLoggedIn, setAdmin) => {
-
   try {
     const res = await axios.post(`${baseUrl}/users/login`, body);
     const user = res.data.user;
@@ -48,7 +47,7 @@ export const GetImage = async (key) => {
   }
 };
 
-// GET POST IMAGE 
+// GET POST IMAGE
 export const GetPostImage = async (id) => {
   try {
     const res = await axios.get(`${baseUrl}/images/post/${id}`);
@@ -71,25 +70,27 @@ export const PostImage = async (formData) => {
 };
 
 // DELETE IMAGEPOST
-export const DeleteImagePost = async(postId, imageKey, imageId) => {
+export const DeleteImagePost = async (postId, imageKey, imageId) => {
   try {
-    const res = await axios.delete(`${baseUrl}/images/${postId}/${imageKey}/${imageId}`)
-    return res
+    const res = await axios.delete(
+      `${baseUrl}/images/${postId}/${imageKey}/${imageId}`
+    );
+    return res;
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
-}
+};
 
 //==================== BLOGPOST ======================
 // GET REQUEST FOR ALL BLOGPOSTS
 export const GetAllPosts = async () => {
   try {
-    const res = await axios.get(`${baseUrl}/posts`) 
-    return res.data
+    const res = await axios.get(`${baseUrl}/posts`);
+    return res.data;
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
-}
+};
 
 // GET REQUEST FOR BLOGPOST
 export const GetPost = async (postId) => {
@@ -101,7 +102,7 @@ export const GetPost = async (postId) => {
   }
 };
 
-// DELETE BLOGPOST 
+// DELETE BLOGPOST
 export const DeletePost = async (postId) => {
   try {
     await axios.delete(`${baseUrl}/posts/${postId}`);
@@ -121,26 +122,23 @@ export const PostBlog = async (body, id) => {
 
 // PUT REQUEST FOR BLOG POST WITHOUT IMAGE
 export const EditBlog = async (postId, body) => {
-  console.log(body)
   try {
-    const res = await axios.put(`${baseUrl}/posts/${postId}`, body)
-    console.log(res)
-    return res
+    const res = await axios.put(`${baseUrl}/posts/${postId}`, body);
+    return res;
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
-}
+};
 
 // PUT REQUEST FOR BLOG POST WITH IMAGE
 export const EditBlogWithImage = async (postId, imageId, body) => {
   try {
-    const res = await axios.put(`${baseUrl}/posts/${postId}/${imageId}`, body)
-    return res
+    const res = await axios.put(`${baseUrl}/posts/${postId}/${imageId}`, body);
+    return res;
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
-}
-
+};
 
 //==================== COMMENT ======================
 // GET REQUEST FOR COMMENT
@@ -159,20 +157,20 @@ export const PostComment = async (username, postId, desc) => {
     const res = axios.post(`${baseUrl}/comments`, {
       username: username,
       postId: postId,
-      desc: desc
-    })
-    return res
+      desc: desc,
+    });
+    return res;
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
-}
+};
 
 // DELETE REQEUST FOR COMMENT
-export const DeleteComment = async(postId, commentId) => {
+export const DeleteComment = async (postId, commentId) => {
   try {
-    const res = axios.delete(`${baseUrl}/comments/${postId}/${commentId}`)
-    return res.data
+    const res = axios.delete(`${baseUrl}/comments/${postId}/${commentId}`);
+    return res.data;
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
-}
+};
