@@ -4,7 +4,13 @@ import ViewImg from "../../writePost/viewImg/ViewImg";
 import PostTitle from "../../writePost/postTitle/PostTitle";
 import PostImg from "../../writePost/postImg/PostImg";
 import PostDesc from "../../writePost/postDesc/PostDesc";
-import { GetPostImage, GetPost, DeleteImagePost, EditBlog, EditBlogWithImage } from "../../../../utils/httpRequests/HttpRequest";
+import {
+  GetPostImage,
+  GetPost,
+  DeleteImagePost,
+  EditBlog,
+  EditBlogWithImage,
+} from "../../../../utils/httpRequests/HttpRequest";
 import PostContext from "../../../../authContext/postContext";
 
 const UpdatePost = () => {
@@ -25,10 +31,12 @@ const UpdatePost = () => {
     const getPost = async () => {
       try {
         const res = await GetPost(postId).then((res) => {
-          setPost(res)
-          return res
+          setPost(res);
+          return res;
         });
-        await GetPostImage(res.imageId).then((res) => setImageKey(res.imageKey));
+        await GetPostImage(res.imageId).then((res) =>
+          setImageKey(res.imageKey)
+        );
       } catch (error) {
         console.log(error);
       }
@@ -47,8 +55,9 @@ const UpdatePost = () => {
     window.localStorage.removeItem("imageId");
     window.localStorage.removeItem("imageKey");
     try {
-      await DeleteImagePost(postId, imageKey, post.imageId)
-        .then((res) => (res.status === 204 ? setImageKey("") : null));
+      await DeleteImagePost(postId, imageKey, post.imageId).then((res) =>
+        res.status === 204 ? setImageKey("") : null
+      );
     } catch (error) {
       console.log(error);
     }
@@ -63,22 +72,20 @@ const UpdatePost = () => {
           username: username,
           postTitle: post.postTitle,
           postDesc: post.postDesc,
-        })
-        .then(() => {
-          navigate("/posts")
+        }).then(() => {
+          navigate("/posts");
         });
       } else {
-        await EditBlogWithImage(postId,imageCtx.imageId, {
-            _id: postId,
-            username: username,
-            postTitle: post.postTitle,
-            postDesc: post.postDesc,
-          })
-          .then((res) => {
-            if (res.status === 201) {
-              navigate("/posts");
-            }
-          });
+        await EditBlogWithImage(postId, imageCtx.imageId, {
+          _id: postId,
+          username: username,
+          postTitle: post.postTitle,
+          postDesc: post.postDesc,
+        }).then((res) => {
+          if (res.status === 201) {
+            navigate("/posts");
+          }
+        });
       }
     } catch (err) {
       console.log(err + post.postTitle);
@@ -120,13 +127,12 @@ const UpdatePost = () => {
           className="grid grid-row-4 justify-self-center w-10/12 mobile:text-xs tablet:text-sm"
           onSubmit={handleUpdate}
         >
-          {!imageKey && null}
           {!imageKey ? <PostImg /> : null}
-          <div className="mobile:mb-10 place-content-center mt-5 "></div>
-          <PostTitle postTitle={post.postTitle} handleChange={handleChange} />
-          <PostDesc postDesc={post.postDesc} handleChange={handleChange} />
-          <button
-            className="
+          <div className="mobile:mb-10 place-content-center mt-5 ">
+            <PostTitle postTitle={post.postTitle} handleChange={handleChange} />
+            <PostDesc postDesc={post.postDesc} handleChange={handleChange} />
+            <button
+              className="
           items-center
           justify-self-center
             bg-indigo-500
@@ -138,10 +144,11 @@ const UpdatePost = () => {
             text-white
             mt-10
             "
-            type="submit"
-          >
-            Update
-          </button>
+              type="submit"
+            >
+              Update
+            </button>
+          </div>
         </form>
       </div>
     </div>
