@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = "http://amigo-blog-backend-production.up.railway.app/api";
+const baseUrl = "https://amigo-blog-backend-production.up.railway.app/api";
 
 //==================== USER LOGIN/ SIGN UP ======================
 // USER SIGNUP POST REQUEST
