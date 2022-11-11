@@ -42,6 +42,7 @@ export const PostLogin = async (body, setIsLoggedIn, setAdmin) => {
 export const GetImage = async (key) => {
   try {
     const res = await axios.get(`${baseUrl}/images/${key}`);
+    console.log(res)
     return res;
   } catch (error) {
     console.log("GET IMAGE " + error);
