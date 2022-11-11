@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import PostTitle from "../postTitle/PostTitle";
 import PostDesc from "../postDesc/PostDesc";
 import PostImg from "../postImg/PostImg";
@@ -6,6 +7,7 @@ import { PostBlog } from "../../../../utils/httpRequests/HttpRequest";
 import PostContext from "../../../../authContext/postContext";
 
 export default function WritePost() {
+  const navigate = useNavigate()
   const context = useContext(PostContext);
   const username = window.localStorage.getItem("user");
   const initialFormState = {
@@ -19,12 +21,14 @@ export default function WritePost() {
     setForm({ ...form, [event.target.id]: event.target.value });
   };
 
+  console.log(context.imageId)
   const postSubmitHandler = async (e) => {
     e.preventDefault();
     try {
       const blog = await PostBlog(form, context.imageId);
       window.localStorage.removeItem("imageId");
-      window.location.replace("/posts/" + blog._id);
+      navigate(`/posts/${blog._id}`)
+      console.log(blog)
       console.log("blog ID: " + blog._id);
     } catch (error) {
       console.log(error);

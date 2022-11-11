@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = "https://amigo-blog-backend-production.up.railway.app/api";
+const baseUrl = "http://amigo-blog-backend-production.up.railway.app/api";
 
 //==================== USER LOGIN/ SIGN UP ======================
 // USER SIGNUP POST REQUEST
@@ -112,8 +112,10 @@ export const DeletePost = async (postId) => {
 };
 // POST REQUEST FOR BLOGPOST
 export const PostBlog = async (body, id) => {
+  console.log(id)
   try {
     const res = await axios.post(`${baseUrl}/posts/create/${id}`, body);
+    console.log(res.data)
     return res.data;
   } catch (error) {
     console.log("POST BLOG " + error);

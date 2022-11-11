@@ -63,6 +63,9 @@ const UpdatePost = () => {
           username: username,
           postTitle: post.postTitle,
           postDesc: post.postDesc,
+        })
+        .then(() => {
+          navigate("/posts")
         });
       } else {
         await EditBlogWithImage(postId,imageCtx.imageId, {
