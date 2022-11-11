@@ -103,15 +103,14 @@ const SinglePost = () => {
         </div>
         <div className="flex justify-center mt-20 mb-32 items-center">
           <div className="grow">
-            {!view && (
+            {!view ? (
               <button
                 className="tablet:text-xs laptop:text-sm mobile:text-xs"
                 onClick={() => setView(true)}
               >
                 view comments
               </button>
-            )}
-            {view && (
+            ) : (
               <>
                 <button
                   onClick={() => setView(false)}
