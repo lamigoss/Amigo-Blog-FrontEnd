@@ -7,18 +7,20 @@ const ViewImg = ({ imageKey }) => {
   const [image, setImage] = useState();
 
   useEffect(() => {
-    GetImage(imageKey).then((res) => {
+    GetImage(imageKey)
+    .then((res) => {
       if (!res.data[0].imageUrl) return null;
       setImage(res.data[0].imageUrl);
       context.setImageId(res.data[0]._id);
-      console.log(res.data[0].imageUrl)
-    });
+  
+    })
+    .catch(error => console.log(error));
   }, []);
 
   return (
     <div className="relative h-0 pt-1/3 pb-2/3">
       {image && <img className="absolute inset-0 w-full h-full object-cover rounded-2xl" src={image} alt="" />}
-      {!image && null}
+      {!image && <p>loading</p>}
     </div>
   );
 };

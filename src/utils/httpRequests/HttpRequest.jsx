@@ -41,11 +41,10 @@ export const PostLogin = async (body, setIsLoggedIn, setAdmin) => {
 // GET IMAGES
 export const GetImage = async (key) => {
   try {
-    console.log(key)
     const res = await axios.get(`${baseUrl}/images/${key}`);
     return res;
   } catch (error) {
-    console.log(error);
+    console.log("GET IMAGE " + error);
   }
 };
 
