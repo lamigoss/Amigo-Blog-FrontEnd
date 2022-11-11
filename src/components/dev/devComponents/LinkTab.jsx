@@ -5,7 +5,7 @@ import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import WebIcon from "@mui/icons-material/Web";
 
 const LinkTab = ({ developer }) => {
-console.log(developer)
+  console.log(developer);
   return (
     <div className="w-auto flex items-center justify-center bg-indigo-600">
       {developer === "stevelee" ? (
@@ -16,12 +16,12 @@ console.log(developer)
           </div>
         </a>
       ) : (
-        // <a href="">
+        <a href="https://www.linkedin.com/in/swhong04/">
           <div className="md:p-10 p-2 hover:scale-110 text-white md:scale-100 scale-75">
             <LinkedInIcon className="" />
             LinkedIn
           </div>
-        // </a>
+        </a>
       )}
 
       {developer === "stevelee" ? (
@@ -32,12 +32,12 @@ console.log(developer)
           </div>
         </a>
       ) : (
-        // <a href="">
+        <a href="https://github.com/Royce-Hong-LA">
           <div className="md:p-10 p-2 hover:scale-110 text-white md:scale-100 scale-75">
             <GitHubIcon />
             GitHub
           </div>
-        // </a>
+        </a>
       )}
       {developer === "stevelee" ? (
         <a href="mailto: seungkilee700@gmail.com">
@@ -47,7 +47,7 @@ console.log(developer)
           </div>
         </a>
       ) : (
-        <a href="mailto: ">
+        <a href="mailto: swhong0419@gmail.com ">
           <div className="md:p-10 p-2 hover:scale-110 text-white md:scale-100 scale-75">
             <MailOutlineIcon />
             Email
@@ -63,10 +63,10 @@ console.log(developer)
         </a>
       ) : (
         // <a href="">
-          <div className="md:p-10 p-2 hover:scale-110 text-white md:scale-100 scale-75">
-            <WebIcon />
-            Portfolio
-          </div>
+        <div className="md:p-10 p-2 hover:scale-110 text-white md:scale-100 scale-75">
+          <WebIcon />
+          Portfolio
+        </div>
         // </a>
       )}
     </div>
