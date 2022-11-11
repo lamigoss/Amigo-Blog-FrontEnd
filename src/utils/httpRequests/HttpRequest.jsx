@@ -42,7 +42,6 @@ export const PostLogin = async (body, setIsLoggedIn, setAdmin) => {
 export const GetImage = async (key) => {
   try {
     const res = await axios.get(`${baseUrl}/images/${key}`);
-    console.log(res)
     return res;
   } catch (error) {
     console.log("GET IMAGE " + error);
@@ -112,7 +111,6 @@ export const DeletePost = async (postId) => {
 };
 // POST REQUEST FOR BLOGPOST
 export const PostBlog = async (body, id) => {
-  console.log(id)
   try {
     const res = await axios.post(`${baseUrl}/posts/create/${id}`, body);
     console.log(res.data)
@@ -124,8 +122,10 @@ export const PostBlog = async (body, id) => {
 
 // PUT REQUEST FOR BLOG POST WITHOUT IMAGE
 export const EditBlog = async (postId, body) => {
+  console.log(body)
   try {
     const res = await axios.put(`${baseUrl}/posts/${postId}`, body)
+    console.log(res)
     return res
   } catch (error) {
     console.log(error)
@@ -135,7 +135,7 @@ export const EditBlog = async (postId, body) => {
 // PUT REQUEST FOR BLOG POST WITH IMAGE
 export const EditBlogWithImage = async (postId, imageId, body) => {
   try {
-    const res = await axios.put(`${baseUrl}/posts/${postId}/${imageId}`)
+    const res = await axios.put(`${baseUrl}/posts/${postId}/${imageId}`, body)
     return res
   } catch (error) {
     console.log(error)
