@@ -2,12 +2,36 @@
 
 A blog introducing the world of our ideas, thoughts and personality! Users can sign up, log in and leave comments to let us know what they think of each post. Authorized users can Create, Read, Update and Delete posts / images hitting our backend endpoints using RESTful API. 
 
-Frontend site was deployed using Netlify <br />
-Backend site was deployed using Railway
+Frontend site was deployed using Netlify. <br />
+Backend site was deployed using Railway.
+
+## Tech Stack
+<p align="left">
+ <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
+ <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" />
+ <img src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white" />
+ <img src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white" />
+ <img src="https://img.shields.io/badge/Amazon_AWS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white" />
+ <img src="https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white" />
+</p>
+
+This application was built using MERN stack and Tailwind for styling. <br />
+For user authorization and authentication we used passport middleware as well as JWT token.  <br />
+For image upload we used multer middleware and AWS S3 bucket. 
 
 ## Live site
 
 <a href="https://storypost.netlify.app/" target="_blank">Story Post</a>
+
+## App Preview
+<img width="1330" alt="Screen Shot 2022-11-14 at 12 10 49 PM" src="https://user-images.githubusercontent.com/106281820/201757388-36673cbd-c75f-4d13-8e6a-be0a30f006d4.png">
+
+<img width="1332" alt="Screen Shot 2022-11-14 at 12 12 05 PM" src="https://user-images.githubusercontent.com/106281820/201757439-b451c73d-06d9-4064-aa96-015a93a43488.png">
+
+<img width="1330" alt="Screen Shot 2022-11-14 at 12 17 16 PM" src="https://user-images.githubusercontent.com/106281820/201757499-cf27a5d2-f58f-4276-b46f-629171fe5eec.png">
+
+<img width="1332" alt="Screen Shot 2022-11-14 at 12 17 47 PM" src="https://user-images.githubusercontent.com/106281820/201757542-6d425da7-7db0-430b-97c3-af16449d9fad.png">
+
 
 
 
