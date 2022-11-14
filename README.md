@@ -2,7 +2,7 @@
 
 A blog introducing the world of our ideas, thoughts and personality! Users can sign up, log in and leave comments to let us know what they think of each post. Authorized users can Create, Read, Update and Delete posts / images hitting our backend endpoints using RESTful API. 
 
-Frontend site was deployed using Netlify
+Frontend site was deployed using Netlify <br />
 Backend site was deployed using Railway
 
 ## Live site
