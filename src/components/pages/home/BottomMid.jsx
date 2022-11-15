@@ -19,10 +19,10 @@ const BottomMid = () => {
           />{" "}
         </h1>
         <p>
-          Hi! I am Roy. I am a passionate developer who is always seeking
-          opportunities to learn about new things, not just in programming but
-          also in anything. I am from Los Angeles, CA. Feel free to reach out to
-          me any time! We can go get cheesburgers at In N Out!
+          Hello World! My name is Roy. I am a passionate software developer who
+          constantly seeks opportunities to learn about new specialties in
+          programming. My dream has always been to utilize my skills to improve
+          people's lives, regardless of their status.
         </p>
         <button className="bg-indigo-500 hover:bg-indigo-700 rounded-md  font-medium my-6 mx-auto p-3 text-bold text-white">
           <Link to={"/developers/roycehong"}>Read more about Roy</Link>

@@ -20,11 +20,20 @@ const HeroRoy = () => {
               </h2>
             </div>
             <p className="text-gray-600 text-center md:my-10 md:mx-20 my-5 mx-10 md:text-lg text-sm">
-              Hello World! I am Royce! I am very excited to introduce this blog
-              website to everyone. Right now, this web site may seem very basic,
-              just like me and my partner, however it will have more features as
-              we progress as developers. I hope this website can be a bridge
-              that can connect people in professonal manner.
+              Hello World! My name is Roy. I am a passionate software developer
+              who constantly seeks opportunities to learn about new specialties
+              in programming. My dream has always been to utilize my skills to
+              improve people's lives, regardless of their status.
+            </p>
+            <p>
+              The city of angels and Dodgers is my neighborhood but originally
+              born and raised in Suwon, Republic of Korea. Whenever I am not
+              sitting in front of the monitor, I either play with my cat or
+              drive off to the beautiful beaches in southern California to
+              capture the slipping moments in my cameras. If you want to contact
+              me, Don't hesitate to email me any time! We can grab cheeseburgers
+              at In N Out; the best part is that
+              <strong>they are on me!</strong>
             </p>
           </div>
         </div>
